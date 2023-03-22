@@ -12,7 +12,7 @@ import useList from "./useList";
 import { Title } from "../../../styles";
 
 
-const ManageBooks = () => {
+const ManageStorys = () => {
   const navigate = useNavigate();
   const tableData = useSelector<State, any>(
     (state) => state.books.books.data || []
@@ -43,4 +43,4 @@ const ManageBooks = () => {
   );
 }
 
-export default ManageBooks;
+export default ManageStorys;

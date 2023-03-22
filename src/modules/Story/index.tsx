@@ -44,7 +44,7 @@ const Story = () => {
         />
       </Box>
       <Typography
-        fontSize='8em'
+        fontSize='11em'
         fontWeight={800}
         style={{
           zIndex: 1000,
@@ -55,7 +55,7 @@ const Story = () => {
           position: "absolute",
           textAlign: "right",
           right: 0,
-          paddingRight: "8%",
+          paddingRight: "2%",
 
           textTransform: "uppercase",
           WebkitBackgroundClip: "text",
