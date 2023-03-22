@@ -42,7 +42,7 @@ const Carousel = () => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
-          backgroundColor: "black",
+
           width: "100vw",
           height: "40vh",
           backgroundImage: `url(${images[index].mainImage})`,

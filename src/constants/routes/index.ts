@@ -1,7 +1,7 @@
 export const ROUTE_PATHS = {
   HOME: '/',
   BOOKS: '/books',
-  BOOKS_BOOK: '/books/:id',
+  STORY: '/story/:id',
   ABOUT: '/about',
   ADMIN: '/admin',
   ADMIN_CARROUSEL: "/admin/manage-carrousell",

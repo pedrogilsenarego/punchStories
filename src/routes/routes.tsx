@@ -6,6 +6,7 @@ import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
+const Story = lazyWithRetryAndLoader(() => import("../modules/Story"));
 
 
 export const routes: AppRoute[] = [
@@ -14,6 +15,14 @@ export const routes: AppRoute[] = [
     component: (
 
       <Home />
+
+    ),
+  },
+  {
+    path: ROUTE_PATHS.STORY,
+    component: (
+
+      <Story />
 
     ),
   },

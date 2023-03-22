@@ -4,13 +4,15 @@ import { Grid, Container, Typography } from "@mui/material";
 import logo from "../../../assets/images/PunchStories.png"
 import Button from "../../../components/Buttons/Button";
 import { BiAnalyse } from "react-icons/bi";
+import { ROUTE_PATHS } from "../../../constants/routes";
+import { useNavigate } from "react-router";
 
 interface Props {
   mobile: boolean
 }
 
 const List = ({ mobile }: Props) => {
-
+  const navigate = useNavigate()
   const images = [
     {
       mainImage:
@@ -75,7 +77,10 @@ const List = ({ mobile }: Props) => {
       <Grid container columnSpacing={5} rowSpacing={5} justifyContent='center' mt='50px'>
         {images.map((item, pos) => {
           return (
-            <Grid item xs={mobile ? 12 : 4} key={pos}>
+            <Grid item xs={mobile ? 12 : 4} key={pos} onClick={() => navigate(ROUTE_PATHS.STORY.replace(
+              ":id",
+              "niio"
+            ))}>
               <CardMedia image={item.mainImage} />
             </Grid>
           );
