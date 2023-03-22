@@ -1,27 +1,40 @@
 import { Box, Typography } from "@mui/material";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const images = [
+  {
+    mainImage:
+      "https://www.indiewire.com/wp-content/uploads/2017/11/screen-shot-2017-11-16-at-1-08-00-pm.png?w=780",
+    title: "Dark Hours",
+  },
+  {
+    mainImage:
+      "https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmt8ZW58MHx8MHx8&w=1000&q=80",
+    title: "A Skull to tomorrow",
+  },
+  {
+    mainImage:
+      "https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197__340.jpg",
+    title: "The street where i was born",
+  },
+];
+
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
   const [hover, setHover] = useState<boolean>(false);
-  const images = [
-    {
-      mainImage:
-        "https://www.indiewire.com/wp-content/uploads/2017/11/screen-shot-2017-11-16-at-1-08-00-pm.png?w=780",
-      title: "Dark Hours",
-    },
-    {
-      mainImage:
-        "https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmt8ZW58MHx8MHx8&w=1000&q=80",
-      title: "A Skull to tomorrow",
-    },
-    {
-      mainImage:
-        "https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197__340.jpg",
-      title: "The street where i was born",
-    },
-  ];
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (index + 1 < images.length) setIndex(index + 1)
+      else setIndex(0)
+
+    }, 7000);
+    return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index]);
+
 
   return (
     <>
