@@ -1,5 +1,5 @@
-import { firestore } from "./../../firebase/utils";
-import { storage } from "./../../firebase/utils";
+import { firestore } from "../../firebase/utils";
+import { storage } from "../../firebase/utils";
 
 export const handleFetchBooks = ({ persistProducts = [] }) => {
   return new Promise((resolve, reject) => {
@@ -59,11 +59,11 @@ export const handleAddCoverPage = async (title:string, files:any) => {
   const uploadImageAsPromise = (imageFile:any) => {
     return new Promise<void>((resolve, reject) => {
       storage
-        .ref(`books/${title}/${imageFile.name}`)
+        .ref(`stories/${title}/${imageFile.name}`)
         .put(imageFile)
         .then(() => {
           storage
-            .ref("books")
+            .ref("stories")
             .child(title)
             .child(imageFile.name)
             .getDownloadURL()
@@ -95,9 +95,10 @@ return c
 };
 
 export const handleAddBook = (payload: any) => {
+  console.log(payload)
   return new Promise<void>((resolve, reject) => {
     firestore
-      .collection("books")
+      .collection("stories")
       .doc()
       .set(payload)
       .then(() => {

@@ -4,13 +4,13 @@ import "firebase/auth";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD73enLzPBJE6TbX5Y9XuPfjhpWSiUeyQQ",
-  authDomain: "abolina-a5745.firebaseapp.com",
-  projectId: "abolina-a5745",
-  storageBucket: "abolina-a5745.appspot.com",
-  messagingSenderId: "217751325798",
-  appId: "1:217751325798:web:698492af1f96a92c1fb1a7",
-  measurementId: "G-M0ZT8XSR99",
+  apiKey: "AIzaSyDFF-FcQbmdqUn6AJV4FfXorlgZ4acQjw8",
+  authDomain: "punchstories-9c307.firebaseapp.com",
+  projectId: "punchstories-9c307",
+  storageBucket: "punchstories-9c307.appspot.com",
+  messagingSenderId: "159361708502",
+  appId: "1:159361708502:web:bb65d426a2b6e783e6b477",
+  measurementId: "G-PGL4ZM5FE2",
 };
 
 firebase.initializeApp(firebaseConfig);

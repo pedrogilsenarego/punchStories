@@ -31,7 +31,7 @@ const ManageStorys = () => {
           <Button
             borderRadius="6px"
             label={i18n.t("modules.admin.manageBooks.createButton")}
-            onClick={() => navigate(ROUTE_PATHS.ADMIN_BOOKS_CREATE)}
+            onClick={() => navigate(ROUTE_PATHS.ADMIN_STORIES_CREATE)}
           />
         </Box>
 

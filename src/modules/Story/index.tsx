@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Story = () => {
   const story = {
-    title: "Sara\n Freitas",
+    title: "Sara Freitas On Scope",
     images: [
       "https://static.boredpanda.com/blog/wp-content/uploads/2015/07/Only-18-years-old-girl-creates-interesting-photos5__880.jpg",
       "https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg",
@@ -16,7 +16,7 @@ const Story = () => {
         width: "100vw",
         height: "70vh",
         position: "relative",
-        backgroundColor: "red"
+        backgroundColor: "red",
       }}
     >
       <Box
@@ -44,7 +44,7 @@ const Story = () => {
         />
       </Box>
       <Typography
-        fontSize='11em'
+        fontSize='10em'
         fontWeight={800}
         style={{
           zIndex: 1000,
@@ -53,9 +53,8 @@ const Story = () => {
           width: "100%",
           height: "100%",
           position: "absolute",
-          textAlign: "right",
-          right: 0,
-          paddingRight: "2%",
+
+          paddingLeft: "60%",
 
           textTransform: "uppercase",
           WebkitBackgroundClip: "text",

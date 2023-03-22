@@ -7,31 +7,32 @@ import AdminLayout from "../layouts/AdminLayout";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
 const Story = lazyWithRetryAndLoader(() => import("../modules/Story"));
-const AdminManageStories = lazyWithRetryAndLoader(() => import("../modules/Admin/ManageStorys"));
-
+const AdminManageStories = lazyWithRetryAndLoader(
+  () => import("../modules/Admin/ManageStorys")
+);
+const AdminStoriesCreate = lazyWithRetryAndLoader(() => import("../modules/Admin/ManageStorys/SubmitStory"));
 
 export const routes: AppRoute[] = [
   {
     path: ROUTE_PATHS.HOME,
-    component: (
-
-      <Home />
-
-    ),
+    component: <Home />,
   },
   {
     path: ROUTE_PATHS.STORY,
-    component: (
-
-      <Story />
-
-    ),
+    component: <Story />,
   },
   {
     path: ROUTE_PATHS.ADMIN,
+    component: (
+      <AdminLayout>
+        <AdminManageStories />
+      </AdminLayout>
+    ),
+  },
+  {
+    path: ROUTE_PATHS.ADMIN_STORIES_CREATE,
     component: <AdminLayout>
-      <AdminManageStories />
+      <AdminStoriesCreate />
     </AdminLayout>,
   },
-
 ];
