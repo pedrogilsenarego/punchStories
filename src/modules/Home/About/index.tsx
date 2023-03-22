@@ -1,5 +1,6 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Divider } from "@mui/material";
 import { Colors } from "../../../constants/pallette";
+import Social from "./Social";
 const About = () => {
   return (
     <Box
@@ -7,7 +8,7 @@ const About = () => {
       flexDirection="column"
       justifyContent='center'
       alignItems="center"
-      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "200px" }}
+      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "50px" }}
     >
       <Container maxWidth={"lg"}>
         <Box display='flex'
@@ -38,8 +39,22 @@ const About = () => {
             occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.
           </Typography>
+
         </Box>
+        <Divider
+
+          style={{
+            marginTop: "100px",
+            backgroundColor: "#ffffff66",
+            width: "100%",
+            height: "1px"
+          }}
+        />
+        <div style={{ marginTop: "20px" }}>
+          <Social />
+        </div>
       </Container>
+
     </Box>
   );
 };

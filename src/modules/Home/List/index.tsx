@@ -5,7 +5,11 @@ import logo from "../../../assets/images/PunchStories.png"
 import Button from "../../../components/Buttons/Button";
 import { BiAnalyse } from "react-icons/bi";
 
-const List = () => {
+interface Props {
+  mobile: boolean
+}
+
+const List = ({ mobile }: Props) => {
 
   const images = [
     {
@@ -71,7 +75,7 @@ const List = () => {
       <Grid container columnSpacing={5} rowSpacing={5} justifyContent='center' mt='50px'>
         {images.map((item, pos) => {
           return (
-            <Grid item xs={4} key={pos}>
+            <Grid item xs={mobile ? 12 : 4} key={pos}>
               <CardMedia image={item.mainImage} />
             </Grid>
           );
