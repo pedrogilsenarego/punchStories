@@ -11,7 +11,7 @@ import Snackbar from "./components/SnackBar";
 const theme = createTheme({
   typography: {
     allVariants: {
-      fontFamily: 'Calibri',
+
       textTransform: 'none',
       fontSize: 16,
       caretColor: "transparent"

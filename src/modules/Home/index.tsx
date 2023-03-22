@@ -3,6 +3,8 @@ import { i18n } from "../../translations/i18n";
 import { Typography, Container, Box, useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router";
 import Carousel from "./Carousel"
+import List from "./List";
+import About from "./About";
 
 
 
@@ -18,7 +20,12 @@ const Home = () => {
   return (
     <>
       <Carousel />
-
+      <div style={{ marginTop: "50px" }}>
+        <List />
+      </div>
+      <div style={{ marginTop: "50px" }}>
+        <About />
+      </div>
     </>
   );
 };

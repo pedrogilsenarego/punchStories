@@ -16,8 +16,8 @@ const Button = ({ pos, index, setIndex }: Props) => {
       onClick={() => setIndex(pos)}
       key={pos}
       style={{
-        width: "20px",
-        height: "20px",
+        width: "15px",
+        height: "15px",
         backgroundColor: hover || index === pos ? "white" : "#ffffff66",
         borderRadius: "50%",
         cursor: "pointer"

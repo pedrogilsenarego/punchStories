@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, CardMedia as MuiCardMedia, Typography } from "@mui/material";
+import { CardMedia as MuiCardMedia, Typography } from "@mui/material";
 
 interface Props {
   image: string | undefined;
@@ -8,8 +8,7 @@ interface Props {
   width?: string;
   onClick?: () => void;
   borderRadius?: string;
-  leafThrough?: boolean;
-  leafShadowPosition?: "left" | "right";
+
 }
 
 const CardMedia = ({
@@ -19,8 +18,7 @@ const CardMedia = ({
   height,
   width,
   borderRadius,
-  leafThrough,
-  leafShadowPosition,
+
 }: Props) => {
   const [imageLoading, setImageLoading] = useState(true);
   const handleClick = () => {
@@ -46,33 +44,19 @@ const CardMedia = ({
           Loading...
         </Typography>
       )}
-      {leafThrough && leafShadowPosition && (
-        <Box
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
 
-            backgroundColor: "transparent",
-            boxShadow:
-              leafShadowPosition === "right"
-                ? "inset 9px -10px 30px -7px rgb(0 0 0 / 70%)"
-                : "inset -9px -10px 30px -7px rgb(0 0 0 / 70%)",
-          }}
-        ></Box>
-      )}
 
       <MuiCardMedia
         onLoad={() => setImageLoading(false)}
 
         style={{
-          borderRadius: borderRadius ?? "4px",
+          borderRadius: borderRadius ?? "0px",
           cursor: "pointer",
           opacity: imageLoading ? 0 : 1,
           objectFit: "cover"
         }}
         component='img'
-        height={height || "120"}
+        height={height || "auto"}
 
         width={width || "auto"}
         image={image}

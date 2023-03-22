@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
+  const [hover, setHover] = useState<boolean>(false);
   const images = [
     {
       mainImage:
@@ -25,30 +26,38 @@ const Carousel = () => {
   return (
     <>
       <Box
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         style={{
           backgroundColor: "black",
           width: "100vw",
           height: "40vh",
           backgroundImage: `url(${images[index].mainImage})`,
-          backgroundSize: "110%",
+          backgroundSize: hover ? "130%" : "110%",
           backgroundRepeat: "no-repeat",
           position: "relative",
-
+          transition: "all 0.8s ease-in-out",
           backgroundPosition: "center center",
+          cursor: "pointer",
         }}
       >
+
         <Typography
           fontSize='50px'
-          color="whitesmoke"
+          color='whitesmoke'
           style={{
             position: "absolute",
             bottom: "7%",
             left: "5%",
             textTransform: "uppercase",
+            transition: "opacity 0.8s ease-in-out",
+            opacity: hover ? 1 : 0
           }}
         >
           {images[index].title}
         </Typography>
+
+
         <Box
           display='flex'
           flexDirection='column'
@@ -58,8 +67,8 @@ const Carousel = () => {
           style={{
             position: "absolute",
 
-            right: "2%",
-            top: "10%",
+            right: "1.5%",
+            bottom: "8%",
           }}
         >
           {images.map((item, pos) => {
