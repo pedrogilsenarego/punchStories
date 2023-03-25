@@ -5,7 +5,7 @@ export const handleFetchBooks = ({ persistProducts = [] }) => {
   return new Promise((resolve, reject) => {
     const pageSize = 10;
 
-    let ref = firestore.collection("books").limit(pageSize);
+    let ref = firestore.collection("stories").limit(pageSize);
 
     ref
       .get()
@@ -37,7 +37,7 @@ export const handleFetchBooks = ({ persistProducts = [] }) => {
 export const handleFetchBook = (documentID: string) => {
   return new Promise((resolve, reject) => {
     firestore
-      .collection("books")
+      .collection("stories")
       .doc(documentID)
       .get()
       .then((snapshot) => {

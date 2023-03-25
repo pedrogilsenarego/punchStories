@@ -6,7 +6,7 @@ import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
-const Story = lazyWithRetryAndLoader(() => import("../modules/Story"));
+const Story = lazyWithRetryAndLoader(() => import("../modules/Story/Tamplate0"));
 const AdminManageStories = lazyWithRetryAndLoader(
   () => import("../modules/Admin/ManageStorys")
 );

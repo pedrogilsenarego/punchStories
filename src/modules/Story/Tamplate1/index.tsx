@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 
-const Story = () => {
+const Template0 = () => {
   const story = {
-    title: "Sara Freitas On Scope",
+    title: "Sara Freitas",
     images: [
       "https://static.boredpanda.com/blog/wp-content/uploads/2015/07/Only-18-years-old-girl-creates-interesting-photos5__880.jpg",
       "https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg",
@@ -16,12 +16,12 @@ const Story = () => {
         width: "100vw",
         height: "70vh",
         position: "relative",
-        backgroundColor: "red",
+
       }}
     >
       <Box
         style={{
-          backgroundColor: "red",
+
           position: "absolute",
           backgroundImage: `url(${story.images[0]})`,
           backgroundSize: "cover",
@@ -44,7 +44,7 @@ const Story = () => {
         />
       </Box>
       <Typography
-        fontSize='10em'
+        fontSize='9em'
         fontWeight={800}
         style={{
           zIndex: 1000,
@@ -72,4 +72,4 @@ const Story = () => {
   );
 };
 
-export default Story;
+export default Template0;
