@@ -43,6 +43,7 @@ export interface Book {
   size: string
   pages:number
   content: string[]
+  content2:string[]
   newBook?: boolean
   active?:boolean
 }

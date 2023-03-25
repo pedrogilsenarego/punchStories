@@ -1,9 +1,9 @@
 import { firestore } from "../../firebase/utils";
 import { storage } from "../../firebase/utils";
 
-export const handleFetchBooks = ({ persistProducts = [] }) => {
+export const handleFetchBooks = ({ persistProducts = [], pageSize=6 }) => {
   return new Promise((resolve, reject) => {
-    const pageSize = 10;
+    
 
     let ref = firestore.collection("stories").limit(pageSize);
 
