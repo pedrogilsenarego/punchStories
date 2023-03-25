@@ -26,7 +26,7 @@ const mapBookItem = (book: Book, pos: number) => {
         confirmationTitle: i18n.t(
           "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
         ),
-        isActive: book.newBook ?? true,
+        isActive: book.active ?? true,
         disabled: false,
         event: "newBook",
         label: i18n.t(

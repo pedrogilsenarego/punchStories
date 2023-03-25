@@ -44,6 +44,7 @@ export interface Book {
   pages:number
   content: string[]
   newBook?: boolean
+  active?:boolean
 }
 
 export default bookTypes

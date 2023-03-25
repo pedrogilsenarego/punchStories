@@ -115,10 +115,10 @@ export const handleUpdateNewBookStatus = (payload:{signal:boolean, documentID:st
   const { documentID, signal } = payload;
   return new Promise<void>((resolve, reject) => {
     firestore
-      .collection("books")
+      .collection("stories")
       .doc(documentID)
       .update({
-        newBook: signal
+        active: signal
       })
       .then(() => {
         resolve();

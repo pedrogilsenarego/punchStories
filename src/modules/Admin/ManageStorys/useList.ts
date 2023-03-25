@@ -18,7 +18,7 @@ const useList = ({tableData}:Props) => {
   const handleAction = (type: string, id: number) => {
     switch (type) {
       case "newBook": {
-        const signal = tableData[id].newBook ?? true
+        const signal = tableData[id].active ?? true
         const payload = {signal: !signal, documentID: tableData[id].documentID}
         dispatch(updateNewBookStatus(payload))
         break;

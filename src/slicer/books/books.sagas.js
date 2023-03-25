@@ -50,6 +50,7 @@ function* sagaAddBook({ payload }) {
     yield handleAddBook({
       ...payload,
       content2,
+      active: false,
       createdDate: timestamp,
     });
     yield put(
