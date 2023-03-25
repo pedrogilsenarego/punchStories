@@ -28,10 +28,18 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+body::-webkit-scrollbar{
+  display: none;
 }
 
 body:focus {
   outline: none !important;
+  
 }
 
 code {

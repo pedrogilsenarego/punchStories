@@ -1,0 +1,10 @@
+.rightBox {
+  width: calc(33vw - 45px);
+}
+
+.text::first-letter {
+  font-size: 4em;
+  color: rgb(113, 33, 148);
+  
+ 
+}
