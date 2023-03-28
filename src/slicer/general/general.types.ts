@@ -20,7 +20,7 @@ export interface GeneralState {
   scrollToContacts: boolean
   paginationManageBooks: Pagination
   lastEndpoint: string
-
+  loading:boolean
 }
 
 export interface Pagination {

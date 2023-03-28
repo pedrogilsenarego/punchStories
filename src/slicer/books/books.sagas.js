@@ -16,13 +16,17 @@ import bookTypes from "./books.types";
 import {
   updateSuccessNotification,
   updateFailNotification,
+  enableLoading,
+  disableLoading,
 } from "../general/general.actions";
 import { i18n } from "../../translations/i18n";
 
 function* sagaFetchBooks({ payload }) {
   try {
+    yield put(enableLoading());
     const books = yield handleFetchBooks(payload);
     yield put(setBooks({ ...books }));
+    yield put(disableLoading());
   } catch (err) {
     yield put(
       updateFailNotification(i18n.t("notifications.fail.fetchStories"))
