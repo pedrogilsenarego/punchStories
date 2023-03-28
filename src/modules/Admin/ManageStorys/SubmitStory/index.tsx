@@ -8,28 +8,29 @@ import ButtonForm from "../../../../components/Buttons/ButtonFormik";
 import { useDispatch } from "react-redux";
 import { addBook } from "../../../../slicer/books/books.actions";
 import FileUploader from "../../../../components/Inputs/FileUploader";
+import SelectWrapper from "../../../../components/Inputs/Select";
+import { templates } from "../../../../constants/templates";
 
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
     title: "",
-
+    template: "0",
     resume: "",
     resumeEN: "",
-    // price: null,
-    // coverPage2: undefined,
-    // content: [],
-    // pages: null
   };
 
   const dispatch = useDispatch();
 
   const handleSubmit = (values: any) => {
+
     dispatch(addBook({ ...values }));
   };
 
   return (
     <>
-      <Title fontSize="16px">{i18n.t("modules.admin.manageBooks.submitBook.breadCrumbs")}</Title>
+      <Title fontSize='16px'>
+        {i18n.t("modules.admin.manageBooks.submitBook.breadCrumbs")}
+      </Title>
       <Divider />
 
       <Formik
@@ -47,52 +48,58 @@ const SubmitStory = () => {
             sx={{ mt: "20px" }}
           >
             <Grid container columnSpacing={2} rowSpacing={6}>
-              <Grid item xs={6}>
+              <Grid item xs={12}>
                 <Box style={{ width: "350px" }}>
                   <Textfield
-
                     label={i18n.t("modules.admin.manageBooks.submitBook.title")}
                     name='title'
                   />
                 </Box>
-
               </Grid>
 
-
-
-
-
-
-
-              <Grid item xs={12}>
+              <Grid item xs={6}>
                 <Box>
                   <Textfield
-                    label={i18n.t("modules.admin.manageBooks.submitBook.resume")}
+                    label={i18n.t(
+                      "modules.admin.manageBooks.submitBook.resume"
+                    )}
                     name='resume'
                     multiline
                     rows={6}
                   />
                 </Box>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={6}>
                 <Box>
                   <Textfield
-                    label={`${i18n.t("modules.admin.manageBooks.submitBook.resume")} EN`}
+                    label={`${i18n.t(
+                      "modules.admin.manageBooks.submitBook.resume"
+                    )} EN`}
                     name='resumeEN'
                     multiline
                     rows={6}
                   />
                 </Box>
               </Grid>
+              <Grid item xs={12}>
+                <SelectWrapper
+                  name='template'
+                  options={templates}
+                  label={i18n.t(
+                    "modules.admin.manageBooks.submitBook.template"
+                  )}
+                />
+              </Grid>
               <Grid item xs={6}>
                 <FileUploader
                   name='content'
                   multiple
-                  fieldTitle={i18n.t("modules.admin.manageBooks.submitBook.content")}
+                  fieldTitle={i18n.t(
+                    "modules.admin.manageBooks.submitBook.content"
+                  )}
                   acceptType='image/jpeg,image/jpg'
                 />
               </Grid>
-
 
             </Grid>
           </Box>
@@ -100,10 +107,8 @@ const SubmitStory = () => {
           <Box display='flex' justifyContent='start' sx={{ mt: "20px" }}>
             <ButtonForm label={i18n.t("modules.home.contacts.form.send")} />
           </Box>
-
         </Form>
       </Formik>
-
     </>
   );
 };

@@ -1,6 +1,11 @@
 import bookTypes, { Books, Book } from "./books.types"
 
-export const fetchBooks = (filters = {}) => ({
+export interface Filters {
+
+  onlyActive?:boolean
+}
+
+export const fetchBooks = (filters?:Filters) => ({
   type: bookTypes.FETCH_BOOKS,
   payload: filters
 })

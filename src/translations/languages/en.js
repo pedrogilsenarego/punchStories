@@ -106,6 +106,7 @@ export const content = {
               size: "Size",
               resume: "Resume",
               price: "Price",
+              template: "Template",
             },
             tableList: {
               title: "Title Book",

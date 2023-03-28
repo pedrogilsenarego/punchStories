@@ -6,9 +6,11 @@ import Button from "../../../components/Buttons/Button";
 import { BiAnalyse } from "react-icons/bi";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
+import { useEffect } from "react";
+import { fetchBooks } from "../../../slicer/books/books.actions";
 
 interface Props {
   mobile: boolean
@@ -16,9 +18,18 @@ interface Props {
 
 const List = ({ mobile }: Props) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const stories = useSelector<State, Book[]>(
     (state) => state.books.books.data || []
   );
+
+  useEffect(() => {
+    const filters = {
+      onlyActive: true
+    }
+    dispatch(fetchBooks(filters))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // const images = [
   //   {

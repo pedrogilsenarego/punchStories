@@ -1,11 +1,12 @@
 import { firestore } from "../../firebase/utils";
 import { storage } from "../../firebase/utils";
 
-export const handleFetchBooks = ({ persistProducts = [], pageSize=6 }) => {
+export const handleFetchBooks = ({ persistProducts = [], pageSize=6, onlyActive=false }) => {
   return new Promise((resolve, reject) => {
     
 
     let ref = firestore.collection("stories").limit(pageSize);
+    if (onlyActive) ref = ref.where("active", "==", true);
 
     ref
       .get()
