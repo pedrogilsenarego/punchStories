@@ -31,7 +31,7 @@ export const content = {
         },
       },
       adminSideBar: {
-        submitBook: "Manage Books",
+        submitBook: "Manage Stories",
         manageCarroussel: "Manage Carroussell",
         back: "Back",
       },
@@ -87,7 +87,7 @@ export const content = {
         },
         admin: {
           manageBooks: {
-            createButton: "Add new book",
+            createButton: "Add new Story",
             submitBook: {
               breadCrumbs: "Manage Books - Submit Book",
               submitTitle: "Submit Book",
@@ -111,16 +111,16 @@ export const content = {
               ps: "Post Scriptum",
             },
             tableList: {
-              title: "Title Book",
+              title: "Title Story",
               createdDate: "Created Date",
               newBook: {
-                title: "New Book?",
+                title: "New Story?",
                 accept: "Yes",
                 deny: "Cancel",
                 confirmationDescription:
-                  "Are you sure you want to change the status of this book?",
-                confirmationTitle: "Change status of new Book",
-                tooltip: "New Book status",
+                  "Are you sure you want to change the status of this story?",
+                confirmationTitle: "Change status of new story",
+                tooltip: "New Story status",
               },
             },
           },

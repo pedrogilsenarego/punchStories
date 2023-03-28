@@ -31,7 +31,7 @@ export const content = {
         },
       },
       adminSideBar: {
-        submitBook: "Gerir Livros",
+        submitBook: "Gerir Histórias",
         manageCarroussel: "Gerir Carrousel",
         back: "Voltar",
       },
@@ -88,7 +88,7 @@ export const content = {
         },
         admin: {
           manageBooks: {
-            createButton: "Adicionar novo livro",
+            createButton: "Adicionar nova História",
             submitBook: {
               breadCrumbs: "Gerir Livros - Submeter Livro",
               submitTitle: "Submeter Livro",
@@ -112,10 +112,10 @@ export const content = {
               ps: "Post Scriptum",
             },
             tableList: {
-              title: "Título Livro",
+              title: "Título História",
               createdDate: "Data Criação",
               newBook: {
-                title: "Novo Livro?",
+                title: "Nova História?",
                 accept: "Prosseguir",
                 deny: "Cancelar",
                 confirmationDescription:
