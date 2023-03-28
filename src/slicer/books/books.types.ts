@@ -28,9 +28,7 @@ export interface Book {
   titleEN:string
   price: number
   weight: string
-  designer: string
-  designerResume: string
-  designerResumeEN:string
+  
   translator: string
   translatorResume: string
   translatorResumeEN:string
@@ -42,11 +40,12 @@ export interface Book {
   language: string
   size: string
   pages:number
-  content: string[]
   content2:string[]
   newBook?: boolean
   active?:boolean
   createdDate?:Date
+  template?:string
+  punchLines?:string[]
 }
 
 export default bookTypes
