@@ -1,6 +1,7 @@
 import { ReactElement, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router"
+import Loader from "../../components/Loader"
 import { fetchBook } from "../../slicer/books/books.actions"
 import { Book } from "../../slicer/books/books.types"
 import { State } from "../../slicer/types"
@@ -15,6 +16,9 @@ const Story = () => {
   const storyData = useSelector<State, Book>(
     (state) => state?.books?.book || {}
   );
+  const loading = useSelector<State, boolean>(
+    (state) => state.general.loading
+  );
 
   const StoryWrapper = (props: Template): ReactElement => {
     const { storyData } = props;
@@ -22,6 +26,9 @@ const Story = () => {
     const Story = lazyWithRetryAndLoader(() =>
       import(`./Tamplate${storyData?.template || "0"}`)
     );
+
+
+
 
     return (
 
@@ -38,7 +45,8 @@ const Story = () => {
   console.log(storyData)
   return (
     <>
-      <StoryWrapper storyData={storyData} />
+      {loading ? <Loader /> : <StoryWrapper storyData={storyData} />}
+
     </>
   )
 }

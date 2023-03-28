@@ -11,6 +11,7 @@ import { Book } from "../../../slicer/books/books.types";
 import { useEffect } from "react";
 import { fetchBooks } from "../../../slicer/books/books.actions";
 import Element from "./Element";
+import Loader from "../../../components/Loader";
 
 interface Props {
   mobile: boolean;
@@ -23,7 +24,7 @@ const List = ({ mobile }: Props) => {
     (state) => state.books.books.data || []
   );
   const loading = useSelector<State, boolean>(
-    (state) => state.general.loading || true
+    (state) => state.general.loading
   );
 
   useEffect(() => {
@@ -36,8 +37,8 @@ const List = ({ mobile }: Props) => {
 
   return (
     <>
-      {!loading ? (
-        <p> LOADING...</p>
+      {loading ? (
+        <div style={{ height: "40vh" }}><Loader /></div>
       ) : (
         <Container
           style={{

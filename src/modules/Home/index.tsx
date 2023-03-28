@@ -1,7 +1,6 @@
 
-import { i18n } from "../../translations/i18n";
-import { Typography, Container, Box, useTheme, useMediaQuery } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useTheme, useMediaQuery } from "@mui/material";
+
 import Carousel from "./Carousel"
 import List from "./List";
 import About from "./About";
@@ -13,7 +12,7 @@ import About from "./About";
 
 
 const Home = () => {
-  const navigate = useNavigate();
+
   const Theme = useTheme()
   const mobile = useMediaQuery(Theme.breakpoints.down("md"))
 

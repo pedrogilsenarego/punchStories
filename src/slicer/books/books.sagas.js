@@ -40,8 +40,10 @@ export function* onFetchBooks() {
 
 function* sagaFetchBook({ payload }) {
   try {
+    yield put(enableLoading());
     const book = yield handleFetchBook(payload);
     yield put(setBook({ ...book }));
+    yield put(disableLoading());
   } catch (err) {
     yield put(updateFailNotification(i18n.t("notifications.fail.newBook")));
   }

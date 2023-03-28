@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CardMedia as MuiCardMedia, Typography } from "@mui/material";
+import Loader from "../Loader";
 
 interface Props {
   image: string | undefined;
@@ -27,22 +28,7 @@ const CardMedia = ({
   return (
     <div style={{ position: "relative" }}>
       {imageLoading && (
-        <Typography
-          color='black'
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            marginTop: "auto",
-            marginBottom: "auto",
-            left: 0,
-            right: 0,
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          Loading...
-        </Typography>
+        <Loader size={40} />
       )}
 
 
