@@ -130,6 +130,23 @@ export const handleUpdateNewBookStatus = (payload:{signal:boolean, documentID:st
   });
 };
 //
+export const handleUpdateTemplateStatus = (payload:{template:string, documentID:string}) => {
+  const { documentID, template } = payload;
+  return new Promise<void>((resolve, reject) => {
+    firestore
+      .collection("stories")
+      .doc(documentID)
+      .update({
+        template: template
+      })
+      .then(() => {
+        resolve();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
 
 export const handleFetchCarroussell = () => {
   return new Promise((resolve, reject) => {

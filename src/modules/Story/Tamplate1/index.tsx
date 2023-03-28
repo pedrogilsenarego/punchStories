@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
+import { Template } from "../types";
 
-const Template0 = () => {
+const Template0 = ({ storyData }: Template) => {
   const story = {
     title: "Sara Freitas",
     images: [

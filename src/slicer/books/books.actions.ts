@@ -7,7 +7,7 @@ export interface Filters {
 
 export const fetchBooks = (filters?:Filters) => ({
   type: bookTypes.FETCH_BOOKS,
-  payload: filters
+  payload: filters || {}
 })
 
 export const setBooks = (books:Books) => ({
@@ -36,6 +36,10 @@ export const updateNewBookStatus = (payload:{signal:boolean, documentID:number |
   payload
 });
 //
+export const updateStoryTemplate = (payload:{template:string, documentID:number | string}) => ({
+  type: bookTypes.UPDATE_TEMPLATE_STATUS,
+  payload
+});
 
 export const fetchCarroussell = () => ({
   type: bookTypes.FETCH_CARROUSSELL,

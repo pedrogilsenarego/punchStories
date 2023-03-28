@@ -20,7 +20,7 @@ const Story = () => {
     const { storyData } = props;
 
     const Story = lazyWithRetryAndLoader(() =>
-      import(`./Tamplate${storyData.template || "0"}`)
+      import(`./Tamplate${storyData?.template || "0"}`)
     );
 
     return (

@@ -8,7 +8,7 @@ import ButtonForm from "../../../../components/Buttons/ButtonFormik";
 import { useDispatch } from "react-redux";
 import { addBook } from "../../../../slicer/books/books.actions";
 import FileUploader from "../../../../components/Inputs/FileUploader";
-import SelectWrapper from "../../../../components/Inputs/Select";
+import SelectWrapper from "../../../../components/Inputs/SelectForm";
 import { templates } from "../../../../constants/templates";
 import TextfieldIncrementable from "../../../../components/Inputs/TextFieldIncrementable";
 

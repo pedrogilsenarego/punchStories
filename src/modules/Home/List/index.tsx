@@ -1,4 +1,3 @@
-import CardMedia from "../../../components/CardMedia";
 import { CardMedia as Image } from "@mui/material"
 import { Grid, Container, Typography } from "@mui/material";
 import logo from "../../../assets/images/PunchStories.png"
@@ -11,6 +10,7 @@ import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
 import { useEffect } from "react";
 import { fetchBooks } from "../../../slicer/books/books.actions";
+import Element from "./Element";
 
 interface Props {
   mobile: boolean
@@ -95,17 +95,12 @@ const List = ({ mobile }: Props) => {
       <Grid container columnSpacing={5} rowSpacing={5} justifyContent='center' mt='50px'>
         {stories.map((item, pos) => {
           return (
-            <Grid item xs={mobile ? 12 : 4} key={pos} onClick={() => navigate(ROUTE_PATHS.STORY.replace(
-              ":id",
-              item.documentID
-            ))}>
-              <CardMedia image={item.content2[0]} height="500px" />
-            </Grid>
+            <Element item={item} pos={pos} mobile={mobile} />
           );
         })}
       </Grid>
       <div style={{ marginTop: "50px" }}>
-        <Button label="Load More"  >
+        <Button label="Load More" onClick={() => navigate(ROUTE_PATHS.ADMIN)} >
           <BiAnalyse size="1.5em" color="white" />
         </Button>
       </div>

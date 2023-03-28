@@ -10,6 +10,7 @@ import {
   handleAddCarroussellImage,
   handleDeleteCarroussellStorage,
   handleUpdateNewBookStatus,
+  handleUpdateTemplateStatus,
 } from "./books.helpers";
 import bookTypes from "./books.types";
 import {
@@ -22,7 +23,11 @@ function* sagaFetchBooks({ payload }) {
   try {
     const books = yield handleFetchBooks(payload);
     yield put(setBooks({ ...books }));
-  } catch (err) {}
+  } catch (err) {
+    yield put(
+      updateFailNotification(i18n.t("notifications.fail.fetchStories"))
+    );
+  }
 }
 
 export function* onFetchBooks() {
@@ -33,7 +38,9 @@ function* sagaFetchBook({ payload }) {
   try {
     const book = yield handleFetchBook(payload);
     yield put(setBook({ ...book }));
-  } catch (err) {}
+  } catch (err) {
+    yield put(updateFailNotification(i18n.t("notifications.fail.newBook")));
+  }
 }
 
 export function* onFetchBook() {
@@ -84,6 +91,26 @@ function* sagaUpdateNewBookStatus({ payload }) {
 
 export function* onUpdateNewBookStatus() {
   yield takeLatest(bookTypes.UPDATE_NEW_BOOK_STATUS, sagaUpdateNewBookStatus);
+}
+
+function* sagaUpdateTemplateStatus({ payload }) {
+  try {
+    yield handleUpdateTemplateStatus(payload);
+    yield put(fetchBooks());
+    yield put(
+      updateSuccessNotification(
+        i18n.t("notifications.success.newBookStatusChanged")
+      )
+    );
+  } catch (err) {
+    yield put(
+      updateFailNotification(i18n.t("notifications.fail.newBookStatusChanged"))
+    );
+  }
+}
+
+export function* onUpdateTemplateStatus() {
+  yield takeLatest(bookTypes.UPDATE_TEMPLATE_STATUS, sagaUpdateTemplateStatus);
 }
 
 //
@@ -156,6 +183,7 @@ export default function* bookSagas() {
     call(onFetchBook),
     call(onAddBook),
     call(onUpdateNewBookStatus),
+    call(onUpdateTemplateStatus),
     call(onFetchCarroussell),
     call(onUpdateCarroussell),
     call(onNewImageCarroussell),

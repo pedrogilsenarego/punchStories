@@ -141,6 +141,7 @@ export const content = {
           newBookStatusChanged: "Estado do livro foi alterado",
         },
         fail: {
+          fetchStories: "Somethng went wrong, while getting the stories",
           newBook: "Livro não foi adicionado, algum erro ocorreu",
           updateCarroussell: "O carrousel não foi actualizado",
           newCarrousselImage: "Não foi adicionada uma nova imagem ao carrousel",

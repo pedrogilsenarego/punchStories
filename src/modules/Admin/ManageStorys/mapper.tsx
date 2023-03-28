@@ -31,12 +31,14 @@ const mapBookItem = (book: Book, pos: number) => {
         isActive: book.active ?? true,
         disabled: false,
         event: "newBook",
-        label: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.tooltip"
-        ),
+        label: i18n.t("modules.admin.manageBooks.tableList.newBook.tooltip"),
       },
     ],
-    template: { value: book.template, options: templates },
+    template: {
+      value: book.template,
+      options: templates,
+      event: "updateTemplate",
+    },
     delete: [
       {
         buttonType: "icon",

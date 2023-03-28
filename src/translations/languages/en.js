@@ -141,6 +141,7 @@ export const content = {
           newBookStatusChanged: "Book status changed",
         },
         fail: {
+          fetchStories: "Somethng went wrong, while getting the stories",
           newBook: "Somethng went wrong, the book was not added",
           updateCarroussell: "The carroussell was not updated",
           newCarrousselImage: "New image failed to be added to the carroussell",

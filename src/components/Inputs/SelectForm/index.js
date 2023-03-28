@@ -26,8 +26,6 @@ const SelectWrapper = ({ name, options, label, ...otherProps }) => {
     configSelect.helperText = meta.error;
   }
 
-  console.log();
-
   return (
     <>
       <Box display='flex' justifyContent='start'>
