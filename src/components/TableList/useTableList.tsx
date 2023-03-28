@@ -68,6 +68,11 @@ const useTableList = ({ onCheckBoxChangeAll, onAction, selectedOptions = [], onC
           </Styled.TableChip>
         )
       }
+      case ColumnType.Select: {
+        return (
+          <p>Teste</p>
+        )
+      }
       case ColumnType.Image: {
         return <ImagePreview width="50px" height="50px" src={value} />
       }

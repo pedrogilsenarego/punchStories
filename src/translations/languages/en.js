@@ -113,6 +113,7 @@ export const content = {
             tableList: {
               title: "Title Story",
               createdDate: "Created Date",
+              template: "Template",
               newBook: {
                 title: "New Story?",
                 accept: "Yes",

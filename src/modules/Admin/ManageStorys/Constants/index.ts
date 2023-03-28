@@ -31,6 +31,14 @@ export const tableColumns =
     type: ColumnType.ActionComponent,
     sortable: false,
   },
+  {
+    id: "template",
+    label: i18n.t(
+      "modules.admin.manageBooks.tableList.template"
+    ),
+    type: ColumnType.Select,
+    sortable: false,
+  },
   // {
   //   id: 'delete',
   //   label: 'Remove',

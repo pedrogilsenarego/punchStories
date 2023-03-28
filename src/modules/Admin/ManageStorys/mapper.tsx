@@ -1,4 +1,5 @@
 import { ImCross } from "react-icons/im";
+import { templates } from "../../../constants/templates";
 import { Book } from "../../../slicer/books/books.types";
 import { i18n } from "../../../translations/i18n";
 
@@ -35,6 +36,7 @@ const mapBookItem = (book: Book, pos: number) => {
         ),
       },
     ],
+    template: { value: book.template, options: templates },
     delete: [
       {
         buttonType: "icon",
