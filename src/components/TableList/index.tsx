@@ -48,6 +48,8 @@ const TableList = <T extends BaseProps>({
       onCheckBoxChange,
     });
 
+
+
   const renderHeadCell = (column: Column) => {
     if (
       enableBulkSelect &&

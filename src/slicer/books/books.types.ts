@@ -46,6 +46,7 @@ export interface Book {
   content2:string[]
   newBook?: boolean
   active?:boolean
+  createdDate?:Date
 }
 
 export default bookTypes

@@ -10,6 +10,7 @@ const mapBookItem = (book: Book, pos: number) => {
   return {
     id: pos,
     title: book.title,
+    createdDate: book.createdDate,
     newBook: [
       {
         buttonType: "toggle",

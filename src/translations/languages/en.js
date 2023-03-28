@@ -107,9 +107,12 @@ export const content = {
               resume: "Resume",
               price: "Price",
               template: "Template",
+              punchLines: "Punch Lines",
+              ps: "Post Scriptum",
             },
             tableList: {
               title: "Title Book",
+              createdDate: "Created Date",
               newBook: {
                 title: "New Book?",
                 accept: "Yes",

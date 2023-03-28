@@ -108,9 +108,12 @@ export const content = {
               resume: "Resumo",
               price: "Preço",
               template: "Template",
+              punchLines: "Punch Lines",
+              ps: "Post Scriptum",
             },
             tableList: {
               title: "Título Livro",
+              createdDate: "Data Criação",
               newBook: {
                 title: "Novo Livro?",
                 accept: "Prosseguir",

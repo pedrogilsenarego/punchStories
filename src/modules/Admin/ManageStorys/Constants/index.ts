@@ -16,6 +16,14 @@ export const tableColumns =
     sortable: false,
   },
   {
+    id: "createdDate",
+    label: i18n.t(
+      "modules.admin.manageBooks.tableList.createdDate"
+    ),
+    type: ColumnType.Date,
+    sortable: false,
+  },
+  {
     id: "newBook",
     label: i18n.t(
       "modules.admin.manageBooks.tableList.newBook.title"

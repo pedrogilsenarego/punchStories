@@ -10,13 +10,19 @@ import { addBook } from "../../../../slicer/books/books.actions";
 import FileUploader from "../../../../components/Inputs/FileUploader";
 import SelectWrapper from "../../../../components/Inputs/Select";
 import { templates } from "../../../../constants/templates";
+import TextfieldIncrementable from "../../../../components/Inputs/TextFieldIncrementable";
 
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
     title: "",
+    titleEN: "",
     template: "0",
     resume: "",
     resumeEN: "",
+    punchLines: "",
+    punchLinesEN: "",
+    ps: "",
+    psEN: ""
   };
 
   const dispatch = useDispatch();
@@ -48,7 +54,7 @@ const SubmitStory = () => {
             sx={{ mt: "20px" }}
           >
             <Grid container columnSpacing={2} rowSpacing={6}>
-              <Grid item xs={12}>
+              <Grid item xs={6}>
                 <Box style={{ width: "350px" }}>
                   <Textfield
                     label={i18n.t("modules.admin.manageBooks.submitBook.title")}
@@ -56,7 +62,14 @@ const SubmitStory = () => {
                   />
                 </Box>
               </Grid>
-
+              <Grid item xs={6}>
+                <Box style={{ width: "350px" }}>
+                  <Textfield
+                    label={`${i18n.t("modules.admin.manageBooks.submitBook.title")} EN`}
+                    name='titleEN'
+                  />
+                </Box>
+              </Grid>
               <Grid item xs={6}>
                 <Box>
                   <Textfield
@@ -78,6 +91,44 @@ const SubmitStory = () => {
                     name='resumeEN'
                     multiline
                     rows={6}
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box >
+                  <Textfield
+                    label={i18n.t("modules.admin.manageBooks.submitBook.ps")}
+                    name='ps'
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box >
+                  <Textfield
+                    label={`${i18n.t("modules.admin.manageBooks.submitBook.ps")} EN`}
+                    name='psEN'
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box>
+                  <TextfieldIncrementable
+                    label={i18n.t(
+                      "modules.admin.manageBooks.submitBook.punchLines"
+                    )}
+                    name='punchLines'
+
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box>
+                  <TextfieldIncrementable
+                    label={`${i18n.t(
+                      "modules.admin.manageBooks.submitBook.punchLines"
+                    )} EN`}
+                    name='punchLinesEN'
+
                   />
                 </Box>
               </Grid>

@@ -4,6 +4,7 @@ import * as Styled from "./styles"
 import { Action } from "./Action"
 import ImagePreview from "../../components/TableList/ImagePreview"
 import { useNavigate } from "react-router-dom"
+import { formatDate } from "../../utils/formatDate"
 
 
 interface Props {
@@ -79,6 +80,15 @@ const useTableList = ({ onCheckBoxChangeAll, onAction, selectedOptions = [], onC
           />
         )
       }
+      case ColumnType.Date: {
+
+
+
+        return (
+          formatDate(value)
+
+        )
+      }
       default:
         return value
     }
@@ -88,3 +98,4 @@ const useTableList = ({ onCheckBoxChangeAll, onAction, selectedOptions = [], onC
 }
 
 export default useTableList
+

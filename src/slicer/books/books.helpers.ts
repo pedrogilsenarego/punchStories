@@ -96,7 +96,7 @@ return c
 };
 
 export const handleAddBook = (payload: any) => {
-  console.log(payload)
+ 
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("stories")
