@@ -114,7 +114,7 @@ export const content = {
             tableList: {
               title: "Título História",
               createdDate: "Data Criação",
-              template: "Template",
+              template: { title: "Template", tooltip: "Change Template" },
               newBook: {
                 title: "Nova História?",
                 accept: "Prosseguir",

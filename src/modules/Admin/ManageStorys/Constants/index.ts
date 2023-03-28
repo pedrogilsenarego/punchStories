@@ -34,7 +34,7 @@ export const tableColumns =
   {
     id: "template",
     label: i18n.t(
-      "modules.admin.manageBooks.tableList.template"
+      "modules.admin.manageBooks.tableList.template.title"
     ),
     type: ColumnType.Select,
     sortable: false,

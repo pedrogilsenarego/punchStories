@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate";
 import Select from "./Select";
 
+
 interface Props {
   onCheckBoxChangeAll?: (checked: boolean) => void;
   onAction: (type: string, id: number, value?: any) => void;
@@ -81,12 +82,20 @@ const useTableList = ({
       }
       case ColumnType.Select: {
         return (
-          <Select
-            options={value.options}
+          <>
+            <Select
+              options={value.options}
+              confirmationRequired={value.confirmationRequired || null}
+              confirmationButtonLabel={value.confirmationButtonLabel || null}
+              confirmationDescription={value.confirmationDescription || null}
+              confirmationTitle={value.confirmationTitle || null}
+              declineButtonLabel={value.declineButtonLabel || null}
+              label={value.label}
+              initialValue={value.value}
+              onAction={(selectedValue: string) => onAction(value.event, id, selectedValue)}
+            />
 
-            initialValue={value.value}
-            onAction={(selectedValue: string) => onAction(value.event, id, selectedValue)}
-          />
+          </>
         );
       }
       case ColumnType.Image: {

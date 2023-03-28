@@ -36,8 +36,22 @@ const mapBookItem = (book: Book, pos: number) => {
     ],
     template: {
       value: book.template,
+      confirmationButtonLabel: i18n.t(
+        "modules.admin.manageBooks.tableList.newBook.accept"
+      ),
+      declineButtonLabel: i18n.t(
+        "modules.admin.manageBooks.tableList.newBook.deny"
+      ),
+      confirmationDescription: i18n.t(
+        "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
+      ),
+      confirmationRequired: true,
+      confirmationTitle: i18n.t(
+        "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
+      ),
       options: templates,
       event: "updateTemplate",
+      label: i18n.t("modules.admin.manageBooks.tableList.template.tooltip"),
     },
     delete: [
       {
