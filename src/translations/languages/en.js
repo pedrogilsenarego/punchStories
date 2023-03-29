@@ -46,6 +46,7 @@ export const content = {
               subject: "Subject",
               description: "Message",
               send: "SEND",
+              preview: "PREVIEW",
             },
           },
         },
@@ -101,8 +102,7 @@ export const content = {
               designerResume: "Designer Resume",
               translatorResume: "Translator Resume",
               translator: "Translator",
-              language: "Language",
-              weight: "Weight",
+
               size: "Size",
               resume: "Resume",
               price: "Price",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CardMedia as MuiCardMedia, Typography } from "@mui/material";
+import { CardMedia as MuiCardMedia } from "@mui/material";
 import Loader from "../Loader";
 
 interface Props {

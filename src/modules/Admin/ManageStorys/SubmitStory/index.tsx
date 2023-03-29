@@ -12,6 +12,8 @@ import SelectWrapper from "../../../../components/Inputs/SelectForm";
 import { templates } from "../../../../constants/templates";
 import TextfieldIncrementable from "../../../../components/Inputs/TextFieldIncrementable";
 
+import PreviewWrapper from "./PreviewWrapper";
+
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
     title: "",
@@ -27,10 +29,12 @@ const SubmitStory = () => {
 
   const dispatch = useDispatch();
 
+
   const handleSubmit = (values: any) => {
 
     dispatch(addBook({ ...values }));
   };
+
 
   return (
     <>
@@ -155,7 +159,8 @@ const SubmitStory = () => {
             </Grid>
           </Box>
 
-          <Box display='flex' justifyContent='start' sx={{ mt: "20px" }}>
+          <Box display='flex' justifyContent='start' sx={{ mt: "20px" }} columnGap={2}>
+            <PreviewWrapper />
             <ButtonForm label={i18n.t("modules.home.contacts.form.send")} />
           </Box>
         </Form>

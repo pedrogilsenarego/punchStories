@@ -46,6 +46,7 @@ export const content = {
               subject: "Assunto",
               description: "Mensagem",
               send: "ENVIAR",
+              preview: "PREVIEW",
             },
           },
         },
