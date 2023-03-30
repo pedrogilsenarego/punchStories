@@ -55,6 +55,7 @@ export function* onFetchBook() {
 
 function* sagaAddBook({ payload }) {
   try {
+    yield put(enableLoading());
     const timestamp = new Date();
     const { title, content } = payload;
     const content2 = yield handleAddCoverPage(title, content);
@@ -69,6 +70,7 @@ function* sagaAddBook({ payload }) {
     yield put(
       updateSuccessNotification(i18n.t("notifications.success.newBook"))
     );
+    yield put(disableLoading());
   } catch (err) {
     yield put(updateFailNotification(i18n.t("notifications.fail.newBook")));
   }

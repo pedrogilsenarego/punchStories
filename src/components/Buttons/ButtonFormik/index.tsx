@@ -7,16 +7,19 @@ interface Props {
   backgroundColor?: string;
   borderColor?: string;
   color?: string;
+  disabled?: boolean
 
 }
 
-const Button = ({ label, backgroundColor, borderColor, color }: Props) => {
+const Button = ({ label, backgroundColor, borderColor, color, disabled }: Props) => {
   const { submitForm } = useFormikContext();
   return (
     <>
       <MuiButton
+        disabled={disabled}
         style={{
-          backgroundColor: backgroundColor || Colors.tealc,
+          cursor: disabled ? "default" : "pointer",
+          backgroundColor: backgroundColor || disabled ? "lightGrey" : Colors.tealc,
           color: color || "white",
           border: borderColor ? `solid 1px ${borderColor}` : "auto",
           borderRadius: "40px",
