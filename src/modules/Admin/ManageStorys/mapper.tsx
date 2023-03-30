@@ -59,6 +59,19 @@ const mapBookItem = (book: Book, pos: number) => {
         event: "delete",
         icon: deleteIcon,
         label: "Remove this watch",
+        confirmationButtonLabel: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.accept"
+        ),
+        declineButtonLabel: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.deny"
+        ),
+        confirmationDescription: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
+        ),
+        confirmationRequired: true,
+        confirmationTitle: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
+        ),
       },
     ],
   };

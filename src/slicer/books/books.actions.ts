@@ -60,3 +60,13 @@ export const addNewCarroussell = (newImage:any) => ({
   type: bookTypes.ADD_NEW_IMAGE_CARROUSSELL,
   payload:newImage
 })
+
+export interface DeleteProps {
+documentID:string
+title:string
+}
+
+export const deleteStory = (payload:DeleteProps) => ({
+  type: bookTypes.DELETE_STORY,
+  payload: payload,
+});

@@ -1,10 +1,12 @@
 import { firestore } from "../../firebase/utils";
 import { storage } from "../../firebase/utils";
 
-export const handleFetchBooks = ({ persistProducts = [], pageSize=6, onlyActive=false }) => {
+export const handleFetchBooks = ({
+  persistProducts = [],
+  pageSize = 6,
+  onlyActive = false,
+}) => {
   return new Promise((resolve, reject) => {
-    
-
     let ref = firestore.collection("stories").limit(pageSize);
     if (onlyActive) ref = ref.where("active", "==", true);
 
@@ -52,12 +54,10 @@ export const handleFetchBook = (documentID: string) => {
   });
 };
 
-
-
-export const handleAddCoverPage = async (title:string, files:any) => {
+export const handleAddCoverPage = async (title: string, files: any) => {
   const a = Array.prototype.slice.call(files);
-  const c:any = []
-  const uploadImageAsPromise = (imageFile:any) => {
+  const c: any = [];
+  const uploadImageAsPromise = (imageFile: any) => {
     return new Promise<void>((resolve, reject) => {
       storage
         .ref(`stories/${title}/${imageFile.name}`)
@@ -69,10 +69,9 @@ export const handleAddCoverPage = async (title:string, files:any) => {
             .child(imageFile.name)
             .getDownloadURL()
             .then((url) => {
-              resolve(url)
-              console.log(url)
+              resolve(url);
+              console.log(url);
               c.push(url);
-              
             });
         })
         .catch((err) => {
@@ -84,19 +83,17 @@ export const handleAddCoverPage = async (title:string, files:any) => {
       //     // const progressD = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
       //     // setProgress(progressD)
       //   },
-    });}
-  
+    });
+  };
+
   for (var i = 0; i < a.length; i++) {
     var imageFile = a[i];
     await uploadImageAsPromise(imageFile);
-}
-return c
-
-  
+  }
+  return c;
 };
 
 export const handleAddBook = (payload: any) => {
- 
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("stories")
@@ -112,14 +109,17 @@ export const handleAddBook = (payload: any) => {
 };
 
 //
-export const handleUpdateNewBookStatus = (payload:{signal:boolean, documentID:string}) => {
+export const handleUpdateNewBookStatus = (payload: {
+  signal: boolean;
+  documentID: string;
+}) => {
   const { documentID, signal } = payload;
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("stories")
       .doc(documentID)
       .update({
-        active: signal
+        active: signal,
       })
       .then(() => {
         resolve();
@@ -130,14 +130,17 @@ export const handleUpdateNewBookStatus = (payload:{signal:boolean, documentID:st
   });
 };
 //
-export const handleUpdateTemplateStatus = (payload:{template:string, documentID:string}) => {
+export const handleUpdateTemplateStatus = (payload: {
+  template: string;
+  documentID: string;
+}) => {
   const { documentID, template } = payload;
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("stories")
       .doc(documentID)
       .update({
-        template: template
+        template: template,
       })
       .then(() => {
         resolve();
@@ -165,13 +168,13 @@ export const handleFetchCarroussell = () => {
   });
 };
 
-export const handleUpdateCarroussell = (content:string[]) => {
+export const handleUpdateCarroussell = (content: string[]) => {
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("general")
       .doc("carrousell")
       .update({
-        content
+        content,
       })
       .then(() => {
         resolve();
@@ -182,10 +185,10 @@ export const handleUpdateCarroussell = (content:string[]) => {
   });
 };
 
-export const handleAddCarroussellImage = async (files:any) => {
+export const handleAddCarroussellImage = async (files: any) => {
   const a = Array.prototype.slice.call(files);
-  const c:any = []
-  const uploadImageAsPromise = (imageFile:any) => {
+  const c: any = [];
+  const uploadImageAsPromise = (imageFile: any) => {
     return new Promise<void>((resolve, reject) => {
       storage
         .ref(`carroussell/${imageFile.name}`)
@@ -196,10 +199,9 @@ export const handleAddCarroussellImage = async (files:any) => {
             .child(imageFile.name)
             .getDownloadURL()
             .then((url) => {
-              resolve(url)
-              console.log(url)
+              resolve(url);
+              console.log(url);
               c.push(url);
-              
             });
         })
         .catch((err) => {
@@ -211,39 +213,74 @@ export const handleAddCarroussellImage = async (files:any) => {
       //     // const progressD = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
       //     // setProgress(progressD)
       //   },
-    });}
-  
+    });
+  };
+
   for (var i = 0; i < a.length; i++) {
     var imageFile = a[i];
     await uploadImageAsPromise(imageFile);
-}
-return c
-
-  
+  }
+  return c;
 };
 
-export const handleDeleteCarroussellStorage = async (list:string[]) => {
-  if(list.length<=1) return
-  const uploadImageAsPromise = (fileRef:any) => {
+export const handleDeleteCarroussellStorage = async (list: string[]) => {
+  if (list.length <= 1) return;
+  const uploadImageAsPromise = (fileRef: any) => {
     return new Promise<void>((resolve, reject) => {
       fileRef
-      .delete()
+        .delete()
         .then(() => {
-         resolve()
+          resolve();
         })
-        .catch((err:any) => {
+        .catch((err: any) => {
           reject(err);
         });
-     
-    });}
-  
+    });
+  };
+
   for (var i = 1; i < list.length; i++) {
     var imageFile = list[i];
     var fileRef = storage.refFromURL(imageFile);
     await uploadImageAsPromise(fileRef);
-}
-
-  
+  }
 };
 
+export const handleDeleteStory = (documentID: string) => {
+  return new Promise<void>((resolve, reject) => {
+    firestore
+      .collection("stories")
+      .doc(documentID)
+      .delete()
+      .then(() => {
+        resolve();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+
+
+export const handleDeleteStoryStorage = async (title: string): Promise<void> => {
+  // Define folderPath
+  const folderPath = `stories/${title}/`;
+
+  const storageRef = storage.ref();
+  const listRef = storageRef.child(folderPath);
+
+  // Find all the prefixes and items.
+  listRef
+    .listAll()
+    .then(async (res) => {
+      // Process all the items under listRef
+      const deletePromises: Promise<void>[] = res.items.map((itemRef) => itemRef.delete());
+      await Promise.all(deletePromises);
+      console.log('Folder deleted successfully');
+    })
+    .catch((error) => {
+      // Uh-oh, an error occurred!
+      console.error('Error deleting folder:', error);
+    });
+};
 

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import {
+  deleteStory,
   fetchBooks,
   updateNewBookStatus,
   updateStoryTemplate,
@@ -41,6 +42,15 @@ const useList = ({ tableData }: Props) => {
        
           dispatch(updateStoryTemplate(payload))
           break;
+      }
+      case "delete": {
+        const payload = {
+          documentID: tableData[id].documentID,
+          title: tableData[id].title
+        };
+        
+        dispatch(deleteStory(payload));
+        break;
       }
       default:
         break;

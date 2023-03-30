@@ -39,12 +39,12 @@ export const tableColumns =
     type: ColumnType.Select,
     sortable: false,
   },
-  // {
-  //   id: 'delete',
-  //   label: 'Remove',
-  //   type: ColumnType.ActionComponent,
-  //   minWidth: 70,
-  //   sortable: false,
-  // },
+  {
+    id: 'delete',
+    label: 'Remove',
+    type: ColumnType.ActionComponent,
+    minWidth: 70,
+    sortable: false,
+  },
 
 ]
