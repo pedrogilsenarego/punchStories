@@ -1,9 +1,10 @@
 
 import { useTheme, useMediaQuery } from "@mui/material";
 
-import Carousel from "./Carousel"
+
 import List from "./List";
 import About from "./About";
+import DancingCarousell from "../../components/DancingCarousell";
 
 
 
@@ -18,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <Carousel />
+      <DancingCarousell />
       <div style={{ marginTop: "50px" }}>
         <List mobile={mobile} />
       </div>
