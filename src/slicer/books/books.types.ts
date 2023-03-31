@@ -5,6 +5,7 @@ const bookTypes = {
   SET_BOOK: "SET_BOOK",
   ADD_BOOK: "ADD_BOOK",
   DELETE_STORY:"DELETE_STORY",
+  UPDATE_PROGRESS:"UPDATE_PROGRESS",
   //
   UPDATE_NEW_BOOK_STATUS: "UPDATE_NEW_BOOK_STATUS",
   UPDATE_TEMPLATE_STATUS: "UPDATE_TEMPLATE_STATUS",
@@ -21,6 +22,7 @@ export interface Books {
   };
   book: Book;
   carroussell: string[];
+  progress:number
 }
 
 export interface Book {

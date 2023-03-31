@@ -70,3 +70,8 @@ export const deleteStory = (payload:DeleteProps) => ({
   type: bookTypes.DELETE_STORY,
   payload: payload,
 });
+
+export const updateProgress = (payload:number) => ({
+  type: bookTypes.UPDATE_PROGRESS,
+  payload: payload,
+});

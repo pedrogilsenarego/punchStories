@@ -1,5 +1,11 @@
 import { takeLatest, put, all, call } from "redux-saga/effects";
-import { setBooks, setBook, setCarroussell, fetchBooks } from "./books.actions";
+import {
+  setBooks,
+  setBook,
+  setCarroussell,
+  fetchBooks,
+  updateProgress,
+} from "./books.actions";
 import {
   handleFetchBooks,
   handleFetchBook,
@@ -22,6 +28,7 @@ import {
   disableLoading,
 } from "../general/general.actions";
 import { i18n } from "../../translations/i18n";
+import { store } from "../createStore";
 
 function* sagaFetchBooks({ payload }) {
   try {
@@ -60,7 +67,19 @@ function* sagaAddBook({ payload }) {
     yield put(enableLoading());
     const timestamp = new Date();
     const { title, content } = payload;
-    const content2 = yield handleAddCoverPage(title, content);
+
+    const onProgressUpdate = (progress) => {
+      console.log(progress);
+      store.dispatch(updateProgress(progress));
+    };
+
+    const content2 = yield call(
+      handleAddCoverPage,
+      title,
+      content,
+      onProgressUpdate
+    );
+
     delete payload.content;
 
     yield handleAddBook({
@@ -72,6 +91,7 @@ function* sagaAddBook({ payload }) {
     yield put(
       updateSuccessNotification(i18n.t("notifications.success.newBook"))
     );
+    yield put(updateProgress(0));
     yield put(disableLoading());
   } catch (err) {
     yield put(updateFailNotification(i18n.t("notifications.fail.newBook")));

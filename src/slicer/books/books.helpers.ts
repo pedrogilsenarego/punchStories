@@ -54,9 +54,13 @@ export const handleFetchBook = (documentID: string) => {
   });
 };
 
-export const handleAddCoverPage = async (title: string, files: any) => {
+export const handleAddCoverPage = async (title: string, files: any, onProgressUpdate: (progress: number) => void) => {
   const a = Array.prototype.slice.call(files);
   const c: any = [];
+  let incrementLoad = 100/a.length
+  let loadProgress = 0
+
+
   const uploadImageAsPromise = (imageFile: any) => {
     return new Promise<void>((resolve, reject) => {
       storage
@@ -71,18 +75,15 @@ export const handleAddCoverPage = async (title: string, files: any) => {
             .then((url) => {
               resolve(url);
               console.log(url);
+              loadProgress = loadProgress + incrementLoad
+              onProgressUpdate(~~loadProgress);
               c.push(url);
             });
         })
         .catch((err) => {
           reject(err);
         });
-      // storageRef.on(
-      //   "state_changed",
-      //   (snapshot) => {
-      //     // const progressD = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-      //     // setProgress(progressD)
-      //   },
+     
     });
   };
 

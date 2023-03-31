@@ -30,6 +30,7 @@ const SubmitStory = () => {
   };
   const dispatch = useDispatch();
   const loading = useSelector<State, boolean>((state) => state.general.loading);
+  const progress = useSelector<State, number>((state) => state.books.progress);
 
   const handleSubmit = (values: any) => {
     dispatch(addBook({ ...values }));
@@ -62,8 +63,13 @@ const SubmitStory = () => {
                 alignItems: "center",
               }}
             >
-              <Loader size={200} color="darkGrey" customMessage="Your Data is being send" />
+              <Loader
 
+                size={200}
+                color='darkGrey'
+                customMessage='Your Data is being send'
+                progress={progress}
+              />
             </Box>
           ) : (
             <>
@@ -73,7 +79,6 @@ const SubmitStory = () => {
                 flexDirection='column'
                 sx={{ mt: "20px" }}
               >
-
                 <Grid container columnSpacing={2} rowSpacing={6}>
                   <Grid item xs={6}>
                     <Box style={{ width: "350px" }}>
@@ -122,7 +127,9 @@ const SubmitStory = () => {
                   <Grid item xs={6}>
                     <Box>
                       <Textfield
-                        label={i18n.t("modules.admin.manageBooks.submitBook.ps")}
+                        label={i18n.t(
+                          "modules.admin.manageBooks.submitBook.ps"
+                        )}
                         name='ps'
                       />
                     </Box>
@@ -177,7 +184,6 @@ const SubmitStory = () => {
                     />
                   </Grid>
                 </Grid>
-
               </Box>
 
               <Box
@@ -191,7 +197,8 @@ const SubmitStory = () => {
                   label={i18n.t("modules.home.contacts.form.send")}
                   disabled={loading}
                 />
-              </Box></>
+              </Box>
+            </>
           )}
         </Form>
       </Formik>

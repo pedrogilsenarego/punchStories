@@ -5,9 +5,10 @@ interface Props {
   size?: number
   color?: string
   customMessage?: string
+  progress?: number
 }
 
-const Loader = ({ size = 100, color, customMessage }: Props) => {
+const Loader = ({ size = 100, color, customMessage, progress }: Props) => {
   return (
     <Box style={{ position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
       <Ellipsis
@@ -25,7 +26,9 @@ const Loader = ({ size = 100, color, customMessage }: Props) => {
           marginRight: "auto",
         }}
       />
-      <Typography fontSize="4rem">{customMessage}</Typography>
+      {customMessage && (<Typography fontSize="4rem">{customMessage}</Typography>)}
+      {progress && (<Typography fontSize="4rem">Progress: {progress}%</Typography>)}
+
     </Box>
   )
 }
