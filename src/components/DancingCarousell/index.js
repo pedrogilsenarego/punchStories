@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import "./index.css";
 import { generalConstants } from "../../constants/general";
 import { useState, useEffect } from "react";
+import HackerLettering from "../HackerLettering";
 
 const Collections = () => {
   const [finalized, setFinalized] = useState(false);
@@ -109,6 +110,9 @@ const Collections = () => {
             transition: "all 0.6s ease-out",
           }}
         >
+          <div style={{ position: "absolute", bottom: 0, right: 0 }}>
+            <HackerLettering />
+          </div>
           <Box id='image-track'>
             <img
               style={{
