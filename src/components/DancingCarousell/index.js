@@ -3,9 +3,19 @@ import "./index.css";
 import { generalConstants } from "../../constants/general";
 import { useState, useEffect } from "react";
 import HackerLettering from "../HackerLettering";
+import { fetchCarroussell } from "../../slicer/books/books.actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Collections = () => {
+  const dispatch = useDispatch();
   const [finalized, setFinalized] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchCarroussell());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const carroussell = useSelector((state) => state.books.carroussell);
 
   useEffect(() => {
     setTimeout(() => {
@@ -114,72 +124,23 @@ const Collections = () => {
             <HackerLettering />
           </div>
           <Box id='image-track'>
-            <img
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, 40px)",
-              }}
-              className='image'
-              draggable={false}
-              src='https://images.unsplash.com/photo-1679025027099-39bbd6cd168d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-            <img
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, -40px)",
-              }}
-              className='image'
-              draggable={false}
-              src='https://images.unsplash.com/photo-1680122575933-d6e81ac79d7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-            <img
-              className='image'
-              draggable={false}
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, 40px)",
-              }}
-              src='https://plus.unsplash.com/premium_photo-1661963552599-34680420acc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-            <img
-              className='image'
-              draggable={false}
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, -40px)",
-              }}
-              src='https://plus.unsplash.com/premium_photo-1673624401742-a96945931271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-            <img
-              className='image'
-              draggable={false}
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, 40px)",
-              }}
-              src='https://images.unsplash.com/photo-1680013995061-2d6d1f3ab417?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-            <img
-              className='image'
-              draggable={false}
-              style={{
-                transform: finalized
-                  ? "translate(0px, 0px)"
-                  : "translate(0px, -40px)",
-              }}
-              src='https://images.unsplash.com/photo-1604537466158-719b1972feb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
+            {carroussell.map((item, pos) => {
+              const signal = pos % 2 ? -1 : 1;
+              return (
+                <img
+                  key={pos}
+                  style={{
+                    transform: finalized
+                      ? "translate(0px, 0px)"
+                      : `translate(0px,${signal * 40}px)`,
+                  }}
+                  className='image'
+                  draggable={false}
+                  src={item}
+                  alt=''
+                />
+              );
+            })}
           </Box>
         </Box>
       </Box>

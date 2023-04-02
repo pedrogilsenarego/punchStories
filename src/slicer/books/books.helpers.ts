@@ -155,7 +155,7 @@ export const handleUpdateTemplateStatus = (payload: {
 export const handleFetchCarroussell = () => {
   return new Promise((resolve, reject) => {
     firestore
-      .collection("general")
+      .collection("stories")
       .doc("carrousell")
       .get()
       .then((snapshot) => {
@@ -173,7 +173,7 @@ export const handleUpdateCarroussell = (content: string[]) => {
   return new Promise<void>((resolve, reject) => {
     firestore
       .collection("general")
-      .doc("carrousell")
+      .doc("carousel")
       .update({
         content,
       })

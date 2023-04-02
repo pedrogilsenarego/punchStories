@@ -2,7 +2,7 @@
   display: flex;
   gap: 4vmin;
   position: absolute;
-  left: 5%;
+  left: 35%;
   top: 45%;
   transform: translate(0%, -50%); 
   user-select: none; /* -- Prevent image highlighting -- */
