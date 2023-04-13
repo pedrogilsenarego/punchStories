@@ -1,0 +1,11 @@
+.textItems {
+  text-transform: uppercase;
+   font-family: SpaceMono;
+   font-weight: 800;
+   color:rgba(0, 0, 0, 0.686);
+   cursor:pointer
+}
+
+.textItems:hover {
+   color:black
+}

@@ -11,11 +11,9 @@ export const content = {
         audacity: "Audácia",
       },
       menuBar: {
-        home: "INÍCIO",
-        books: "LIVROS",
-        about: "SOBRE NÓS",
-        contacts: "CONTACTO",
-        instagram: "Siga-nos",
+        about: "_sobre",
+        stories: "_histórias",
+        contacts: "_contactos",
       },
       footer: {
         second: {

@@ -11,11 +11,9 @@ export const content = {
         audacity: "Audacity",
       },
       menuBar: {
-        home: "HOME",
-        books: "BOOKS",
-        about: "ABOUT",
-        contacts: "CONTACTS",
-        instagram: "Follow us",
+        about: "_about",
+        stories: "_stories",
+        contacts: "_contacts",
       },
       footer: {
         second: {

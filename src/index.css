@@ -1,19 +1,19 @@
 @font-face {
-  font-family: "Calibri";
-  src: local("Calibri"),
-    url("./assets/fonts/Calibri_Regular.ttf") format("truetype");
+  font-family: "SpaceMono";
+  src: local("SpaceMono"),
+    url("./assets/fonts/SpaceMono-Regular.ttf") format("truetype");
   font-weight: normal;
 }
 @font-face {
-  font-family: "Calibri-Bold";
-  src: local("Calibri"),
-    url("./assets/fonts/Calibri_Bold.TTF") format("truetype");
+  font-family: "SpaceMono-Bold";
+  src: local("SpaceMono"),
+    url("./assets/fonts/SpaceMono-Bold.ttf") format("truetype");
   font-weight: bold;
 }
 
 body {
   margin: 0;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "SpaceMono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f6f7f8;
@@ -43,6 +43,5 @@ body:focus {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "SpaceMono"
 }

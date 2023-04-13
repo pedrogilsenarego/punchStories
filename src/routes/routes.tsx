@@ -16,7 +16,7 @@ const AdminStoriesCarousel = lazyWithRetryAndLoader(() => import("../modules/Adm
 export const routes: AppRoute[] = [
   {
     path: ROUTE_PATHS.HOME,
-    component: <Home />,
+    component: <MainLayout><Home /></MainLayout>,
   },
   {
     path: ROUTE_PATHS.STORY,
