@@ -2,7 +2,6 @@ import { Box, Container, Typography } from "@mui/material";
 import Button from "./Button";
 import { useState, useEffect } from "react";
 
-
 const images = [
   {
     mainImage:
@@ -17,6 +16,23 @@ const images = [
     title: "André Matias",
   },
 ];
+
+// const apiKey = 'AIzaSyC_u1SQduumOSJcJq5XzyG_SJTB9NO_Kpw';
+// const channelId = 'UCQmixDeLfkl2XNCFj6iNVIw';
+// const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&type=video&order=date`;
+// fetch(url)
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data)
+//     if (data.items.length > 0) {
+//       const latestVideoId = data.items[0].id.videoId;
+//       console.log(latestVideoId)
+//     } else {
+//       console.log("No videos found for this channel.");
+//     }
+//   })
+//   .catch(error => console.log(error));
+
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
@@ -84,7 +100,7 @@ const Carousel = () => {
               </Typography>
             </div>
             <div
-              className="vignette"
+              className='vignette'
               style={{
                 height: "80%",
                 width: "50%",
@@ -115,11 +131,13 @@ const Carousel = () => {
                   width='100%'
                   src={images[index].mainImage}
                   alt=''
-                  style={{ objectFit: "contain", filter: "grayscale(80%) contrast(150%)" }}
+                  style={{
+                    objectFit: "contain",
+                    filter: "grayscale(80%) contrast(150%)",
+                  }}
                 />
               </div>
             </div>
-
           </div>
         </Container>
         <Box
@@ -141,6 +159,15 @@ const Carousel = () => {
           })}
         </Box>
       </Box>
+      <iframe
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/5cFUWfwfl8Q'
+        title='YouTube video player'
+
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+
+      ></iframe>
     </>
   );
 };
