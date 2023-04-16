@@ -1,6 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import Button from "./Button";
+import Button2 from "../../../components/Buttons/Button";
 import { useState, useEffect } from "react";
+import "./index.css"
 
 const images = [
   {
@@ -8,31 +10,17 @@ const images = [
       "https://www.indiewire.com/wp-content/uploads/2017/11/screen-shot-2017-11-16-at-1-08-00-pm.png?w=780",
     punchLines: ["Dark Hours"],
     title: "Pedro Matias",
+    resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     mainImage:
       "https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmt8ZW58MHx8MHx8&w=1000&q=80",
     punchLines: ["A Skull to tomorrow"],
     title: "André Matias",
+    resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
   },
 ];
-
-// const apiKey = 'AIzaSyC_u1SQduumOSJcJq5XzyG_SJTB9NO_Kpw';
-// const channelId = 'UCQmixDeLfkl2XNCFj6iNVIw';
-// const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&type=video&order=date`;
-// fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data)
-//     if (data.items.length > 0) {
-//       const latestVideoId = data.items[0].id.videoId;
-//       console.log(latestVideoId)
-//     } else {
-//       console.log("No videos found for this channel.");
-//     }
-//   })
-//   .catch(error => console.log(error));
-
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
@@ -55,7 +43,7 @@ const Carousel = () => {
         style={{
           width: window.innerWidth,
 
-          backgroundColor: "black",
+          backgroundColor: "#131212",
           display: "flex",
           position: "relative",
           alignItems: "center",
@@ -74,69 +62,83 @@ const Carousel = () => {
               flexDirection: "row", // set to column direction
             }}
           >
-            <div style={{ width: "50%" }}>
+            <div style={{ width: "30%" }}>
               <Typography
-                fontSize={"20px"}
-                color='whitesmoke'
+                fontSize={"40px"}
+                color='white'
                 style={{
                   fontFamily: "SpaceMono",
                   textTransform: "uppercase",
-                  opacity: 0.5,
                 }}
               >
                 {images[index]?.title}
               </Typography>
               <Typography
-                fontSize={"50px"}
+                className="textResume"
+                fontSize={"15px"}
                 color='whitesmoke'
                 style={{
+                  marginTop: "15px",
+                  opacity: 0.5,
                   fontFamily: "SpaceMono",
-                  textTransform: "uppercase",
+
+                }}
+              >
+                "{images[index]?.resume}
+              </Typography>
+              <Typography fontSize={"15px"}>...</Typography>
+              <Typography
+                fontSize={"15px"}
+                color='whitesmoke'
+                style={{
+                  marginTop: "20px",
+                  fontFamily: "SpaceMono",
+
                   transition: "all 0.8s ease-out",
                   opacity: hover ? 1 : 0.5,
                 }}
               >
-                {images[index]?.punchLines[0]}
+                "{images[index]?.punchLines[0]}"
               </Typography>
+              <Button2
+                props={{
+                  backgroundColor: "transparent",
+                  marginTop: "60px",
+                  border: "solid 2px #ffffff66",
+                  paddingHorizontal: "6px",
+                  paddingVertical: "6px"
+                }}
+                propsLabel={{
+                  color: "#ffffff66",
+                  fontSize: "16px",
+                  textTransform: "lowercase"
+                }}
+                borderRadius='4px'
+                label='Visit Story'
+              />
             </div>
             <div
-              className='vignette'
               style={{
-                height: "80%",
-                width: "50%",
-                overflow: "hidden !important",
+                height: "100%",
+                width: "70%",
+                overflow: "hidden",
                 display: "flex",
                 alignItems: "center", // center along cross-axis
                 justifyContent: "center",
               }}
             >
-              <div
+              <img
+                height='100%'
+                width='100%'
+                src={images[index].mainImage}
+                alt=''
                 style={{
-                  position: "relative",
-                  height: "100%",
-                  width: "100%",
+                  objectFit: "contain",
+                  transform: "scale(1.2)",
+
+                  filter: "grayscale(80%) opacity(0.89) contrast(150%)",
                 }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    height: "100%",
-                    width: "100%",
-                    backgroundImage:
-                      "radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)",
-                  }}
-                />
-                <img
-                  height='100%'
-                  width='100%'
-                  src={images[index].mainImage}
-                  alt=''
-                  style={{
-                    objectFit: "contain",
-                    filter: "grayscale(80%) contrast(150%)",
-                  }}
-                />
-              </div>
+              />
             </div>
           </div>
         </Container>
@@ -159,15 +161,6 @@ const Carousel = () => {
           })}
         </Box>
       </Box>
-      <iframe
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/5cFUWfwfl8Q'
-        title='YouTube video player'
-
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-
-      ></iframe>
     </>
   );
 };

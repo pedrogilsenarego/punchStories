@@ -11,7 +11,7 @@ const HomepageLayout = (props: any) => {
     <div style={{ minHeight: window.innerHeight }}>
       <UpScroller />
       <Header />
-      <div style={{ marginTop: "150px" }}>
+      <div style={{ marginTop: "100px" }}>
         {props.children}
       </div>
 

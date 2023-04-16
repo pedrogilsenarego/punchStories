@@ -21,9 +21,9 @@ const Home = () => {
   return (
     <>
       <Carousel />
-      <div style={{ marginTop: "50px" }}>
+      {/* <div style={{ marginTop: "50px" }}>
         <List mobile={mobile} />
-      </div>
+      </div> */}
       <div style={{ marginTop: "50px" }}>
         <About />
       </div>

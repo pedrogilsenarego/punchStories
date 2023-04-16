@@ -27,25 +27,16 @@ export interface Books {
 
 export interface Book {
   documentID: string;
-  coverPage: string;
+  
   title: string;
   titleEN: string;
-  price: number;
-  weight: string;
-
-  translator: string;
-  translatorResume: string;
-  translatorResumeEN: string;
-  author: string;
-  authorResume: string;
-  authorResumeEN: string;
+  
   resume: string;
   resumeEN: string;
   language: string;
-  size: string;
-  pages: number;
+ 
   content2: string[];
-  newBook?: boolean;
+  
   active?: boolean;
   createdDate?: Date;
   template?: string;

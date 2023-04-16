@@ -4,32 +4,36 @@ import { Colors } from "../../../constants/pallette"
 
 interface Props {
   label: string;
+  propsLabel?: any
   onClick?: () => void;
   borderRadius?: string;
   children?: JSX.Element
+  props?: any
 }
 
-const Button = ({ label, onClick, borderRadius, children }: Props) => {
+const Button = ({ label, onClick, borderRadius, children, props, propsLabel }: Props) => {
   return (
     <>
       <MuiButton
         style={{
-          backgroundColor: Colors.darkGrey,
+          ...props,
+          backgroundColor: props.backgroundColor || Colors.darkGrey,
           color: "white",
           borderRadius: borderRadius || "40px",
-          paddingTop: "10px",
-          paddingBottom: "10px",
-          paddingLeft: "60px",
-          paddingRight: "60px",
+          paddingTop: props.paddingVertical || "10px",
+          paddingBottom: props.paddingVertical || "10px",
+          paddingLeft: props.paddingHorizontal || "60px",
+          paddingRight: props.paddingHorizontal || "60px",
         }}
         onClick={onClick}
       >
         {children}
         <Typography
           style={{
-            fontSize: "20px",
+            ...propsLabel,
+            fontSize: propsLabel.fontSize || "20px",
             marginLeft: "10px",
-            textTransform: "uppercase",
+            textTransform: propsLabel.textTransform || "uppercase",
             letterSpacing: "5px",
           }}
         >

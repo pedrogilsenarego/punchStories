@@ -1,0 +1,12 @@
+.textResume {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  max-height: calc(1.2em * 3); /* Set the max height to 100 lines with 1.2em line-height */
+  line-height: 1.2em; /* Set the line-height to match your desired value */
+
+}
+
+.textResume::after {
+  content: "...";
+}
