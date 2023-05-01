@@ -168,8 +168,12 @@ const Template2 = ({ storyData }: Template) => {
             columns: 2,
             columnGap: "30px",
             textAlign: "justify",
+            position: "relative"
           }}
         >
+          <div style={{ textAlign: "center", display: "flex", justifyContent: "center", width: "300px", position: "absolute", height: "150px", backgroundColor: "white", top: 0, left: "calc(50% - 150px)", right: 0 }}>
+            <Typography style={{ fontSize: "30px", fontWeight: 800 }}>The men on the moon</Typography>
+          </div>
           <div
             style={{
               float: "left",
