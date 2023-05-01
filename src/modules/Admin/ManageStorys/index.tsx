@@ -34,10 +34,10 @@ const ManageStorys = () => {
             onClick={() => navigate(ROUTE_PATHS.ADMIN_STORIES_CREATE)}
           />
         </Box>
-
-        <Card style={{ padding: "20px" }}>
+        {tableData.length > 0 && (<Card style={{ padding: "20px" }}>
           <TableList columns={tableColumns} rows={mapBooksItems(tableData).rows} onAction={handleAction} />
-        </Card>
+        </Card>)}
+
       </Box >
     </>
   );

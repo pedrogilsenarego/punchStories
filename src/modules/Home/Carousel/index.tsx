@@ -157,7 +157,7 @@ const Carousel = () => {
           }}
         >
           {images.map((item, pos) => {
-            return <Button pos={pos} setIndex={setIndex} index={index} />;
+            return <Button pos={pos} setIndex={setIndex} index={index} key={pos} />;
           })}
         </Box>
       </Box>

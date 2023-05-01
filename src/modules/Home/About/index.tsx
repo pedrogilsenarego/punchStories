@@ -1,7 +1,10 @@
 import { Box, Typography, Container, Divider } from "@mui/material";
 import { Colors } from "../../../constants/pallette";
 import Social from "./Social";
+import { ROUTE_PATHS } from "../../../constants/routes";
+import { useNavigate } from "react-router";
 const About = () => {
+  const navigate = useNavigate()
   return (
     <Box
       display='flex'
@@ -16,6 +19,7 @@ const About = () => {
           justifyContent='center'
           alignItems="center">
           <Typography
+            onClick={() => navigate(ROUTE_PATHS.ADMIN)}
             mt='150px'
             fontSize='50px'
             color='white'

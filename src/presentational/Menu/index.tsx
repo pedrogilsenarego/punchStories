@@ -10,7 +10,7 @@ const Menu = () => {
     <div
       style={{
         backgroundColor: "white",
-        width: window.innerWidth,
+        width: "100vw",
         position: "fixed",
         top: 0,
         zIndex: 3000,

@@ -75,7 +75,7 @@ const List = ({ mobile }: Props) => {
             mt='50px'
           >
             {stories.map((item, pos) => {
-              return <Element item={item} pos={pos} mobile={mobile} />;
+              return <Element item={item} pos={pos} mobile={mobile} key={pos} />;
             })}
           </Grid>
           <div style={{ marginTop: "50px" }}>
