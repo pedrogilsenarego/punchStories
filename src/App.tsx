@@ -7,6 +7,10 @@ import {
   ThemeProvider, createTheme
 } from "@mui/material";
 import Snackbar from "./components/SnackBar";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { checkUserSession } from "./slicer/user/user.actions";
+import { disableLoading } from "./slicer/general/general.actions";
 
 const theme = createTheme({
   typography: {
@@ -21,6 +25,15 @@ const theme = createTheme({
 
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(
+    () => {
+      dispatch(checkUserSession());
+      dispatch(disableLoading())
+    },
+    // eslint-disable-next-line
+    []
+  );
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>

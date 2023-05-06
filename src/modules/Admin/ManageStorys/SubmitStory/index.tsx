@@ -33,7 +33,8 @@ const SubmitStory = () => {
   const progress = useSelector<State, number>((state) => state.books.progress);
 
   const handleSubmit = (values: any) => {
-    dispatch(addBook({ ...values }));
+    console.log(values)
+    //dispatch(addBook({ ...values }));
   };
 
   return (

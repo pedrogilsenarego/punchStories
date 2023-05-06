@@ -21,7 +21,7 @@ const List = ({ mobile }: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const stories = useSelector<State, Book[]>(
-    (state) => state.books.books.data || []
+    (state) => state?.books?.books?.data || []
   );
   const loading = useSelector<State, boolean>(
     (state) => state.general.loading
@@ -40,6 +40,7 @@ const List = ({ mobile }: Props) => {
       {loading ? (
         <div style={{ height: "40vh" }}><Loader /></div>
       ) : (
+
         <Container
           style={{
             display: "flex",
@@ -74,7 +75,7 @@ const List = ({ mobile }: Props) => {
             justifyContent='center'
             mt='50px'
           >
-            {stories.map((item, pos) => {
+            {stories?.map((item: Book, pos: number) => {
               return <Element item={item} pos={pos} mobile={mobile} key={pos} />;
             })}
           </Grid>
