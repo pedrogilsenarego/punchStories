@@ -32,11 +32,8 @@ export const FORM_VALIDATION = Yup.object().shape({
   .test(
     onlySpecifiTypes(
        [
-        'image/jpeg',
-        'image/jpg',
-        'image/gif',
-        'image/png',
-        'image/pdf',
+        'image/webp',
+        
       ]
     )
   ),

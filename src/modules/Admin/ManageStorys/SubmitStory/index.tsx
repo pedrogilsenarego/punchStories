@@ -6,7 +6,6 @@ import { Form, Formik } from "formik";
 import { FORM_VALIDATION } from "./validation";
 import ButtonForm from "../../../../components/Buttons/ButtonFormik";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook } from "../../../../slicer/books/books.actions";
 import FileUploader from "../../../../components/Inputs/FileUploader";
 import SelectWrapper from "../../../../components/Inputs/SelectForm";
 import { templates } from "../../../../constants/templates";
@@ -15,6 +14,7 @@ import TextfieldIncrementable from "../../../../components/Inputs/TextFieldIncre
 import PreviewWrapper from "./PreviewWrapper";
 import { State } from "../../../../slicer/types";
 import Loader from "../../../../components/Loader";
+import { addBook } from "../../../../slicer/books/books.actions";
 
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
@@ -34,7 +34,7 @@ const SubmitStory = () => {
 
   const handleSubmit = (values: any) => {
     console.log(values)
-    //dispatch(addBook({ ...values }));
+    dispatch(addBook({ ...values }));
   };
 
   return (
@@ -181,7 +181,7 @@ const SubmitStory = () => {
                       fieldTitle={i18n.t(
                         "modules.admin.manageBooks.submitBook.content"
                       )}
-                      acceptType='image/jpeg,image/jpg'
+                      acceptType='image/webp'
                     />
                   </Grid>
                 </Grid>
