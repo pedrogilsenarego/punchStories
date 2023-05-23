@@ -27,7 +27,8 @@ const Element = ({ mobile, pos, item }: Props) => {
           navigate(ROUTE_PATHS.STORY.replace(":id", item?.documentID) || "")
         }
       >
-        <CardMedia image={item?.content2[0] || ""} height='500px' />
+        <CardMedia image={item && item.content2 && item.content2.length > 0 ? item.content2[0] : ""} height='500px' />
+
 
         <Box display='flex' justifyContent='center' width='100%' mt='1px'>
           <Typography fontSize='1.5rem' style={{
