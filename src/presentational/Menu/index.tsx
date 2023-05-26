@@ -4,8 +4,14 @@ import "./index.css";
 import { BsInstagram } from "react-icons/bs";
 import { CardMedia as Image } from "@mui/material"
 import logo from "../../assets/images/PunchStories.png";
+import { ROUTE_PATHS } from "../../constants/routes";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { State } from "../../slicer/types";
 
 const Menu = () => {
+  const navigate = useNavigate()
+  const currentUser = useSelector<State, any>((state) => state.user.currentUser)
   return (
     <div
       style={{
@@ -30,6 +36,7 @@ const Menu = () => {
         }}
       >
         <img
+          onClick={() => !currentUser ? navigate(ROUTE_PATHS.LOGIN) : navigate(ROUTE_PATHS.ADMIN)}
           height='100px'
           src={logo}
           style={{ cursor: "pointer" }}

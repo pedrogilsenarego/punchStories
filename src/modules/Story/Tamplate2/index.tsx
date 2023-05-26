@@ -4,13 +4,17 @@ import { IoIosArrowBack } from "react-icons/io";
 import { generalConstants } from "../../../constants/general";
 import "./index.css";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { State } from "../../../slicer/types";
+import { Book } from "../../../slicer/books/books.types";
 
 const Template2 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(
     new Image(150, 150)
   );
-
+  const story = useSelector<State, Book>((state) => state.books.book)
+  console.log(story?.content2[1] || "")
   useEffect(() => {
     const textElem = textRef.current;
     const imgElem = imgRef.current;
@@ -18,7 +22,6 @@ const Template2 = ({ storyData }: Template) => {
     if (textElem && imgElem) {
       const words = textElem.innerHTML.split(" ");
       const middleWordIndex = Math.floor(words.length / 2);
-
       imgElem.src = "path/to/your/image.jpg";
       imgElem.alt = "example";
       imgElem.style.display = "inline";
@@ -45,17 +48,15 @@ const Template2 = ({ storyData }: Template) => {
           height: "100vh",
         }}
       >
-        <div
+        <img
           style={{
             width: "40%",
-            backgroundColor: "red",
             height: "100%",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundImage:
-              "Url(https://archzine.fr/wp-content/uploads/2016/03/danse-contemporaine-tenue-de-danse-moderne.jpg)",
+
           }}
-        ></div>
+          src={story?.content2[1]}
+          alt=""
+        />
         <div
           style={{
             position: "absolute",
@@ -94,13 +95,13 @@ const Template2 = ({ storyData }: Template) => {
         <div style={{ position: "absolute", top: "20%", left: "35%" }}>
           <Typography
             style={{
-              fontSize: "70px",
+              fontSize: "20px",
               color: "black",
               fontWeight: "800",
               textTransform: "uppercase",
             }}
           >
-            Sara Freitas
+            {story?.title || ""}
           </Typography>
           <img
             src='https://images.unsplash.com/photo-1642653386791-f1e6bb4c3ec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80'

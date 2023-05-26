@@ -1,6 +1,4 @@
-import { CardMedia as Image } from "@mui/material";
 import { Grid, Container, Typography } from "@mui/material";
-import logo from "../../../assets/images/PunchStories.png";
 import Button from "../../../components/Buttons/Button";
 import { BiAnalyse } from "react-icons/bi";
 import { ROUTE_PATHS } from "../../../constants/routes";
@@ -50,20 +48,13 @@ const List = ({ mobile }: Props) => {
           }}
           maxWidth={"xl"}
         >
-          <Image
-            component='img'
-            height='150px'
-            sx={{ objectFit: "contain" }}
-            image={logo}
-            style={{ cursor: "pointer" }}
-            alt='logo'
-          ></Image>
+
           <Typography
             fontSize='70px'
             fontWeight={800}
-            style={{ textTransform: "uppercase", letterSpacing: "5px" }}
+            style={{ textTransform: "uppercase", letterSpacing: "5px", fontFamily: "spaceMono" }}
           >
-            Portfolio
+            Stories
           </Typography>
           <Typography fontSize='20px' mt='-20px'>
             by: <b>Teresa Sá</b>
