@@ -55,11 +55,11 @@ const Template2 = ({ storyData }: Template) => {
         <div
           onClick={() => navigate(ROUTE_PATHS.HOME)}
           style={{
-            position: "absolute",
-            width: "60px",
-            height: "60px",
+            position: "fixed",
+            width: "50px",
+            height: "50px",
             borderRadius: "50%",
-            backgroundColor: "#00000066",
+            backgroundColor: "#827f7f66",
             top: "2vw",
             left: "2vw",
             cursor: "pointer",
@@ -69,7 +69,7 @@ const Template2 = ({ storyData }: Template) => {
           }}
         >
           <IoIosArrowBack
-            size='3rem'
+            size='2.5rem'
             color='white'
             style={{ marginLeft: "-5px" }}
           />
@@ -132,6 +132,7 @@ const Template2 = ({ storyData }: Template) => {
           flexDirection: "column",
           paddingLeft: generalConstants.PADDING,
           paddingRight: generalConstants.PADDING,
+          marginBottom: "200px"
         }}
       >
         <div
@@ -142,7 +143,7 @@ const Template2 = ({ storyData }: Template) => {
           }}
         >
           <Typography style={{ whiteSpace: "pre-line", fontSize: "150px" }}>
-            Taking
+            {story?.title?.split(" ")[0] || ""}
           </Typography>
           <Typography
             style={{
@@ -152,7 +153,7 @@ const Template2 = ({ storyData }: Template) => {
               lineHeight: "35px",
             }}
           >
-            Over
+            {story?.title?.match(/ ([^,]+)/)?.[1] || ""}
           </Typography>
         </div>
         <div
@@ -165,7 +166,7 @@ const Template2 = ({ storyData }: Template) => {
           }}
         >
           <div style={{ textAlign: "center", display: "flex", justifyContent: "center", width: "300px", position: "absolute", height: "150px", backgroundColor: "white", top: 0, left: "calc(50% - 150px)", right: 0 }}>
-            <Typography style={{ fontSize: "30px", fontWeight: 800 }}>The men on the moon</Typography>
+            <Typography style={{ fontSize: "23px", fontWeight: 800, lineHeight: "28px" }}>{story?.punchLines[1]}</Typography>
           </div>
           <div
             style={{
@@ -179,7 +180,7 @@ const Template2 = ({ storyData }: Template) => {
             }}
           >
             <Typography style={{ fontSize: "40px", fontWeight: "40px" }}>
-              L{" "}
+              {story?.resume?.[0]}
             </Typography>
           </div>
           <div
@@ -195,53 +196,13 @@ const Template2 = ({ storyData }: Template) => {
               alignItems: "center",
             }}
           >
-            <div></div>
+
           </div>
 
           <div ref={textRef}>
             <Typography>
-              orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborumLorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborumLorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
+              {story?.resume?.substring(1)}
+
             </Typography>
 
           </div>
