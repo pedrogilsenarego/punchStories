@@ -27,20 +27,16 @@ export interface Books {
 
 export interface Book {
   documentID: string;
-  
   title: string;
   titleEN: string;
-  
   resume: string;
   resumeEN: string;
   language: string;
- 
   content2: string[];
-  
   active?: boolean;
   createdDate?: Date;
   template?: string;
-  punchLines?: string[];
+  punchLines: string[];
 }
 
 export default bookTypes;

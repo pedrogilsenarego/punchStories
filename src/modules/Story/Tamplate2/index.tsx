@@ -7,6 +7,8 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
+import { useNavigate } from "react-router";
+import { ROUTE_PATHS } from "../../../constants/routes";
 
 const Template2 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -14,7 +16,7 @@ const Template2 = ({ storyData }: Template) => {
     new Image(150, 150)
   );
   const story = useSelector<State, Book>((state) => state.books.book)
-  console.log(story?.content2[1] || "")
+  const navigate = useNavigate()
   useEffect(() => {
     const textElem = textRef.current;
     const imgElem = imgRef.current;
@@ -27,14 +29,7 @@ const Template2 = ({ storyData }: Template) => {
       imgElem.style.display = "inline";
       imgElem.style.width = "150px";
       imgElem.style.height = "150px";
-
-
-
-
-
-
       words.splice(middleWordIndex, 0, imgElem.outerHTML);
-
       textElem.innerHTML = words.join(" ");
     }
   }, []);
@@ -58,6 +53,7 @@ const Template2 = ({ storyData }: Template) => {
           alt=""
         />
         <div
+          onClick={() => navigate(ROUTE_PATHS.HOME)}
           style={{
             position: "absolute",
             width: "60px",
@@ -104,7 +100,7 @@ const Template2 = ({ storyData }: Template) => {
             {story?.title || ""}
           </Typography>
           <img
-            src='https://images.unsplash.com/photo-1642653386791-f1e6bb4c3ec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80'
+            src={story?.content2[0]}
             alt=''
             style={{
               width: "25vw",
@@ -123,11 +119,7 @@ const Template2 = ({ storyData }: Template) => {
           }}
         >
           <Typography style={{ fontSize: "18px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            {story?.punchLines[0] || ""}
           </Typography>
         </div>
       </div>
