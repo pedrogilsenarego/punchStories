@@ -24,7 +24,7 @@ const Home = () => {
       <div style={{ marginTop: "50px" }}>
         <List mobile={mobile} />
       </div>
-      <div style={{ marginTop: "50px" }}>
+      <div style={{ marginTop: "80px" }}>
         <About />
       </div>
     </>

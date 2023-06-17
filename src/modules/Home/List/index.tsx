@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { fetchBooks } from "../../../slicer/books/books.actions";
 import Element from "./Element";
 import Loader from "../../../components/Loader";
+import { i18n } from "../../../translations/i18n";
 
 interface Props {
   mobile: boolean;
@@ -45,6 +46,7 @@ const List = ({ mobile }: Props) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+
           }}
           maxWidth={"xl"}
         >
@@ -54,29 +56,26 @@ const List = ({ mobile }: Props) => {
             fontWeight={800}
             style={{ textTransform: "uppercase", letterSpacing: "5px", fontFamily: "spaceMono" }}
           >
-            Stories
+            {i18n.t("modules.home.stories")}
           </Typography>
           <Typography fontSize='20px' mt='-20px'>
             by: <b>Teresa Sá</b>
           </Typography>
-          <Grid
-            container
-            columnSpacing={5}
-            rowSpacing={5}
-            justifyContent='center'
-            mt='50px'
+
+          <div
+            style={{ rowGap: "20px", columnGap: "20px", marginTop: "50px", display: "flex" }}
           >
             {stories?.map((item: Book, pos: number) => {
               return <Element item={item} pos={pos} mobile={mobile} key={pos} />;
             })}
-          </Grid>
+          </div>
+
+
           <div style={{ marginTop: "50px" }}>
             <Button
               label='Load More'
               onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-            >
-              <BiAnalyse size='1.5em' color='white' />
-            </Button>
+            />
           </div>
         </Container>
       )}

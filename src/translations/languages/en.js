@@ -36,30 +36,12 @@ export const content = {
       modules: {
         home: {
           mainTextBtn: "READ MORE",
-          contacts: {
-            contactsTitle: "Contact Us",
-            form: {
-              name: "Name",
-              email: "E-mail",
-              subject: "Subject",
-              description: "Message",
-              send: "SEND",
-              preview: "PREVIEW",
-            },
-          },
+          stories: "Stories",
         },
         about: {
+          title: "_About Teresa",
           mainText:
             "ÀBolina was conceived to tell people stories. Stories that cherish memory. Stories that give us hope. Stories that inspire us to be audacious, to have courage and resilience. The creative books we publish are high quality in pictures and content, and are aimed at reinforcing a desire to strive for a greater good in children and teenagers.\n\n Above all, we hope that our stories meet the needs of families educating their children to be confident, balanced individuals, capable of making responsible choices, able to think for themselves, perceive where the truth lies and to act with kindness.",
-          secondTitle: "WHY MEMORY?",
-          second:
-            "Memory is truly a treasure of humankind, passing through time, enriching the thoughts, values and ideas of each generation.",
-          thirdTitle: "WHY HOPE?",
-          third:
-            "Hope is a cradle of life and creativity, driving healthy development whether it be of the mind, body or spirit. Nurtured by hope, the human being becomes open to good, to the beautiful and to truth.",
-          forthTitle: "WHY AUDACITY?",
-          forth:
-            "Because we understand that the edifice of our existence is built by embracing challenges, overcoming our difficulties and fears, to shape a meaningful project for our lives.",
         },
         books: {
           book: {

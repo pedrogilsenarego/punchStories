@@ -36,31 +36,13 @@ export const content = {
       modules: {
         home: {
           mainTextBtn: "LEIA MAIS",
-          contacts: {
-            contactsTitle: "Entre em Contacto",
-            form: {
-              name: "Nome",
-              email: "E-mail",
-              subject: "Assunto",
-              description: "Mensagem",
-              send: "ENVIAR",
-              preview: "PREVIEW",
-            },
-          },
+          stories: "Histórias",
         },
 
         about: {
+          title: "_Sobre Teresa",
           mainText:
             "A Editora ÀBolina nasce para contar histórias. Histórias que valorizam a memória. Histórias que estimulam a esperança. Histórias que motivam para a audácia, para a coragem e resiliência.\n\n Publicamos livros criativos e de boa qualidade de texto e imagem, que fortificam o desejo de um bem maior em crianças e adolescentes. Em especial, esperamos que as nossas histórias respondam à necessidade das famílias de educarem os seus filhos como pessoas auto-confiantes, equilibradas, capazes de escolhas responsáveis, de pensar e discernir a verdade e de agir com bondade.",
-          secondTitle: "PORQUÊ A MEMÓRIA?",
-          second:
-            "A memória, verdadeiro tesouro da Humanidade, atravessa os tempos, enriquecendo o pensamento, os valores e as ideias de cada uma das gerações.",
-          thirdTitle: "PORQUÊ A ESPERANÇA?",
-          third:
-            "A esperança, berço da vida e da criatividade, é o motor do são desenvolvimento, quer do corpo, quer da mente e quer do espírito. Alimentado pela esperança, o ser humano abre-se ao bom, ao belo e ao verdadeiro.",
-          forthTitle: "PORQUÊ A AUDÁCIA?",
-          forth:
-            "Por que sabemos que o edifício da existência se constrói abraçando desafios, vencendo dificuldades e medos, com vista à construção de um projeto de vida com sentido.",
         },
         books: {
           book: {

@@ -3,6 +3,7 @@ import { Colors } from "../../../constants/pallette";
 import Social from "./Social";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
+import { i18n } from "../../../translations/i18n";
 const About = () => {
   const navigate = useNavigate()
   return (
@@ -13,26 +14,26 @@ const About = () => {
       alignItems="center"
       style={{ backgroundColor: Colors.darkGrey, paddingBottom: "50px" }}
     >
-      <Container maxWidth={"lg"}>
+      <Container maxWidth={"xl"}>
         <Box display='flex'
           flexDirection="column"
           justifyContent='center'
           alignItems="center">
           <Typography
             onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-            mt='150px'
+            mt='80px'
             fontSize='50px'
             color='white'
             fontWeight={800}
-            style={{ textTransform: "uppercase", letterSpacing: "5px" }}
+            style={{ textTransform: "uppercase", letterSpacing: "5px", fontFamily: "SpaceMono" }}
           >
-            About Me
+            {i18n.t("modules.about.title")}
           </Typography>
           <Typography
-            mt='50px'
+            mt='30px'
             fontSize='20px'
             color='#ffffff66'
-
+            style={{ fontFamily: "SpaceMono" }}
 
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
