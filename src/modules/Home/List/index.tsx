@@ -52,7 +52,7 @@ const List = ({ mobile }: Props) => {
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
             <Typography
-              fontSize='70px'
+              fontSize='40px'
               fontWeight={800}
               style={{ textAlign: "left", textTransform: "uppercase", letterSpacing: "5px", fontFamily: "spaceMono" }}
             >
