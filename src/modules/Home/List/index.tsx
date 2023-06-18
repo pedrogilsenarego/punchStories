@@ -50,20 +50,21 @@ const List = ({ mobile }: Props) => {
           }}
           maxWidth={"xl"}
         >
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+            <Typography
+              fontSize='70px'
+              fontWeight={800}
+              style={{ textAlign: "left", textTransform: "uppercase", letterSpacing: "5px", fontFamily: "spaceMono" }}
+            >
+              {i18n.t("modules.home.stories")}
+            </Typography>
 
-          <Typography
-            fontSize='70px'
-            fontWeight={800}
-            style={{ textTransform: "uppercase", letterSpacing: "5px", fontFamily: "spaceMono" }}
-          >
-            {i18n.t("modules.home.stories")}
-          </Typography>
-          <Typography fontSize='20px' mt='-20px'>
-            by: <b>Teresa Sá</b>
-          </Typography>
-
+            <Typography fontSize='20px' mt='-20px'>
+              by: <b>Teresa Sá</b>
+            </Typography>
+          </div>
           <div
-            style={{ rowGap: "20px", columnGap: "20px", marginTop: "50px", display: "flex" }}
+            style={{ justifyContent: "center", width: "100%", rowGap: "10px", marginTop: "50px", display: "flex", flexDirection: "column" }}
           >
             {stories?.map((item: Book, pos: number) => {
               return <Element item={item} pos={pos} mobile={mobile} key={pos} />;

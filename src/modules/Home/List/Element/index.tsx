@@ -1,9 +1,10 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../../../constants/routes";
 import { Book } from "../../../../slicer/books/books.types";
 import CardMedia from "../../../../components/CardMedia";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
 interface Props {
   mobile: boolean;
   pos: number;
@@ -13,6 +14,15 @@ interface Props {
 const Element = ({ mobile, pos, item }: Props) => {
   const [hover, setHover] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const randomOrders = useMemo(() => {
+    return Array.from({ length: 3 }, () => Math.floor(Math.random() * 3));
+  }, []);
+
+  const randomPunchlineIndex = useMemo(() => {
+    return Math.floor(Math.random() * item.punchLines.length);
+  }, [item.punchLines]);
+
   if (!item) return <></>;
   return (
     <>
@@ -23,10 +33,15 @@ const Element = ({ mobile, pos, item }: Props) => {
         onClick={() =>
           navigate(ROUTE_PATHS.STORY.replace(":id", item?.documentID) || "")
         }
-        style={{ position: "relative", width: "33%" }}
+        style={{ width: "100%", display: "flex", columnGap: "10px" }}
       >
         <div
-          style={{ opacity: hover ? 0 : 1, transition: "all 1.5s ease-in-out" }}
+          style={{
+            width: "25%",
+            opacity: hover ? 0.2 : 1,
+            transition: "all 1.5s ease-in-out",
+            order: randomOrders[0],
+          }}
         >
           <CardMedia
             image={
@@ -34,34 +49,67 @@ const Element = ({ mobile, pos, item }: Props) => {
                 ? item.content2[0]
                 : ""
             }
-            height='500px'
+            height={`500px`}
+          />
+        </div>
+        <div
+          style={{
+            width: "25%",
+            opacity: hover ? 0.6 : 1,
+            transition: "all 1.5s ease-in-out",
+            order: randomOrders[1],
+          }}
+        >
+          <CardMedia
+            image={
+              item && item.content2 && item.content2.length > 0
+                ? item.content2[1]
+                : ""
+            }
+            height={`500px`}
+          />
+        </div>
+        <div
+          style={{
+            width: "25%",
+            opacity: hover ? 0.8 : 1,
+            transition: "all 1.5s ease-in-out",
+            order: randomOrders[2],
+          }}
+        >
+          <CardMedia
+            image={
+              item && item.content2 && item.content2.length > 0
+                ? item.content2[2]
+                : ""
+            }
+            height={`500px`}
           />
         </div>
         <Box
-          display='flex'
-          justifyContent='center'
-          width='100%'
-          mt='1px'
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
           style={{
-            position: "absolute",
-            opacity: hover ? 1 : 0,
-            transition: "opacity 0.6s ease-in-out",
-            top: "40%",
-            backgroundColor: "#131212",
-            padding: "10px"
+            cursor: "pointer",
+            width: "25%",
+
+            transition: "all 1.5s ease-in-out",
+            backgroundColor: hover ? "#131212" : "white",
+            padding: "10px",
+            order: randomOrders[0],
           }}
         >
           <Typography
-            fontSize='1.5rem'
+            fontSize="1.5rem"
             style={{
-              color: "#ffffff8d",
+              color: hover ? "#ffffff8d" : "#131212",
               fontFamily: "spaceMono",
               textAlign: "center",
-              opacity: hover ? 1 : 0,
 
             }}
           >
-            {item?.title}
+            {hover ? item?.title : item?.punchLines[randomPunchlineIndex]}
           </Typography>
         </Box>
       </div>
