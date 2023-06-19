@@ -10,7 +10,7 @@ const deleteIcon = (
 const mapBookItem = (book: Book, pos: number) => {
   return {
     id: pos,
-    title: book.title,
+    name: book.name,
     createdDate: book.createdDate,
     newBook: [
       {

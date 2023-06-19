@@ -122,7 +122,7 @@ const Template0 = ({ storyData }: Template) => {
           }}
         >
           <Typography fontWeight={800} fontSize='50px'>
-            {storyData?.title}
+            {storyData?.name}
           </Typography>
         </div>
         <div

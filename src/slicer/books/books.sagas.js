@@ -66,7 +66,7 @@ function* sagaAddBook({ payload }) {
   try {
     yield put(enableLoading());
     const timestamp = new Date();
-    const { title, content } = payload;
+    const { name, content } = payload;
 
     const onProgressUpdate = (progress) => {
       console.log(progress);
@@ -75,7 +75,7 @@ function* sagaAddBook({ payload }) {
 
     const content2 = yield call(
       handleAddCoverPage,
-      title,
+      name,
       content,
       onProgressUpdate
     );

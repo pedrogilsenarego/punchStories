@@ -8,7 +8,7 @@ export const tableColumns =
   [
   
   {
-    id: "title",
+    id: "name",
     label: i18n.t(
       "modules.admin.manageBooks.tableList.title"
     ),

@@ -1,6 +1,6 @@
 import { Box, Typography, Container, Divider } from "@mui/material";
 import { Colors } from "../../../constants/pallette";
-import Social from "./Social";
+
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
 import { i18n } from "../../../translations/i18n";
@@ -64,9 +64,7 @@ const About = () => {
             height: "1px",
           }}
         />
-        <div style={{ marginTop: "20px" }}>
-          <Social />
-        </div>
+
       </Container>
     </Box>
   );

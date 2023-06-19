@@ -18,8 +18,9 @@ import { addBook } from "../../../../slicer/books/books.actions";
 
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
-    title: "",
-    titleEN: "",
+    name: "",
+    age: null,
+    location: "",
     template: "0",
     resume: "",
     resumeEN: "",
@@ -84,23 +85,30 @@ const SubmitStory = () => {
                   <Grid item xs={6}>
                     <Box style={{ width: "350px" }}>
                       <Textfield
-                        label={i18n.t(
-                          "modules.admin.manageBooks.submitBook.title"
-                        )}
-                        name='title'
+                        label="Name"
+                        name='name'
                       />
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <Box style={{ width: "350px" }}>
                       <Textfield
-                        label={`${i18n.t(
-                          "modules.admin.manageBooks.submitBook.title"
-                        )} EN`}
-                        name='titleEN'
+                        label="Age"
+                        name='age'
                       />
                     </Box>
                   </Grid>
+                  <Grid item xs={6}>
+                    <Box style={{ width: "350px" }}>
+                      <Textfield
+                        label="Location"
+                        name='location'
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item xs={6}>
+                  </Grid>
+
                   <Grid item xs={6}>
                     <Box>
                       <Textfield

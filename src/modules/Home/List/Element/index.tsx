@@ -109,7 +109,7 @@ const Element = ({ mobile, pos, item }: Props) => {
 
             }}
           >
-            {hover ? item?.title : item?.punchLines[randomPunchlineIndex]}
+            {hover ? item?.name : item?.punchLines[randomPunchlineIndex]}
           </Typography>
         </Box>
       </div>

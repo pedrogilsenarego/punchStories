@@ -27,8 +27,9 @@ export interface Books {
 
 export interface Book {
   documentID: string;
-  title: string;
-  titleEN: string;
+  name:string;
+  age:string;
+  location:string;
   resume: string;
   resumeEN: string;
   language: string;
@@ -37,6 +38,7 @@ export interface Book {
   createdDate?: Date;
   template?: string;
   punchLines: string[];
+  ps:string
 }
 
 export default bookTypes;

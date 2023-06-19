@@ -54,7 +54,7 @@ export const handleFetchBook = (documentID: string) => {
   });
 };
 
-export const handleAddCoverPage = async (title: string, files: any, onProgressUpdate: (progress: number) => void) => {
+export const handleAddCoverPage = async (name: string, files: any, onProgressUpdate: (progress: number) => void) => {
   const a = Array.prototype.slice.call(files);
   const c: any = [];
   let incrementLoad = 100/a.length
@@ -64,12 +64,12 @@ export const handleAddCoverPage = async (title: string, files: any, onProgressUp
   const uploadImageAsPromise = (imageFile: any) => {
     return new Promise<void>((resolve, reject) => {
       storage
-        .ref(`stories/${title}/${imageFile.name}`)
+        .ref(`stories/${name}/${imageFile.name}`)
         .put(imageFile)
         .then(() => {
           storage
             .ref("stories")
-            .child(title)
+            .child(name)
             .child(imageFile.name)
             .getDownloadURL()
             .then((url) => {
