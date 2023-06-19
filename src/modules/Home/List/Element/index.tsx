@@ -49,13 +49,13 @@ const Element = ({ mobile, pos, item }: Props) => {
                 ? item.content2[0]
                 : ""
             }
-            height={`500px`}
+            height={hover ? "500px" : `300px`}
           />
         </div>
         <div
           style={{
             width: "25%",
-            opacity: hover ? 0.6 : 1,
+            opacity: hover ? 0.4 : 1,
             transition: "all 1.5s ease-in-out",
             order: randomOrders[1],
           }}
@@ -66,13 +66,13 @@ const Element = ({ mobile, pos, item }: Props) => {
                 ? item.content2[1]
                 : ""
             }
-            height={`500px`}
+            height={hover ? "500px" : `300px`}
           />
         </div>
         <div
           style={{
             width: "25%",
-            opacity: hover ? 0.8 : 1,
+            opacity: hover ? 0.6 : 1,
             transition: "all 1.5s ease-in-out",
             order: randomOrders[2],
           }}
@@ -83,7 +83,7 @@ const Element = ({ mobile, pos, item }: Props) => {
                 ? item.content2[2]
                 : ""
             }
-            height={`500px`}
+            height={hover ? "500px" : `300px`}
           />
         </div>
         <Box

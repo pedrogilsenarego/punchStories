@@ -39,7 +39,8 @@ const CardMedia = ({
           borderRadius: borderRadius ?? "0px",
           cursor: "pointer",
           opacity: imageLoading ? 0 : 1,
-          objectFit: "cover"
+          objectFit: "cover",
+          transition: "all 1.5s ease-in-out",
         }}
         component='img'
         height={height || "auto"}
