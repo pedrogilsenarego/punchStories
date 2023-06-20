@@ -14,9 +14,7 @@ const AdminManageStories = lazyWithRetryAndLoader(
 const AdminStoriesCreate = lazyWithRetryAndLoader(
   () => import("../modules/Admin/ManageStorys/SubmitStory")
 );
-const AdminStoriesCarousel = lazyWithRetryAndLoader(
-  () => import("../modules/Admin/ManageCarroussel")
-);
+
 const Login = lazyWithRetryAndLoader(
   () => import("../modules/Login")
 );
@@ -58,14 +56,5 @@ export const routes: AppRoute[] = [
       </WithAdminAuth>
     ),
   },
-  {
-    path: ROUTE_PATHS.ADMIN_CARROUSEL,
-    component: (
-      <WithAdminAuth>
-        <AdminLayout>
-          <AdminStoriesCarousel />
-        </AdminLayout>
-      </WithAdminAuth>
-    ),
-  },
+
 ];

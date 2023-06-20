@@ -31,8 +31,8 @@ const Carousel = () => {
   const { data: carrouselData, isLoading: loadingBooks, error: errorBooks } = useQuery<Book[]>('carrousel', () =>
     handleFetchCarrousel(),
     {
-      staleTime: 30000,
-      cacheTime: 30000
+      staleTime: 10,
+      cacheTime: 10
     }
   );
 

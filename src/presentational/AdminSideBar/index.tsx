@@ -35,18 +35,7 @@ const AdminSideBar = () => {
           {i18n.t("adminSideBar.submitBook")}
         </Typography>
       </Box>
-      <Box
-        display="flex"
-        columnGap={1}
-        alignItems="center"
-        onClick={() => navigate(ROUTE_PATHS.ADMIN_CARROUSEL)}
 
-      >
-        <AiTwotoneCreditCard size="1.5em" color="white" />
-        <Typography style={{ fontSize: "14px", color: "white", cursor: "pointer" }}>
-          {i18n.t("adminSideBar.manageCarroussel")}
-        </Typography>
-      </Box>
       <Divider />
       <Box
         display="flex"
