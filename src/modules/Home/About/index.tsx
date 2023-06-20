@@ -19,7 +19,7 @@ const About = () => {
   const handleScrollToContacts = () => {
     if (null !== contactsRef.current) {
       window.scrollTo({
-        top: contactsRef.current.offsetTop,
+        top: contactsRef.current.offsetTop - 100,
         behavior: "smooth",
       });
     }
@@ -41,7 +41,7 @@ const About = () => {
       justifyContent='center'
       alignItems='center'
       ref={contactsRef}
-      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "50px" }}
+      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "500px", }}
     >
       <Container maxWidth={"xl"}>
         <Box
