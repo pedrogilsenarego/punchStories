@@ -89,6 +89,7 @@ function* sagaAddBook({ payload }) {
       content2,
       postNumber: postNumber,
       active: false,
+      carrousel: false,
       createdDate: timestamp,
     });
     yield put(

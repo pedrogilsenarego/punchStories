@@ -24,6 +24,12 @@ export const tableColumns =
     sortable: false,
   },
   {
+    id: "carrousel",
+    label: "Por no carrosel",
+    type: ColumnType.ActionComponent,
+    sortable: false,
+  },
+  {
     id: "newBook",
     label: i18n.t(
       "modules.admin.manageBooks.tableList.newBook.title"

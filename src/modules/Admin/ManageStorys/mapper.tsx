@@ -12,6 +12,28 @@ const mapBookItem = (book: Book, pos: number) => {
     id: pos,
     name: book.name,
     createdDate: book.createdDate,
+    carrousel: [
+      {
+        buttonType: "toggle",
+        confirmationButtonLabel: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.accept"
+        ),
+        declineButtonLabel: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.deny"
+        ),
+        confirmationDescription: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
+        ),
+        confirmationRequired: true,
+        confirmationTitle: i18n.t(
+          "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
+        ),
+        isActive: book.carrousel ?? false,
+        disabled: false,
+        event: "carrousel",
+        label: i18n.t("modules.admin.manageBooks.tableList.newBook.tooltip"),
+      },
+    ],
     newBook: [
       {
         buttonType: "toggle",

@@ -11,6 +11,9 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { checkUserSession } from "./slicer/user/user.actions";
 import { disableLoading } from "./slicer/general/general.actions";
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const theme = createTheme({
   typography: {
@@ -38,10 +41,12 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <StyledEngineProvider injectFirst>
-          <Snackbar />
-          <CssBaseline />
-          <ScrollToTop />
-          <AppRoutes />
+          <QueryClientProvider client={queryClient}>
+            <Snackbar />
+            <CssBaseline />
+            <ScrollToTop />
+            <AppRoutes />
+          </QueryClientProvider>
         </StyledEngineProvider>
       </ThemeProvider>
     </BrowserRouter>

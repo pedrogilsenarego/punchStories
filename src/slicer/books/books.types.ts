@@ -39,7 +39,8 @@ export interface Book {
   template?: string;
   punchLines: string[];
   ps:string
-  postNumber:number
+  postNumber:number;
+  carrousel:boolean
 }
 
 export default bookTypes;

@@ -7,6 +7,9 @@ import {
 } from "../../../slicer/books/books.actions";
 import { useEffect } from "react";
 import { Filters } from "../../../slicer/books/books.actions";
+import { handleUpdateCarrousel } from "../../../services/general";
+import { handleUpdateStoryCarrousel } from "../../../services/stories";
+import { updateFailNotification, updateSuccessNotification } from "../../../slicer/general/general.actions";
 
 interface Props {
   tableData: any;
@@ -14,6 +17,18 @@ interface Props {
 
 const useList = ({ tableData }: Props) => {
   const dispatch = useDispatch();
+
+  const handleCarrouselAction = async (payload:{signal:boolean,documentID:string}) =>{
+ try {
+  
+    await handleUpdateCarrousel(payload)
+    await handleUpdateStoryCarrousel(payload)
+    dispatch(updateSuccessNotification("Story added to carrousel"))
+ }
+ catch{
+  dispatch(updateFailNotification("Story not added to carrousel"))
+ }
+  }
 
   useEffect(() => {
     const filters: Filters = {
@@ -25,6 +40,15 @@ const useList = ({ tableData }: Props) => {
 
   const handleAction = (type: string, id: number, value?:any) => {
     switch (type) {
+      case "carrousel": {
+        const signal = tableData[id].carrousel ?? false;
+        const payload = {
+          signal: !signal,
+          documentID: tableData[id].documentID,
+        };
+        handleCarrouselAction(payload)
+        break;
+      }
       case "newBook": {
         const signal = tableData[id].active ?? true;
         const payload = {
