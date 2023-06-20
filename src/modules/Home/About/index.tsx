@@ -4,14 +4,43 @@ import { Colors } from "../../../constants/pallette";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
 import { i18n } from "../../../translations/i18n";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { scrollTo } from "../../../slicer/general/general.actions";
+import { State } from "../../../slicer/types";
 const About = () => {
   const navigate = useNavigate();
+  const contactsRef = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch()
+  const scrollToL = useSelector<State>(
+    (state) => state.general.scrollTo
+  );
+
+  const handleScrollToContacts = () => {
+    if (null !== contactsRef.current) {
+      window.scrollTo({
+        top: contactsRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (scrollToL === ROUTE_PATHS.ABOUT) {
+      handleScrollToContacts();
+      dispatch(scrollTo(null));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollToL]);
+
+
   return (
     <Box
       display='flex'
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
+      ref={contactsRef}
       style={{ backgroundColor: Colors.darkGrey, paddingBottom: "50px" }}
     >
       <Container maxWidth={"xl"}>

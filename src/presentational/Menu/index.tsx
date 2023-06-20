@@ -5,12 +5,15 @@ import { BsInstagram } from "react-icons/bs";
 import { CardMedia as Image } from "@mui/material"
 import logo from "../../assets/images/PunchStories.png";
 import { ROUTE_PATHS } from "../../constants/routes";
-import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../slicer/types";
+import { scrollTo } from "../../slicer/general/general.actions";
 
 const Menu = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const loc = useLocation();
   const currentUser = useSelector<State, any>((state) => state.user.currentUser)
   return (
     <div
@@ -36,15 +39,16 @@ const Menu = () => {
         }}
       >
         <img
-          onClick={() => !currentUser ? navigate(ROUTE_PATHS.LOGIN) : navigate(ROUTE_PATHS.ADMIN)}
+          onClick={() => loc.pathname === ROUTE_PATHS.HOME ? dispatch(scrollTo(ROUTE_PATHS.HOME)) : navigate(ROUTE_PATHS.HOME)}
           height='100px'
           src={logo}
           style={{ cursor: "pointer" }}
           alt='logo'
         />
         <div style={{ display: "flex", alignItems: "center", columnGap: "20px" }}>
-          <p className='textItems'>{i18n.t("menuBar.about")}</p>
-          <p className='textItems'>{i18n.t("menuBar.stories")}</p>
+
+          <p onClick={() => dispatch(scrollTo(ROUTE_PATHS.BOOKS))} className='textItems'>{i18n.t("menuBar.stories")}</p>
+          <p onClick={() => dispatch(scrollTo(ROUTE_PATHS.ABOUT))} className='textItems'>{i18n.t("menuBar.about")}</p>
           <p className='textItems'>{i18n.t("menuBar.contacts")}</p>
           <BsInstagram className='textItems' size='1.5rem' />
         </div>

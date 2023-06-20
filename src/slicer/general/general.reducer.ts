@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   apiRequestType: null,
   history: ["/"],
   lang: "PT",
-  scrollToContacts: false,
+  scroll: null,
   paginationManageBooks: {
     page: 1,
     perPage: 10,
@@ -93,10 +93,10 @@ const generalReducer = (state = INITIAL_STATE, action: Action) => {
         ...state,
         lang: action.payload,
       };
-    case generalTypes.SCROLL_CONTACTS:
+    case generalTypes.SCROLL_TO:
       return {
         ...state,
-        scrollToContacts: action.payload,
+        scrollTo: action.payload,
       };
     case generalTypes.PAGINATION_MANAGE_BOOKS:
       return {

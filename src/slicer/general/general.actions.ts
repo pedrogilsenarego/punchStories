@@ -59,9 +59,9 @@ export const updateLang = (lang:string) => ({
 })
 
 
-export const scrollToContacts = (signal:boolean) => ({
-  type: generalTypes.SCROLL_CONTACTS,
-  payload: signal
+export const scrollTo = (path:string|null) => ({
+  type: generalTypes.SCROLL_TO,
+  payload: path
 })
 
 export const updatePaginationManageBooks = (filters:any) => ({

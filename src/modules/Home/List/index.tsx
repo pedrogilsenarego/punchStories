@@ -6,11 +6,12 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { fetchBooks } from "../../../slicer/books/books.actions";
 import Element from "./Element";
 import Loader from "../../../components/Loader";
 import { i18n } from "../../../translations/i18n";
+import { scrollTo } from "../../../slicer/general/general.actions";
 
 interface Props {
   mobile: boolean;
@@ -23,6 +24,28 @@ const List = ({ mobile }: Props) => {
     (state) => state?.books?.books?.data || []
   );
   const loading = useSelector<State, boolean>((state) => state.general.loading);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const scrollToL = useSelector<State>(
+    (state) => state.general.scrollTo
+  );
+
+  const handleScrollToList = () => {
+    if (null !== listRef.current) {
+      window.scrollTo({
+        top: listRef.current.offsetTop - 100,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (scrollToL === ROUTE_PATHS.BOOKS) {
+      handleScrollToList();
+      dispatch(scrollTo(null));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollToL]);
 
   useEffect(() => {
     const filters = {
@@ -31,8 +54,6 @@ const List = ({ mobile }: Props) => {
     dispatch(fetchBooks(filters));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(loading)
 
   return (
     <>
@@ -51,6 +72,7 @@ const List = ({ mobile }: Props) => {
           maxWidth={"xl"}
         >
           <div
+            ref={listRef}
             style={{
               display: "flex",
               justifyContent: "space-between",

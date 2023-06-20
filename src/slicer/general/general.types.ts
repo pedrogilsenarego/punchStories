@@ -11,13 +11,13 @@ const generalTypes = {
   SAVE_LAST_ENDPOINT: "SAVE_LAST_ENDPOINT",
   REMOVE_LAST_ENDPOINT: "REMOVE_LAST_ENDPOINT",
   UPDATE_LANG: "UPDATE_LANG",
-  SCROLL_CONTACTS: "SCROLL_CONTACTS",
+  SCROLL_TO: "SCROLL_TO",
   PAGINATION_MANAGE_BOOKS: "PAGINATION_MANAGE_BOOKS"
 };
 
 export interface GeneralState {
   lang: string,
-  scrollToContacts: boolean
+  scrollTo: string
   paginationManageBooks: Pagination
   lastEndpoint: string
   loading:boolean
