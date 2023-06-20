@@ -93,9 +93,7 @@ const List = ({ mobile }: Props) => {
               {i18n.t("modules.home.stories")}
             </Typography>
 
-            <Typography fontSize='20px' mt='-20px'>
-              <b>Teresa Sá</b>
-            </Typography>
+
           </div>
           <div
             style={{
