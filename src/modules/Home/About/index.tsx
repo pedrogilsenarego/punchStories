@@ -14,7 +14,7 @@ const About = () => {
       alignItems='center'
       style={{ backgroundColor: Colors.darkGrey, paddingBottom: "50px" }}
     >
-      <Container maxWidth={"md"}>
+      <Container maxWidth={"xl"}>
         <Box
           display='flex'
           flexDirection='column'
@@ -58,7 +58,7 @@ const About = () => {
         </Box>
         <Divider
           style={{
-            marginTop: "100px",
+            marginTop: "30px",
             backgroundColor: "#ffffff66",
             width: "100%",
             height: "1px",

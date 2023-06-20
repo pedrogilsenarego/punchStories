@@ -15,19 +15,7 @@ export const content = {
         stories: "_stories",
         contacts: "_contacts",
       },
-      footer: {
-        second: {
-          second: "Privacy Policy",
-          third: "@ Àbolina 2023 | All rights reserved",
-        },
-        third: {
-          first: "Follow us",
-          second: "Este site está de acordo com o novo acordo Ortográfico",
-        },
-        forth: {
-          button: "Talk with us",
-        },
-      },
+
       adminSideBar: {
         submitBook: "Manage Stories",
         manageCarroussel: "Manage Carroussell",
@@ -36,7 +24,7 @@ export const content = {
       modules: {
         home: {
           mainTextBtn: "READ MORE",
-          stories: "Stories",
+          stories: "_Stories",
         },
         about: {
           title: "_About The Project",

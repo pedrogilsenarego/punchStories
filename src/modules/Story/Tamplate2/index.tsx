@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Template } from "../types";
 import { IoIosArrowBack } from "react-icons/io";
 import { generalConstants } from "../../../constants/general";
@@ -9,11 +9,19 @@ import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../../constants/routes";
+import { number } from "yup";
 
 const Template2 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(new Image(150, 150));
   const story = useSelector<State, Book>((state) => state.books.book);
+  const numberPictures = story?.content2.length
+  const xsNumber = () => {
+    if (numberPictures === 1) return 12
+    if (numberPictures === 2) return 6
+    if (numberPictures >= 3) return 4
+
+  }
   const navigate = useNavigate();
   useEffect(() => {
     const textElem = textRef.current;
@@ -89,7 +97,7 @@ const Template2 = ({ storyData }: Template) => {
               fontFamily: "spaceMono",
             }}
           >
-            {story?.punchLines[0] || ""}
+            {story?.punchLines[1] || ""}
           </Typography>
         </div>
       </div>
@@ -114,13 +122,13 @@ const Template2 = ({ storyData }: Template) => {
           <Typography
             style={{
               whiteSpace: "pre-line",
-              fontSize: "150px",
+              fontSize: "120px",
               fontFamily: "spaceMono",
             }}
           >
-            _{story?.name}
+            _{story?.name}, {story?.age}
           </Typography>
-          <Typography
+          {/* <Typography
             style={{
               whiteSpace: "pre-line",
               fontFamily: "spaceMono",
@@ -129,12 +137,12 @@ const Template2 = ({ storyData }: Template) => {
               lineHeight: "35px",
             }}
           >
-            {story?.age}
-          </Typography>
+            
+          </Typography> */}
         </div>
         <div
           style={{
-            marginTop: "100px",
+            marginTop: "20px",
             columns: 2,
             columnGap: "30px",
             textAlign: "justify",
@@ -157,13 +165,13 @@ const Template2 = ({ storyData }: Template) => {
           >
             <Typography
               style={{
-                fontSize: "23px",
+                fontSize: "18px",
                 fontWeight: 800,
                 lineHeight: "28px",
                 fontFamily: "spaceMono",
               }}
             >
-              {story?.punchLines[1]}
+              {story?.punchLines[0]}
             </Typography>
           </div>
           <div
@@ -177,7 +185,13 @@ const Template2 = ({ storyData }: Template) => {
               alignItems: "center",
             }}
           >
-            <Typography style={{ fontSize: "70px", fontWeight: "40px", fontFamily: "spaceMono" }}>
+            <Typography
+              style={{
+                fontSize: "70px",
+                fontWeight: "40px",
+                fontFamily: "spaceMono",
+              }}
+            >
               {story?.resume?.[0]}
             </Typography>
           </div>
@@ -195,40 +209,53 @@ const Template2 = ({ storyData }: Template) => {
           ></div>
 
           <div ref={textRef}>
-            <Typography style={{ fontFamily: "spaceMono" }}>{story?.resume?.substring(1)}</Typography>
+            <Typography style={{ fontFamily: "spaceMono" }}>
+              {story?.resume?.substring(1)}
+            </Typography>
           </div>
         </div>
       </div>
 
-      <div
+      <Grid
+        container
+        columnSpacing='10px'
         style={{
-          display: "flex",
           marginBottom: "100px",
-          width: "100%",
-          justifyContent: "space-around",
           paddingLeft: generalConstants.PADDING,
           paddingRight: generalConstants.PADDING,
         }}
       >
         {story?.content2?.map((image, index) => {
           return (
-            <img
+            <Grid
+              item
+              xs={xsNumber()}
               key={index}
-              alt=''
-              src={image}
-              height='600px'
-              style={{ objectFit: "contain" }}
-            />
+              style={{
+                display: "flex",
+
+
+                justifyContent: "center",
+              }}
+            >
+              <img
+                alt=''
+                src={image}
+                height='400px'
+                width="100%"
+                style={{ objectFit: "contain" }}
+              />
+            </Grid>
           );
         })}
-      </div>
+      </Grid>
       <Typography
         style={{
           fontSize: "18px",
           color: "#150d0da9",
           textAlign: "center",
           marginBottom: "100px",
-          fontFamily: "spaceMono"
+          fontFamily: "spaceMono",
         }}
       >
         {story?.ps || ""}

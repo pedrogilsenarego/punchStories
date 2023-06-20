@@ -15,19 +15,7 @@ export const content = {
         stories: "_histórias",
         contacts: "_contactos",
       },
-      footer: {
-        second: {
-          second: "Política de Privacidade",
-          third: "@ Àbolina 2023 | Todos os direitos reservados",
-        },
-        third: {
-          first: "Siga-nos",
-          second: "Este site está de acordo com o novo acordo Ortográfico",
-        },
-        forth: {
-          button: "Fale conosco",
-        },
-      },
+
       adminSideBar: {
         submitBook: "Gerir Histórias",
         manageCarroussel: "Gerir Carrousel",
@@ -36,7 +24,7 @@ export const content = {
       modules: {
         home: {
           mainTextBtn: "LEIA MAIS",
-          stories: "Histórias",
+          stories: "_Histórias",
         },
 
         about: {

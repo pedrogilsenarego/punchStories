@@ -21,6 +21,7 @@ const SubmitStory = () => {
     name: "",
     age: null,
     location: "",
+    locationEN: "",
     template: "0",
     resume: "",
     resumeEN: "",
@@ -107,6 +108,12 @@ const SubmitStory = () => {
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
+                    <Box style={{ width: "350px" }}>
+                      <Textfield
+                        label="Location English"
+                        name='locationEN'
+                      />
+                    </Box>
                   </Grid>
 
                   <Grid item xs={6}>
@@ -203,7 +210,7 @@ const SubmitStory = () => {
               >
                 <PreviewWrapper />
                 <ButtonForm
-                  label={i18n.t("modules.home.contacts.form.send")}
+                  label="Submeter"
                   disabled={loading}
                 />
               </Box>

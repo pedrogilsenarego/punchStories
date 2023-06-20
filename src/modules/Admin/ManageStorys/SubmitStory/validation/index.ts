@@ -22,6 +22,7 @@ const fileSize = (max: number, unit = "MB"): Yup.TestConfig<FileList> => ({
 export const FORM_VALIDATION = Yup.object().shape({
   name: Yup.string().required(`${i18n.t("forms.required")}`),
   location: Yup.string().required(`${i18n.t("forms.required")}`),
+  locationEN: Yup.string().required(`${i18n.t("forms.required")}`),
   age: Yup.number().required(`${i18n.t("forms.required")}`),
   resume: Yup.string().required(`${i18n.t("forms.required")}`),
   resumeEN: Yup.string().required(`${i18n.t("forms.required")}`),
