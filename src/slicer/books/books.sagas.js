@@ -29,6 +29,7 @@ import {
 } from "../general/general.actions";
 import { i18n } from "../../translations/i18n";
 import { store } from "../createStore";
+import { handleUpdatePosts } from "../general/general.helpers";
 
 function* sagaFetchBooks({ payload }) {
   try {
@@ -68,6 +69,8 @@ function* sagaAddBook({ payload }) {
     const timestamp = new Date();
     const { name, content } = payload;
 
+    const postNumber = yield handleUpdatePosts();
+
     const onProgressUpdate = (progress) => {
       console.log(progress);
       store.dispatch(updateProgress(progress));
@@ -79,12 +82,12 @@ function* sagaAddBook({ payload }) {
       content,
       onProgressUpdate
     );
-
     delete payload.content;
 
     yield handleAddBook({
       ...payload,
       content2,
+      postNumber: postNumber,
       active: false,
       createdDate: timestamp,
     });

@@ -9,7 +9,6 @@ import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../../constants/routes";
-import { number } from "yup";
 
 const Template2 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -117,32 +116,23 @@ const Template2 = ({ storyData }: Template) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            marginTop: "20px"
           }}
         >
           <Typography
             style={{
               whiteSpace: "pre-line",
-              fontSize: "120px",
+              fontSize: "80px",
               fontFamily: "spaceMono",
             }}
           >
-            _{story?.name}, {story?.age}
+            #{story?.postNumber}_{story?.name}, {story?.age}
           </Typography>
-          {/* <Typography
-            style={{
-              whiteSpace: "pre-line",
-              fontFamily: "spaceMono",
-              fontSize: "120px",
-              textTransform: "uppercase",
-              lineHeight: "35px",
-            }}
-          >
-            
-          </Typography> */}
+
         </div>
         <div
           style={{
-            marginTop: "20px",
+            marginTop: "40px",
             columns: 2,
             columnGap: "30px",
             textAlign: "justify",

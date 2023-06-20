@@ -32,6 +32,8 @@ const List = ({ mobile }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(loading)
+
   return (
     <>
       {loading ? (
