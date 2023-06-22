@@ -41,19 +41,20 @@ const About = () => {
       justifyContent='center'
       alignItems='center'
       ref={contactsRef}
-      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "500px", }}
+      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "140px" }}
     >
       <Container maxWidth={"xl"}>
         <Box
           display='flex'
           flexDirection='column'
           justifyContent='center'
-          alignItems='center'
+
+
         >
           <Typography
             onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-            mt='80px'
-            fontSize='50px'
+            mt="140px"
+            fontSize='40px'
             color='white'
             fontWeight={800}
             style={{
@@ -68,7 +69,7 @@ const About = () => {
             mt='30px'
             fontSize='20px'
             color='#ffffff66'
-            style={{ fontFamily: "SpaceMono" }}
+            style={{ fontFamily: "SpaceMono", textAlign: "justify" }}
           >
             Este projeto nasce com a irrequietude que é necessária para falar
             com e sobre pessoas, sejam conhecidas ou desconhecidas, e coletar os
@@ -87,7 +88,7 @@ const About = () => {
         </Box>
         <Divider
           style={{
-            marginTop: "30px",
+            marginTop: "60px",
             backgroundColor: "#ffffff66",
             width: "100%",
             height: "1px",

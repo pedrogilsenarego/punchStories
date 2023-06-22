@@ -11,6 +11,7 @@ import { State } from "../../slicer/types";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { scrollTo } from "../../slicer/general/general.actions";
 import { fetchBooks } from "../../slicer/books/books.actions";
+import Contact from "./Contact";
 
 
 
@@ -62,6 +63,9 @@ const Home = () => {
       </div>
       <div style={{ marginTop: "80px" }}>
         <About />
+      </div>
+      <div>
+        <Contact />
       </div>
     </>
   );

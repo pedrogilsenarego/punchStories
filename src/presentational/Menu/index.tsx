@@ -49,7 +49,7 @@ const Menu = () => {
 
           <p onClick={() => dispatch(scrollTo(ROUTE_PATHS.BOOKS))} className='textItems'>{i18n.t("menuBar.stories")}</p>
           <p onClick={() => dispatch(scrollTo(ROUTE_PATHS.ABOUT))} className='textItems'>{i18n.t("menuBar.about")}</p>
-          <p className='textItems'>{i18n.t("menuBar.contacts")}</p>
+          <p onClick={() => dispatch(scrollTo(ROUTE_PATHS.CONTACT))} className='textItems'>{i18n.t("menuBar.contacts")}</p>
           <BsInstagram className='textItems' size='1.5rem' />
         </div>
       </Container>

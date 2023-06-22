@@ -13,7 +13,7 @@ export const content = {
       menuBar: {
         about: "_sobre",
         stories: "_histórias",
-        contacts: "_contactos",
+        contacts: "_e tu?",
       },
 
       adminSideBar: {

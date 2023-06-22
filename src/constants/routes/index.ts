@@ -7,4 +7,5 @@ export const ROUTE_PATHS = {
   ADMIN: '/admin',
   ADMIN_CARROUSEL: "/admin/manage-carrousell",
   ADMIN_STORIES_CREATE: '/admin/stories/create',
+  CONTACT:"/contact"
 }
