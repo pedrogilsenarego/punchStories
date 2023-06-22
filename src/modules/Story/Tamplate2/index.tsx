@@ -111,12 +111,12 @@ const Template2 = ({ storyData }: Template) => {
             position: "absolute",
             bottom: "20px",
             right: generalConstants.PADDING,
-            width: "30%",
+            width: mobile ? "60%" : "30%",
           }}
         >
           <Typography
             style={{
-              fontSize: "18px",
+              fontSize: mobile ? "12px" : "18px",
               color: "#ffffffa9",
               textAlign: "right",
               fontFamily: "spaceMono",
@@ -132,8 +132,8 @@ const Template2 = ({ storyData }: Template) => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          paddingLeft: mobile ? "8px" : generalConstants.PADDING,
-          paddingRight: mobile ? "8px" : generalConstants.PADDING,
+          paddingLeft: mobile ? "12px" : generalConstants.PADDING,
+          paddingRight: mobile ? "12px" : generalConstants.PADDING,
           marginBottom: mobile ? "30px" : "100px",
         }}
       >
@@ -252,9 +252,9 @@ const Template2 = ({ storyData }: Template) => {
         columnSpacing='10px'
         rowSpacing='10px'
         style={{
-          marginBottom: "100px",
-          paddingLeft: mobile ? "8px" : generalConstants.PADDING,
-          paddingRight: mobile ? "8px" : generalConstants.PADDING,
+          marginBottom: mobile ? "40px" : "100px",
+          paddingLeft: mobile ? "15px" : generalConstants.PADDING,
+          paddingRight: mobile ? "15px" : generalConstants.PADDING,
         }}
       >
         {story?.content2?.map((image, index) => {
