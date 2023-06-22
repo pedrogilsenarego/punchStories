@@ -33,7 +33,7 @@ const List = ({ mobile }: Props) => {
   const handleScrollToList = () => {
     if (null !== listRef.current) {
       window.scrollTo({
-        top: listRef.current.offsetTop - 100,
+        top: listRef.current.offsetTop - (mobile ? 70 : 100),
         behavior: "smooth",
       });
     }
@@ -81,7 +81,7 @@ const List = ({ mobile }: Props) => {
             }}
           >
             <Typography
-              fontSize='40px'
+              fontSize={mobile ? "20px" : '40px'}
               fontWeight={800}
               style={{
                 textAlign: "left",
@@ -100,7 +100,7 @@ const List = ({ mobile }: Props) => {
               justifyContent: "center",
               width: "100%",
               rowGap: "10px",
-              marginTop: "50px",
+              marginTop: mobile ? "0px" : "50px",
               display: "flex",
               flexDirection: "column",
             }}

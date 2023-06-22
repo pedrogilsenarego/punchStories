@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Divider } from "@mui/material";
+import { Box, Typography, Container, Divider, useTheme, useMediaQuery } from "@mui/material";
 import { Colors } from "../../../constants/pallette";
 
 import { ROUTE_PATHS } from "../../../constants/routes";
@@ -8,10 +8,13 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { scrollTo } from "../../../slicer/general/general.actions";
 import { State } from "../../../slicer/types";
+
 const About = () => {
   const navigate = useNavigate();
   const contactsRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch()
+  const theme = useTheme()
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"))
   const scrollToL = useSelector<State>(
     (state) => state.general.scrollTo
   );
@@ -19,7 +22,7 @@ const About = () => {
   const handleScrollToContacts = () => {
     if (null !== contactsRef.current) {
       window.scrollTo({
-        top: contactsRef.current.offsetTop - 100,
+        top: contactsRef.current.offsetTop - (mobile ? 70 : 100),
         behavior: "smooth",
       });
     }
@@ -39,9 +42,9 @@ const About = () => {
       display='flex'
       flexDirection='column'
       justifyContent='center'
-      alignItems='center'
+      alignItems={mobile ? "start" : 'center'}
       ref={contactsRef}
-      style={{ backgroundColor: Colors.darkGrey, paddingBottom: "140px" }}
+      style={{ backgroundColor: Colors.darkGrey, paddingBottom: mobile ? "30px" : "140px" }}
     >
       <Container maxWidth={"xl"}>
         <Box
@@ -53,8 +56,8 @@ const About = () => {
         >
           <Typography
             onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-            mt="140px"
-            fontSize='40px'
+            mt={mobile ? "50px" : "140px"}
+            fontSize={mobile ? "20px" : "40px"}
             color='white'
             fontWeight={800}
             style={{
@@ -66,8 +69,8 @@ const About = () => {
             {i18n.t("modules.about.title")}
           </Typography>
           <Typography
-            mt='30px'
-            fontSize='20px'
+            mt={mobile ? "15px" : '30px'}
+            fontSize={mobile ? "14px" : '20px'}
             color='#ffffff66'
             style={{ fontFamily: "SpaceMono", textAlign: "justify" }}
           >

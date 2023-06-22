@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { scrollTo } from "../../../slicer/general/general.actions";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const Contact = () => {
 
@@ -11,11 +12,13 @@ const Contact = () => {
   const scrollToL = useSelector<State, string>(
     (state) => state.general.scrollTo
   );
+  const theme = useTheme()
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"))
 
   const handleScrollToContacts = () => {
     if (null !== contactsRef.current) {
       window.scrollTo({
-        top: contactsRef.current.offsetTop - 100,
+        top: contactsRef.current.offsetTop - (mobile ? 70 : 100),
         behavior: "smooth",
       });
     }

@@ -26,6 +26,20 @@ const Element = ({ mobile, pos, item }: Props) => {
   if (!item) return <></>;
   return (
     <>
+      {mobile && (
+        <Typography
+          fontSize="14px"
+          style={{
+            color: hover ? "#ffffff8d" : "#131212",
+            fontFamily: "spaceMono",
+            textAlign: "justify",
+            marginTop: "20px",
+
+          }}
+        >
+          <b>#{item?.postNumber}</b>_{item?.name}
+        </Typography>
+      )}
       <div
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -37,7 +51,7 @@ const Element = ({ mobile, pos, item }: Props) => {
       >
         <div
           style={{
-            width: "25%",
+            width: mobile ? "50%" : "25%",
             opacity: hover ? 0.2 : 1,
             transition: "all 1.5s ease-in-out",
             order: randomOrders[0],
@@ -54,7 +68,7 @@ const Element = ({ mobile, pos, item }: Props) => {
         </div>
         <div
           style={{
-            width: "25%",
+            width: mobile ? "50%" : "25%",
             opacity: hover ? 0.4 : 1,
             transition: "all 1.5s ease-in-out",
             order: randomOrders[1],
@@ -69,9 +83,9 @@ const Element = ({ mobile, pos, item }: Props) => {
             height={hover ? "500px" : `300px`}
           />
         </div>
-        <div
+        {!mobile && (<div
           style={{
-            width: "25%",
+            width: mobile ? "33.3%" : "25%",
             opacity: hover ? 0.6 : 1,
             transition: "all 1.5s ease-in-out",
             order: randomOrders[2],
@@ -85,8 +99,8 @@ const Element = ({ mobile, pos, item }: Props) => {
             }
             height={hover ? "500px" : `300px`}
           />
-        </div>
-        <Box
+        </div>)}
+        {!mobile && (<Box
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -111,8 +125,22 @@ const Element = ({ mobile, pos, item }: Props) => {
           >
             {hover ? item?.name : item?.punchLines[randomPunchlineIndex]}
           </Typography>
-        </Box>
+        </Box>)}
+
       </div>
+      {mobile && (
+        <Typography
+          fontSize="14px"
+          style={{
+            color: hover ? "#ffffff8d" : "#131212",
+            fontFamily: "spaceMono",
+            textAlign: "justify",
+
+          }}
+        >
+          "{item?.punchLines[randomPunchlineIndex]}"
+        </Typography>
+      )}
     </>
   );
 };
