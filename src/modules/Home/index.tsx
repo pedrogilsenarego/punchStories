@@ -1,7 +1,5 @@
 
 import { useTheme, useMediaQuery } from "@mui/material";
-
-
 import List from "./List";
 import About from "./About";
 import Carousel from "./Carousel";
@@ -12,6 +10,8 @@ import { ROUTE_PATHS } from "../../constants/routes";
 import { scrollTo } from "../../slicer/general/general.actions";
 import { fetchBooks } from "../../slicer/books/books.actions";
 import Contact from "./Contact";
+import Button from "../../components/Buttons/Button";
+import { useNavigate } from "react-router";
 
 
 
@@ -23,7 +23,7 @@ const Home = () => {
 
   const Theme = useTheme()
   const mobile = useMediaQuery(Theme.breakpoints.down("md"))
-
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const scrollToL = useSelector<State>(
@@ -67,6 +67,10 @@ const Home = () => {
       <div>
         <Contact />
       </div>
+      <Button
+        label='Login'
+        onClick={() => navigate(ROUTE_PATHS.ADMIN)}
+      />
     </>
   );
 };

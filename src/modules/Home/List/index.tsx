@@ -112,12 +112,12 @@ const List = ({ mobile }: Props) => {
             })}
           </div>
 
-          <div style={{ marginTop: "50px" }}>
+          {/* <div style={{ marginTop: "50px" }}>
             <Button
               label='Load More'
               onClick={() => navigate(ROUTE_PATHS.ADMIN)}
             />
-          </div>
+          </div> */}
         </Container>
       )}
     </>
