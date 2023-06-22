@@ -79,6 +79,7 @@ const Carousel = () => {
               alignItems: "center",
               justifyContent: "space-between",
               flexDirection: "row", // set to column direction
+
             }}
           >
             <div
@@ -116,12 +117,12 @@ const Carousel = () => {
                   "{carrouselData[index]?.resume}
                 </Typography>
               )}
-              <Typography fontSize={"15px"}>...</Typography>
+              {!mobile && (<Typography fontSize={"15px"}>...</Typography>)}
               <Typography
                 fontSize={"15px"}
                 color='whitesmoke'
                 style={{
-                  marginTop: "20px",
+                  marginTop: mobile ? "15px" : "20px",
                   fontFamily: "SpaceMono",
 
                   transition: "all 0.8s ease-out",
@@ -141,7 +142,7 @@ const Carousel = () => {
                 }
                 props={{
                   backgroundColor: "transparent",
-                  marginTop: "60px",
+                  marginTop: mobile ? "20px" : "60px",
                   border: "solid 2px #ffffff66",
                   paddingHorizontal: "6px",
                   paddingVertical: "6px",
