@@ -19,10 +19,6 @@ const Template2 = ({ storyData }: Template) => {
   const imgRef = useRef<HTMLImageElement>(new Image(150, holeOnTextHeigh));
   const typographyRef = useRef<HTMLDivElement>(null);
 
-  console.log(holeOnTextHeigh)
-
-
-
   const numberPictures = story?.content2.length;
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -86,6 +82,7 @@ const Template2 = ({ storyData }: Template) => {
         words.splice(middleWordIndex, 0, imgElem.outerHTML);
         textElem.innerHTML = words.join(" ");
       }
+
     }
   }, [mobile, holeOnTextHeigh]);
 
