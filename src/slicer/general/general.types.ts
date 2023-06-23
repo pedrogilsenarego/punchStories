@@ -16,7 +16,7 @@ const generalTypes = {
 };
 
 export interface GeneralState {
-  lang: string,
+  lang: "PT"|"EN",
   scrollTo: string
   paginationManageBooks: Pagination
   lastEndpoint: string

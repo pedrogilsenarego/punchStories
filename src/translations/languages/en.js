@@ -13,7 +13,7 @@ export const content = {
       menuBar: {
         about: "_about",
         stories: "_stories",
-        contacts: "_and you?",
+        contacts: "_contacts",
       },
 
       adminSideBar: {
@@ -23,6 +23,9 @@ export const content = {
       },
       modules: {
         home: {
+          carrousel: {
+            button: "Visit Story",
+          },
           mainTextBtn: "READ MORE",
           stories: "_Stories",
         },

@@ -9,15 +9,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../slicer/types";
 import { scrollTo } from "../../slicer/general/general.actions";
 
+import { LANG } from "../../constants/lang";
+import useChangeLang from "../../hooks/usechangeLang";
+
 const Menu = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loc = useLocation();
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const currentUser = useSelector<State, any>(
-    (state) => state.user.currentUser
-  );
+  const lang = useSelector<State, string>((state) => state.general.lang);
+
+  const { changeLanguage } = useChangeLang()
+
+  const handleChangeLang = () => {
+    if (lang === LANG.pt.toUpperCase()) {
+      changeLanguage(LANG.en);
+    } else {
+      changeLanguage(LANG.pt);
+    }
+  };
+
   return (
     <div
       style={{
@@ -45,11 +57,15 @@ const Menu = () => {
           }
           height={mobile ? "70px" : "100px"}
           src={logo}
-          style={{ cursor: "pointer", }}
+          style={{ cursor: "pointer" }}
           alt='logo'
         />
         <div
-          style={{ display: "flex", alignItems: "center", columnGap: mobile ? "15px" : "20px" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            columnGap: mobile ? "15px" : "20px",
+          }}
         >
           <p
             style={{ fontSize: mobile ? "12px" : "16px" }}
@@ -72,7 +88,26 @@ const Menu = () => {
           >
             {i18n.t("menuBar.contacts")}
           </p>
-          <BsInstagram className='textItems' size={mobile ? "1rem" : '1.5rem'} />
+          <div
+            onClick={handleChangeLang}
+            style={{
+              padding: mobile ? "2px" : "5px",
+              border: "solid 2px #00000092",
+              display: "inline-flex",
+              alignItems: "center", // Align items vertically in the center
+            }}
+          >
+            <p
+              style={{
+                fontSize: mobile ? "10px" : "16px",
+                margin: 0, // Remove default margin of <p> element
+              }}
+              className='textItems'
+            >
+              {lang === "PT" ? "EN" : "PT"}
+            </p>
+          </div>
+          {/* <BsInstagram className='textItems' size={mobile ? "1rem" : '1.5rem'} /> */}
         </div>
       </Container>
     </div>

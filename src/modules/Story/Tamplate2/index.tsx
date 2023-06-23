@@ -11,13 +11,23 @@ import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../../constants/routes";
 
 const Template2 = ({ storyData }: Template) => {
+  const story = useSelector<State, Book>((state) => state.books.book);
+
+  const [holeOnTextHeigh, setHoleOnTextHeigh] = useState<number>(200)  // Calculate the height
   const [textSegmentsMobile, setTextSegmentsMobile] = useState<any[]>([]);
   const textRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(new Image(150, 150));
-  const story = useSelector<State, Book>((state) => state.books.book);
+  const imgRef = useRef<HTMLImageElement>(new Image(150, holeOnTextHeigh));
+  const typographyRef = useRef<HTMLDivElement>(null);
+
+  console.log(holeOnTextHeigh)
+
+
+
   const numberPictures = story?.content2.length;
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const lang = useSelector<State, string>((state) => state.general.lang);
+
   const xsNumber = () => {
     if (numberPictures === 1 || mobile) return 12;
     if (numberPictures === 2) return 6;
@@ -27,11 +37,18 @@ const Template2 = ({ storyData }: Template) => {
 
   const divideTextWithImages = () => {
     const textSegments = [];
-    const segmentSize = Math.ceil(story?.resume.length / numberPictures);
+    const segmentSize = Math.ceil(
+      lang === "PT"
+        ? story?.resume.length
+        : story?.resumeEN.length / numberPictures
+    );
 
     let currentPosition = 0;
     for (let i = 0; i < numberPictures; i++) {
-      const segment = story?.resume.substr(currentPosition, segmentSize);
+      const segment =
+        lang === "PT"
+          ? story?.resume.substr(currentPosition, segmentSize)
+          : story?.resumeEN.substr(currentPosition, segmentSize);
       textSegments.push({ imageIndex: i, segment: segment });
 
       currentPosition += segmentSize;
@@ -39,6 +56,14 @@ const Template2 = ({ storyData }: Template) => {
 
     setTextSegmentsMobile(textSegments);
   };
+
+  // useEffect(() => {
+  //   if (typographyRef.current && imgRef.current) {
+  //     const textHeight = typographyRef.current.offsetHeight;
+  //     setHoleOnTextHeigh(textHeight);
+  //     imgRef.current.style.height = `${textHeight}px`;
+  //   }
+  // }, [typographyRef]);
 
   useEffect(() => {
     if (mobile) divideTextWithImages();
@@ -57,12 +82,12 @@ const Template2 = ({ storyData }: Template) => {
         imgElem.alt = "example";
         imgElem.style.display = "inline";
         imgElem.style.width = "150px";
-        imgElem.style.height = "150px";
+        imgElem.style.height = `${holeOnTextHeigh}px`;
         words.splice(middleWordIndex, 0, imgElem.outerHTML);
         textElem.innerHTML = words.join(" ");
       }
     }
-  }, [mobile]);
+  }, [mobile, holeOnTextHeigh]);
 
   return (
     <>
@@ -122,7 +147,9 @@ const Template2 = ({ storyData }: Template) => {
               fontFamily: "spaceMono",
             }}
           >
-            {story?.punchLines[1] || ""}
+            {lang === "PT"
+              ? story?.punchLines[1]
+              : story?.punchLinesEN[1] || ""}
           </Typography>
         </div>
       </div>
@@ -155,18 +182,20 @@ const Template2 = ({ storyData }: Template) => {
             #{story?.postNumber}_{story?.name}, {story?.age}
           </Typography>
         </div>
-        {mobile && (<Typography
-          style={{
-            fontSize: "18px",
-            fontWeight: 800,
-            lineHeight: "28px",
-            fontFamily: "spaceMono",
-            textAlign: "center",
-            marginTop: "20px"
-          }}
-        >
-          {story?.punchLines[0]}
-        </Typography>)}
+        {mobile && (
+          <Typography
+            style={{
+              fontSize: "18px",
+              fontWeight: 800,
+              lineHeight: "28px",
+              fontFamily: "spaceMono",
+              textAlign: "center",
+              marginTop: "20px",
+            }}
+          >
+            {lang === "PT" ? story?.punchLines[0] : story?.punchLinesEN[0]}
+          </Typography>
+        )}
 
         {!mobile && (
           <div
@@ -185,7 +214,7 @@ const Template2 = ({ storyData }: Template) => {
                 justifyContent: "center",
                 width: "300px",
                 position: "absolute",
-                height: "150px",
+                //height: `${holeOnTextHeigh}px`,
                 backgroundColor: "white",
                 top: 0,
                 left: "calc(50% - 150px)",
@@ -193,6 +222,7 @@ const Template2 = ({ storyData }: Template) => {
               }}
             >
               <Typography
+                ref={typographyRef}
                 style={{
                   fontSize: "18px",
                   fontWeight: 800,
@@ -200,7 +230,7 @@ const Template2 = ({ storyData }: Template) => {
                   fontFamily: "spaceMono",
                 }}
               >
-                {story?.punchLines[0]}
+                {lang === "PT" ? story?.punchLines[0] : story?.punchLinesEN[0]}
               </Typography>
             </div>
 
@@ -220,9 +250,10 @@ const Template2 = ({ storyData }: Template) => {
                   fontSize: "70px",
                   fontWeight: "40px",
                   fontFamily: "spaceMono",
+                  textTransform: "uppercase",
                 }}
               >
-                {story?.resume?.[0]}
+                {lang === "PT" ? story?.resume?.[0] : story?.resumeEN?.[0]}
               </Typography>
             </div>
             <div
@@ -230,7 +261,7 @@ const Template2 = ({ storyData }: Template) => {
                 float: "right",
 
                 width: "150px",
-                height: "150px",
+                height: `${holeOnTextHeigh}px`,
                 margin: "0 0px 0px 0",
                 display: "flex",
                 justifyContent: "center",
@@ -240,7 +271,9 @@ const Template2 = ({ storyData }: Template) => {
 
             <div ref={textRef}>
               <Typography style={{ fontFamily: "spaceMono" }}>
-                {story?.resume?.substring(1)}
+                {lang === "PT"
+                  ? story?.resume?.substring(1)
+                  : story?.resumeEN?.substring(1)}
               </Typography>
             </div>
           </div>
@@ -275,7 +308,6 @@ const Template2 = ({ storyData }: Template) => {
                     fontFamily: "spaceMono",
                     textAlign: "justify",
                     marginBottom: "30px",
-
                   }}
                 >
                   {textSegmentsMobile[index].segment}
@@ -303,7 +335,7 @@ const Template2 = ({ storyData }: Template) => {
           fontFamily: "spaceMono",
         }}
       >
-        {story?.ps || ""}
+        {lang === "PT" ? story?.ps : story?.psEN || ""}
       </Typography>
     </>
   );

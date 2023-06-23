@@ -4,6 +4,8 @@ import { ROUTE_PATHS } from "../../../../constants/routes";
 import { Book } from "../../../../slicer/books/books.types";
 import CardMedia from "../../../../components/CardMedia";
 import { useMemo, useState } from "react";
+import { useSelector } from "react-redux";
+import { State } from "../../../../slicer/types";
 
 interface Props {
   mobile: boolean;
@@ -14,10 +16,11 @@ interface Props {
 const Element = ({ mobile, pos, item }: Props) => {
   const [hover, setHover] = useState<boolean>(false);
   const navigate = useNavigate();
-
+  const lang = useSelector<State, string>((state) => state.general.lang);
   const randomOrders = useMemo(() => {
     return Array.from({ length: 3 }, () => Math.floor(Math.random() * 3));
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   const randomPunchlineIndex = useMemo(() => {
     return Math.floor(Math.random() * item.punchLines.length);
@@ -28,13 +31,12 @@ const Element = ({ mobile, pos, item }: Props) => {
     <>
       {mobile && (
         <Typography
-          fontSize="14px"
+          fontSize='14px'
           style={{
             color: hover ? "#ffffff8d" : "#131212",
             fontFamily: "spaceMono",
             textAlign: "justify",
             marginTop: "20px",
-
           }}
         >
           <b>#{item?.postNumber}</b>_{item?.name}
@@ -83,62 +85,71 @@ const Element = ({ mobile, pos, item }: Props) => {
             height={hover ? "500px" : `300px`}
           />
         </div>
-        {!mobile && (<div
-          style={{
-            width: mobile ? "33.3%" : "25%",
-            opacity: hover ? 0.6 : 1,
-            transition: "all 1.5s ease-in-out",
-            order: randomOrders[2],
-          }}
-        >
-          <CardMedia
-            image={
-              item && item.content2 && item.content2.length > 0
-                ? item.content2[2]
-                : ""
-            }
-            height={hover ? "500px" : `300px`}
-          />
-        </div>)}
-        {!mobile && (<Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          style={{
-            cursor: "pointer",
-            width: "25%",
-
-            transition: "all 1.5s ease-in-out",
-            backgroundColor: hover ? "#131212" : "white",
-            padding: "10px",
-            order: randomOrders[0],
-          }}
-        >
-          <Typography
-            fontSize="1.5rem"
+        {!mobile && (
+          <div
             style={{
-              color: hover ? "#ffffff8d" : "#131212",
-              fontFamily: "spaceMono",
-              textAlign: "center",
-
+              width: mobile ? "33.3%" : "25%",
+              opacity: hover ? 0.6 : 1,
+              transition: "all 1.5s ease-in-out",
+              order: randomOrders[2],
             }}
           >
-            {hover ? item?.name : item?.punchLines[randomPunchlineIndex]}
-          </Typography>
-        </Box>)}
+            <CardMedia
+              image={
+                item && item.content2 && item.content2.length > 0
+                  ? item.content2[2]
+                  : ""
+              }
+              height={hover ? "500px" : `300px`}
+            />
+          </div>
+        )}
+        {!mobile && (
+          <Box
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            style={{
+              cursor: "pointer",
+              width: "25%",
 
+              transition: "all 1.5s ease-in-out",
+              backgroundColor: hover ? "#131212" : "white",
+              padding: "10px",
+              order: randomOrders[0],
+            }}
+          >
+            <Typography
+              fontSize='1.5rem'
+              style={{
+                color: hover ? "#ffffff8d" : "#131212",
+                fontFamily: "spaceMono",
+                textAlign: "center",
+              }}
+            >
+              {hover
+                ? item?.name
+                : lang === "PT"
+                  ? item?.punchLines[randomPunchlineIndex]
+                  : item?.punchLinesEN[randomPunchlineIndex]}
+            </Typography>
+          </Box>
+        )}
       </div>
       {mobile && (
         <Typography
-          fontSize="14px"
+          fontSize='14px'
           style={{
             color: hover ? "#ffffff8d" : "#131212",
             fontFamily: "spaceMono",
             textAlign: "justify",
-
           }}
         >
-          "{item?.punchLines[randomPunchlineIndex]}"
+          "
+          {lang === "PT"
+            ? item?.punchLines[randomPunchlineIndex]
+            : item?.punchLinesEN[randomPunchlineIndex]}
+          "
         </Typography>
       )}
     </>

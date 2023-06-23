@@ -38,7 +38,9 @@ export interface Book {
   createdDate?: Date;
   template?: string;
   punchLines: string[];
+  punchLinesEN: string[];
   ps:string
+  psEN:string
   postNumber:number;
   carrousel:boolean
 }

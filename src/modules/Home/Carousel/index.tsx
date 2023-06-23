@@ -15,6 +15,9 @@ import { Book } from "../../../slicer/books/books.types";
 import { useQuery } from "react-query";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
+import { i18n } from "../../../translations/i18n";
+import { useSelector } from "react-redux";
+import { State } from "../../../slicer/types";
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
@@ -22,6 +25,7 @@ const Carousel = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const lang = useSelector<State, string>((state) => state.general.lang)
 
   const handleFetchCarrousel = async () => {
     try {
@@ -114,7 +118,7 @@ const Carousel = () => {
                     fontFamily: "SpaceMono",
                   }}
                 >
-                  "{carrouselData[index]?.resume}
+                  "{lang === "PT" ? carrouselData[index]?.resume : carrouselData[index]?.resumeEN}"
                 </Typography>
               )}
               {!mobile && (<Typography fontSize={"15px"}>...</Typography>)}
@@ -129,7 +133,7 @@ const Carousel = () => {
                   opacity: hover ? 1 : 0.5,
                 }}
               >
-                "{carrouselData[index]?.punchLines[0]}"
+                "{lang === "PT" ? carrouselData[index]?.punchLines[0] : carrouselData[index]?.punchLinesEN[0]}"
               </Typography>
               <Button2
                 onClick={() =>
@@ -153,7 +157,7 @@ const Carousel = () => {
                   textTransform: "lowercase",
                 }}
                 borderRadius='4px'
-                label='Visit Story'
+                label={i18n.t("modules.home.carrousel.button")}
               />
             </div>
             <div
