@@ -121,7 +121,7 @@ const Carousel = () => {
                   "{lang === "PT" ? carrouselData[index]?.resume : carrouselData[index]?.resumeEN}"
                 </Typography>
               )}
-              {!mobile && (<Typography fontSize={"15px"}>...</Typography>)}
+              {!mobile && (<Typography fontSize={"15px"}>..."</Typography>)}
               <Typography
                 fontSize={"15px"}
                 color='whitesmoke'

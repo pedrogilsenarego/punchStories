@@ -32,7 +32,7 @@ export const content = {
         about: {
           title: "_About The Project",
           mainText:
-            "ÀBolina was conceived to tell people stories. Stories that cherish memory. Stories that give us hope. Stories that inspire us to be audacious, to have courage and resilience. The creative books we publish are high quality in pictures and content, and are aimed at reinforcing a desire to strive for a greater good in children and teenagers.\n\n Above all, we hope that our stories meet the needs of families educating their children to be confident, balanced individuals, capable of making responsible choices, able to think for themselves, perceive where the truth lies and to act with kindness.",
+            "This project is born with the essential eagerness to talk with and about people, whether we know them or not, and compile their moments of impact.<br /><br /> The stories that will be told are those of real people, who “strip” to expose their moments of loss, pain, happiness and anguish. Although these people are real, they may tell their stories under a pseudonym to protect the impact of their stories on others.<br /><br /> A good story is timeless and can change attitudes.<br /><br /> I want to make an impact!<br /><br /> Teresa Sá",
         },
         books: {
           book: {
@@ -102,6 +102,9 @@ export const content = {
             imagesKeep: "Images to keep",
             imagesDelete: "Images to Delete",
           },
+        },
+        contacts: {
+          title: "_Contacts",
         },
       },
       notifications: {

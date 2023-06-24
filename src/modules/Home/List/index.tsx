@@ -1,6 +1,4 @@
 import { Container, Typography } from "@mui/material";
-import Button from "../../../components/Buttons/Button";
-
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -66,8 +64,9 @@ const List = ({ mobile }: Props) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+
+
+            minHeight: "100vh"
           }}
           maxWidth={"xl"}
         >
@@ -76,7 +75,7 @@ const List = ({ mobile }: Props) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "center",
+
               width: "100%",
             }}
           >

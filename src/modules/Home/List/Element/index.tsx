@@ -110,9 +110,10 @@ const Element = ({ mobile, pos, item }: Props) => {
             justifyContent='center'
             alignItems='center'
             style={{
+              height: hover ? "500px" : `300px`,
               cursor: "pointer",
               width: "25%",
-
+              overflowY: "hidden",
               transition: "all 1.5s ease-in-out",
               backgroundColor: hover ? "#131212" : "white",
               padding: "10px",
@@ -120,11 +121,12 @@ const Element = ({ mobile, pos, item }: Props) => {
             }}
           >
             <Typography
-              fontSize='1.5rem'
+              fontSize='1.3rem'
               style={{
                 color: hover ? "#ffffff8d" : "#131212",
                 fontFamily: "spaceMono",
                 textAlign: "center",
+
               }}
             >
               {hover
@@ -132,6 +134,7 @@ const Element = ({ mobile, pos, item }: Props) => {
                 : lang === "PT"
                   ? item?.punchLines[randomPunchlineIndex]
                   : item?.punchLinesEN[randomPunchlineIndex]}
+
             </Typography>
           </Box>
         )}

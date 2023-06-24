@@ -33,7 +33,10 @@ export const content = {
         about: {
           title: "_Sobre o Projecto",
           mainText:
-            "A Editora ÀBolina nasce para contar histórias. Histórias que valorizam a memória. Histórias que estimulam a esperança. Histórias que motivam para a audácia, para a coragem e resiliência.\n\n Publicamos livros criativos e de boa qualidade de texto e imagem, que fortificam o desejo de um bem maior em crianças e adolescentes. Em especial, esperamos que as nossas histórias respondam à necessidade das famílias de educarem os seus filhos como pessoas auto-confiantes, equilibradas, capazes de escolhas responsáveis, de pensar e discernir a verdade e de agir com bondade.",
+            "Este projeto nasce com a irrequietude que é necessária para falar com e sobre pessoas, sejam conhecidas ou desconhecidas, e coletar os seus momentos de impacto.<br /><br /> As histórias que serão contadas são de pessoas reais, que se “despem” para expor os seus momentos de perda, dor, alegria e angústia. Estas pessoas, embora reais, poderão surgir nas suas histórias com nomes fictícios, de modo a protegerem o impacto da sua própria história noutros.<br /><br /> Uma boa história é intemporal e pode mudar atitudes.<br /><br /> Quero criar impactos!<br /><br /> Ass. Teresa Sá.",
+        },
+        contacts: {
+          title: "_Contactos",
         },
         books: {
           book: {

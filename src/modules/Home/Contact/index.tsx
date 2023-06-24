@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 import { ROUTE_PATHS } from "../../../constants/routes";
 import { scrollTo } from "../../../slicer/general/general.actions";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Divider, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { i18n } from "../../../translations/i18n";
+import { useNavigate } from "react-router";
 
 const Contact = () => {
 
@@ -14,6 +16,7 @@ const Contact = () => {
   );
   const theme = useTheme()
   const mobile = useMediaQuery(theme.breakpoints.down("sm"))
+  const navigate = useNavigate()
 
   const handleScrollToContacts = () => {
     if (null !== contactsRef.current) {
@@ -33,8 +36,45 @@ const Contact = () => {
   }, [scrollToL]);
 
   return (
-    <div ref={contactsRef} style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
-    </div>
+    <Box
+      display='flex'
+      flexDirection='column'
+
+      alignItems={mobile ? "start" : "center"}
+      ref={contactsRef}
+      style={{
+        backgroundColor: "black",
+        paddingBottom: mobile ? "30px" : "140px",
+        minHeight: "100vh",
+      }}
+    >
+      <Container maxWidth={"xl"}>
+        <Box display='flex' flexDirection='column' justifyContent='center'>
+          <Typography
+            onClick={() => navigate(ROUTE_PATHS.ADMIN)}
+            mt={mobile ? "50px" : "50px"}
+            fontSize={mobile ? "20px" : "40px"}
+            color='white'
+            fontWeight={800}
+            style={{
+              textTransform: "uppercase",
+              letterSpacing: "5px",
+              fontFamily: "SpaceMono",
+            }}
+          >
+            {i18n.t("modules.contacts.title")}
+          </Typography>
+        </Box>
+        <Divider
+          style={{
+            marginTop: "60px",
+            backgroundColor: "#ffffff66",
+            width: "100%",
+            height: "1px",
+          }}
+        />
+      </Container>
+    </Box>
   )
 }
 
