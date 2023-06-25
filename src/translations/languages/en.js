@@ -105,6 +105,8 @@ export const content = {
         },
         contacts: {
           title: "_Contacts",
+          mainText:
+            "Want to make part of Punch Stories?<br /><br />Vamos ser, juntos, o que somos, pessoas com momentos de impacto. Porque se os filmes têm punchlines, a vida tem punch moments, e eu estarei para ouvir o vosso.<br /><br /> Conte-me a sua história: <b>punchstories@outlook.pt</b>",
         },
       },
       notifications: {

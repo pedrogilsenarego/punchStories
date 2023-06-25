@@ -64,7 +64,21 @@ const Contact = () => {
           >
             {i18n.t("modules.contacts.title")}
           </Typography>
+          <Typography
+            mt={mobile ? "15px" : "70px"}
+            fontSize={mobile ? "14px" : "20px"}
+            color='#ffffff66'
+            style={{
+              fontFamily: "SpaceMono",
+              textAlign: "justify",
+
+            }}
+            dangerouslySetInnerHTML={{
+              __html: i18n.t("modules.contacts.mainText"),
+            }}
+          />
         </Box>
+
         <Divider
           style={{
             marginTop: "60px",
