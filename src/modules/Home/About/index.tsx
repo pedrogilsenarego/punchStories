@@ -45,53 +45,95 @@ const About = () => {
     <Box
       display='flex'
       flexDirection='column'
-
       alignItems={mobile ? "start" : "center"}
       ref={contactsRef}
       style={{
         backgroundColor: Colors.darkGrey,
         paddingBottom: mobile ? "30px" : "0px",
-        minHeight: "100vh"
+        minHeight: "100vh",
       }}
     >
       <Container maxWidth={"xl"}>
-        <Box display='flex' flexDirection='column' justifyContent="space-between">
-          <Typography
-            onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-            mt={mobile ? "50px" : "50px"}
-            fontSize={mobile ? "20px" : "40px"}
-            color='white'
-            fontWeight={800}
+        <Box
+          display='flex'
+          flexDirection={!mobile ? "row" : "column"}
+          justifyContent='space-between'
+          mt={mobile ? "50px" : "100px"}
+        >
+          {!mobile && (<div
             style={{
-              textTransform: "uppercase",
-              letterSpacing: "5px",
-              fontFamily: "SpaceMono",
-            }}
-          >
-            {i18n.t("modules.about.title")}
-          </Typography>
-          <Typography
-            mt={mobile ? "15px" : "70px"}
-            fontSize={mobile ? "14px" : "20px"}
-            color='#ffffff66'
-            style={{
-              fontFamily: "SpaceMono",
-              textAlign: "justify",
+              width: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+
 
             }}
-            dangerouslySetInnerHTML={{
-              __html: i18n.t("modules.about.mainText"),
+          >
+            <img
+              alt=''
+              width='100%'
+              height='600px'
+              style={{ objectFit: "contain" }}
+              src='https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca'
+            />
+          </div>)}
+          <div style={{ width: mobile ? "100%" : "50%", height: "100%" }}>
+            <Typography
+              onClick={() => navigate(ROUTE_PATHS.ADMIN)}
+              fontSize={mobile ? "20px" : "40px"}
+              color='white'
+              fontWeight={800}
+              style={{
+                textAlign: mobile ? "justify" : "end",
+                textTransform: "uppercase",
+                letterSpacing: "5px",
+                fontFamily: "SpaceMono",
+              }}
+            >
+              {i18n.t("modules.about.title")}
+            </Typography>
+            <Typography
+              mt={mobile ? "15px" : "70px"}
+              fontSize={mobile ? "14px" : "20px"}
+              color='#ffffff66'
+              style={{
+                textAlign: mobile ? "justify" : "end",
+                fontFamily: "SpaceMono",
+
+              }}
+              dangerouslySetInnerHTML={{
+                __html: i18n.t("modules.about.mainText"),
+              }}
+            />
+          </div>
+          {mobile && (<div
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "50px"
+
             }}
-          />
+          >
+            <img
+              alt=''
+              width='100%'
+              height='400px'
+              style={{ objectFit: "cover" }}
+              src='https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca'
+            />
+          </div>)}
         </Box>
-        <Divider
+        {!mobile && (<Divider
           style={{
-            marginTop: "150px",
+            marginTop: mobile ? "50px" : "100px",
             backgroundColor: "#ffffff66",
             width: "100%",
             height: "1px",
           }}
-        />
+        />)}
       </Container>
     </Box>
   );
