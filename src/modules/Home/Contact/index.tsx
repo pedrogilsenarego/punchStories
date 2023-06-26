@@ -37,7 +37,7 @@ const Contact = () => {
   const handleInstagram = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      window.location.href = "instagram://user?username=punch.stories";
+      window.location.href = "instagram://user?username=punchstories2023";
       setTimeout(() => {
         window.location.href =
           "https://www.instagram.com/punchstories2023/?igshid=MzNlNGNkZWQ4Mg%3D%3D";
