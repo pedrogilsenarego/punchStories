@@ -1,5 +1,5 @@
 
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useTheme, useMediaQuery, Typography } from "@mui/material";
 import List from "./List";
 import About from "./About";
 import Carousel from "./Carousel";
@@ -67,10 +67,15 @@ const Home = () => {
       <div>
         <Contact />
       </div>
-      <Button
-        label='Login'
-        onClick={() => navigate(ROUTE_PATHS.ADMIN)}
-      />
+      <div style={{ position: "relative", padding: "5px", display: "flex", justifyContent: "center" }}>
+        <Typography>
+          Web Engineering . Pedro Sena Rego
+        </Typography>
+        <div
+          style={{ position: "absolute", right: 0, width: "50px", height: "30px" }}
+          onClick={() => navigate(ROUTE_PATHS.ADMIN)}
+        />
+      </div>
     </>
   );
 };

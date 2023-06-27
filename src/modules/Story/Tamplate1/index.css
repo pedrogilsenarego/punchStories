@@ -1,3 +1,21 @@
 img {
   float: left;
 }
+
+.glass-background {
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust the transparency as needed */
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)); /* Adjust the gradient colors and transparency as needed */
+}
+
+.glass-background::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.glass-background::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the background color of the scrollbar track */
+}
+
+.glass-background::-webkit-scrollbar-thumb {
+  background-color: rgba(31, 26, 26, 0.635); /* Set the color of the scrollbar thumb */
+  border-radius: 6px;
+}

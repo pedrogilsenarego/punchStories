@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { Template } from "../types";
 import { IoIosArrowBack } from "react-icons/io";
-import { generalConstants } from "../../../constants/general";
 import "./index.css";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
@@ -12,11 +11,10 @@ import { ROUTE_PATHS } from "../../../constants/routes";
 
 const Template1 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(
-    new Image(150, 150)
-  );
-  const story = useSelector<State, Book>((state) => state.books.book)
-  const navigate = useNavigate()
+  const imgRef = useRef<HTMLImageElement>(new Image(150, 150));
+  const story = useSelector<State, Book>((state) => state.books.book);
+  const lang = useSelector<State, string>((state) => state.general.lang);
+  const navigate = useNavigate();
   useEffect(() => {
     const textElem = textRef.current;
     const imgElem = imgRef.current;
@@ -40,17 +38,18 @@ const Template1 = ({ storyData }: Template) => {
           width: "100vw",
           backgroundColor: "#bcc0be",
           position: "relative",
-          height: "100vh",
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
         <img
           style={{
             width: "40%",
-            height: "100%",
-
+            height: "100vh",
           }}
           src={story?.content2[1]}
-          alt=""
+          alt=''
         />
         <div
           onClick={() => navigate(ROUTE_PATHS.HOME)}
@@ -89,16 +88,6 @@ const Template1 = ({ storyData }: Template) => {
           <Typography style={{ fontWeight: 800 }}>04, May 2023</Typography>
         </div>
         <div style={{ position: "absolute", top: "20%", left: "35%" }}>
-          <Typography
-            style={{
-              fontSize: "20px",
-              color: "black",
-              fontWeight: "800",
-              textTransform: "uppercase",
-            }}
-          >
-            {story?.name}
-          </Typography>
           <img
             src={story?.content2[0]}
             alt=''
@@ -115,96 +104,56 @@ const Template1 = ({ storyData }: Template) => {
             position: "absolute",
             top: "calc(20% + 30vw + 10px)",
             left: "calc(40% + 10px)",
-            width: "30%",
+            width: "calc(19.5% - 20px)",
           }}
         >
-          <Typography style={{ fontSize: "18px" }}>
-            {story?.punchLines[0] || ""}
-          </Typography>
-        </div>
-      </div>
-      <div
-        style={{
-          minHeight: "100vh",
-          width: "100vw",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          paddingLeft: generalConstants.PADDING,
-          paddingRight: generalConstants.PADDING,
-          marginBottom: "200px"
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography style={{ whiteSpace: "pre-line", fontSize: "150px" }}>
-            {story?.name}
-          </Typography>
-          <Typography
-            style={{
-              whiteSpace: "pre-line",
-              fontSize: "200px",
-              textTransform: "uppercase",
-              lineHeight: "35px",
-            }}
-          >
-            {story?.name}
+          <Typography style={{ fontSize: "18px", fontFamily: "spaceMono" }}>
+            "{story?.punchLines[0] || ""}"
           </Typography>
         </div>
         <div
           style={{
-            marginTop: "100px",
-            columns: 2,
-            columnGap: "30px",
-            textAlign: "justify",
-            position: "relative"
+            height: "95vh",
+            width: "42.5%",
+            padding: "30px",
+            marginTop: "40px",
           }}
         >
-          <div style={{ textAlign: "center", display: "flex", justifyContent: "center", width: "300px", position: "absolute", height: "150px", backgroundColor: "white", top: 0, left: "calc(50% - 150px)", right: 0 }}>
-            <Typography style={{ fontSize: "23px", fontWeight: 800, lineHeight: "28px" }}>{story?.punchLines[1]}</Typography>
-          </div>
           <div
+            className='glass-background'
             style={{
-              float: "left",
-              width: "80px",
-              height: "100px",
-              margin: "0 0px 0px 0",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              height: "100%",
+              overflowY: "scroll",
+              padding: "15px 15px 15px 30px",
+              borderRadius: "10px",
+              paddingTop: "20px",
+              backgroundColor: "",
             }}
           >
-            <Typography style={{ fontSize: "40px", fontWeight: "40px" }}>
-              {story?.resume?.[0]}
-            </Typography>
-          </div>
-          <div
-            style={{
-
-              float: "right",
-
-              width: "150px",
-              height: "150px",
-              margin: "0 0px 0px 0",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-
-          </div>
-
-          <div ref={textRef}>
-            <Typography>
-              {story?.resume?.substring(1)}
-
+            <Typography
+              style={{
+                fontSize: "20px",
+                color: "black",
+                fontWeight: "800",
+                fontFamily: "spaceMono",
+                textTransform: "uppercase",
+              }}
+            >
+              #{story?.postNumber}_{story?.name},{story?.age}
             </Typography>
 
+            <Typography style={{ fontFamily: "spaceMono", marginTop: "14px" }}>
+              {lang === "PT" ? story?.resume : story?.resumeEN}
+            </Typography>
+            <Typography
+              style={{
+                fontFamily: "spaceMono",
+                marginTop: "20px",
+                marginBottom: "20px",
+              }}
+            >
+              {lang === "PT" ? story?.ps : story?.psEN}
+            </Typography>
           </div>
         </div>
       </div>
