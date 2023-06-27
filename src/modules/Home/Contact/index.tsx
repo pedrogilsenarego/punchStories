@@ -37,14 +37,14 @@ const Contact = () => {
   const handleInstagram = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      window.location.href = "instagram://user?username=punchstories2023";
+      window.location.href = "instagram://user?username=_punch_stories";
       setTimeout(() => {
         window.location.href =
-          "https://www.instagram.com/punchstories2023/?igshid=MzNlNGNkZWQ4Mg%3D%3D";
+          "https://instagram.com/_punch_stories?igshid=MzNlNGNkZWQ4Mg==";
       }, 1000);
     } else {
       window.open(
-        "https://www.instagram.com/punchstories2023/?igshid=MzNlNGNkZWQ4Mg%3D%3D",
+        "https://instagram.com/_punch_stories?igshid=MzNlNGNkZWQ4Mg==",
         "_blank"
       );
     }
