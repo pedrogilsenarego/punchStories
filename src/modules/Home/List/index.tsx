@@ -62,7 +62,7 @@ const List = ({ mobile }: Props) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: stories?.length === 1 ? "center" : "start",
+            justifyContent: stories?.length === 10 ? "center" : "start",
 
             minHeight: "100vh",
           }}
@@ -92,7 +92,7 @@ const List = ({ mobile }: Props) => {
           </div>
           <div
             style={{
-              paddingTop: "30vh",
+              paddingTop: mobile ? "10vh" : "30vh",
               marginBottom: "-30vh",
               flexDirection: "column",
               display: "flex",
@@ -100,10 +100,10 @@ const List = ({ mobile }: Props) => {
               justifyContent: "center",
             }}
           >
-            <Typography style={{ fontSize: "80px", fontFamily: "spaceMono" }}>
+            <Typography style={{ fontSize: mobile ? "60px" : "80px", fontFamily: "spaceMono", textAlign: mobile ? "center" : "start" }}>
               {i18n.t("modules.home.comingSoon")}
             </Typography>
-            <Typography style={{ fontSize: "20px", fontFamily: "spaceMono" }}>
+            <Typography style={{ fontSize: "20px", fontFamily: "spaceMono", textAlign: mobile ? "center" : "start" }}>
               {i18n.t("modules.home.comingSoonS")}
             </Typography>
           </div>
