@@ -7,7 +7,6 @@ import { State } from "../../../slicer/types";
 import { Book } from "../../../slicer/books/books.types";
 import { useNavigate } from "react-router";
 import { ROUTE_PATHS } from "../../../constants/routes";
-import { generalConstants } from "../../../constants/general";
 
 const Template1 = ({ storyData }: Template) => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -180,14 +179,7 @@ const Template1 = ({ storyData }: Template) => {
             >
               {lang === "PT" ? story?.resume : story?.resumeEN}
             </Typography>
-            <Typography
-              style={{
-                fontFamily: "spaceMono",
-                marginTop: "30px",
-              }}
-            >
-              {lang === "PT" ? story?.ps : story?.psEN}
-            </Typography>
+
             <Grid
               container
               marginTop='40px'
@@ -218,6 +210,15 @@ const Template1 = ({ storyData }: Template) => {
                 );
               })}
             </Grid>
+            <Typography
+              style={{
+                fontFamily: "spaceMono",
+                marginTop: "30px",
+                marginBottom: "60px"
+              }}
+            >
+              {lang === "PT" ? story?.ps : story?.psEN}
+            </Typography>
           </div>
         </div>
       </div>
