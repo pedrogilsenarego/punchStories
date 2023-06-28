@@ -249,9 +249,12 @@ const Template2 = ({ storyData }: Template) => {
                   fontFamily: "spaceMono",
                   textTransform: "uppercase",
                 }}
-              >
-                {lang === "PT" ? story?.resume?.[0] : story?.resumeEN?.[0]}
-              </Typography>
+                dangerouslySetInnerHTML={{
+                  __html: lang === "PT" ? story?.resume?.[0] : story?.resumeEN?.[0],
+                }}
+              />
+
+
             </div>
             <div
               style={{
