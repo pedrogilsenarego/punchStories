@@ -310,7 +310,6 @@ const Template2 = ({ storyData }: Template) => {
                     __html: textSegmentsMobile[index].segment
                   }}
                 />
-
               )}
               <img
                 alt=''

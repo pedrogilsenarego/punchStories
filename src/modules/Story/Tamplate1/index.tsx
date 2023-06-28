@@ -100,12 +100,13 @@ const Template1 = ({ storyData }: Template) => {
           <Typography
             style={{
               position: "absolute",
-              top: "-30px",
+              top: "-35px",
               right: "10px",
-              fontSize: "20px",
+              fontSize: "24px",
               color: "#000000c9",
               fontWeight: "800",
               fontFamily: "spaceMono",
+
               textTransform: "uppercase",
             }}
           >
@@ -145,7 +146,7 @@ const Template1 = ({ storyData }: Template) => {
               style={{
                 fontSize: "24px",
                 fontFamily: "spaceMono",
-                textAlign: "justify",
+                textAlign: "center",
               }}
             >
               "{story?.punchLines[0] || ""}"
@@ -175,40 +176,13 @@ const Template1 = ({ storyData }: Template) => {
                 marginTop: "14px",
                 textAlign: "justify",
               }}
-            >
-              {lang === "PT" ? story?.resume : story?.resumeEN}
-            </Typography>
+              dangerouslySetInnerHTML={{
+                __html: lang === "PT" ? story?.resume : story?.resumeEN,
+              }}
+            />
 
-            <Grid
-              container
-              marginTop='40px'
-              marginBottom="40px"
-              columnSpacing='10px'
-              rowSpacing='10px'
-            >
-              {story?.content2?.map((image, index) => {
-                return (
-                  <Grid
-                    item
-                    xs={xsNumber()}
-                    key={index}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <img
-                      alt=''
-                      src={image}
-                      height='500px'
-                      width='100%'
-                      style={{ objectFit: mobile ? "cover" : "contain" }}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
+
+
             <Typography
               style={{
                 textAlign: "justify",
