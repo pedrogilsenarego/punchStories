@@ -97,6 +97,20 @@ const Template1 = ({ storyData }: Template) => {
             transition: "all 1.5s ease-in-out",
           }}
         >
+          <Typography
+            style={{
+              position: "absolute",
+              top: "-30px",
+              right: "10px",
+              fontSize: "20px",
+              color: "#000000c9",
+              fontWeight: "800",
+              fontFamily: "spaceMono",
+              textTransform: "uppercase",
+            }}
+          >
+            #{story?.postNumber}_{story?.name},{story?.age}
+          </Typography>
           <img
             src={story?.content2[0]}
             alt=''
@@ -104,7 +118,6 @@ const Template1 = ({ storyData }: Template) => {
               width: "25vw",
               height: "25vw",
               objectFit: "cover",
-
               border: "solid 10px #ffffff",
               transition: "all 1.5s ease-in-out",
             }}
@@ -123,9 +136,7 @@ const Template1 = ({ storyData }: Template) => {
               justifyContent: "center",
               alignItems: "center",
               padding: "40px",
-
               opacity: hover ? 1 : 0,
-
               transition: "all 1.5s ease-in-out",
               boxShadow: "6px 6px 10px #00000039",
             }}
@@ -146,7 +157,7 @@ const Template1 = ({ storyData }: Template) => {
           style={{
             width: "100%",
             paddingRight: "60px",
-            paddingTop: "40px",
+            paddingTop: "20px",
             marginTop: hover ? "71vh" : "67vh",
             transition: "all 1.5s ease-in-out",
             display: "flex",
@@ -158,18 +169,6 @@ const Template1 = ({ storyData }: Template) => {
               width: "75%",
             }}
           >
-            <Typography
-              style={{
-                fontSize: "20px",
-                color: "black",
-                fontWeight: "800",
-                fontFamily: "spaceMono",
-                textTransform: "uppercase",
-              }}
-            >
-              #{story?.postNumber}_{story?.name},{story?.age}
-            </Typography>
-
             <Typography
               style={{
                 fontFamily: "spaceMono",
@@ -212,9 +211,12 @@ const Template1 = ({ storyData }: Template) => {
             </Grid>
             <Typography
               style={{
+                textAlign: "justify",
                 fontFamily: "spaceMono",
                 marginTop: "30px",
-                marginBottom: "60px"
+                fontSize: "18px",
+                marginBottom: "60px",
+                fontWeight: "bold"
               }}
             >
               {lang === "PT" ? story?.ps : story?.psEN}
