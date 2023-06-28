@@ -249,12 +249,9 @@ const Template2 = ({ storyData }: Template) => {
                   fontFamily: "spaceMono",
                   textTransform: "uppercase",
                 }}
-                dangerouslySetInnerHTML={{
-                  __html: lang === "PT" ? story?.resume?.[0] : story?.resumeEN?.[0],
-                }}
-              />
-
-
+              >
+                {lang === "PT" ? story?.resume?.[0] : story?.resumeEN?.[0]}
+              </Typography>
             </div>
             <div
               style={{
@@ -270,11 +267,11 @@ const Template2 = ({ storyData }: Template) => {
             ></div>
 
             <div ref={textRef}>
-              <Typography style={{ fontFamily: "spaceMono" }}>
-                {lang === "PT"
+              <Typography style={{ fontFamily: "spaceMono" }} dangerouslySetInnerHTML={{
+                __html: lang === "PT"
                   ? story?.resume?.substring(1)
-                  : story?.resumeEN?.substring(1)}
-              </Typography>
+                  : story?.resumeEN?.substring(1),
+              }} />
             </div>
           </div>
         )}
@@ -309,9 +306,11 @@ const Template2 = ({ storyData }: Template) => {
                     textAlign: "justify",
                     marginBottom: "30px",
                   }}
-                >
-                  {textSegmentsMobile[index].segment}
-                </Typography>
+                  dangerouslySetInnerHTML={{
+                    __html: textSegmentsMobile[index].segment
+                  }}
+                />
+
               )}
               <img
                 alt=''
