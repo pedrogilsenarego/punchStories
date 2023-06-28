@@ -64,7 +64,7 @@ const List = ({ mobile }: Props) => {
           style={{
             display: "flex",
             flexDirection: "column",
-
+            justifyContent: stories?.length === 1 ? "center" : "start",
 
             minHeight: "100vh"
           }}
@@ -102,6 +102,7 @@ const List = ({ mobile }: Props) => {
               marginTop: mobile ? "0px" : "50px",
               display: "flex",
               flexDirection: "column",
+
             }}
           >
             {stories?.map((item: Book, pos: number) => {

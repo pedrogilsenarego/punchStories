@@ -1,7 +1,7 @@
 import { Container, useMediaQuery, useTheme } from "@mui/material";
 import { i18n } from "../../translations/i18n";
 import "./index.css";
-import { BsInstagram } from "react-icons/bs";
+
 import logo from "../../assets/images/PunchStories.png";
 import { ROUTE_PATHS } from "../../constants/routes";
 import { useLocation, useNavigate } from "react-router";

@@ -1,7 +1,5 @@
-
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { routes } from './routes'
-
 import NotFound from '../components/NotFound'
 
 const AppRoutes = () => {

@@ -29,6 +29,30 @@ export const routes: AppRoute[] = [
     ),
   },
   {
+    path: ROUTE_PATHS.CONTACT,
+    component: (
+      <MainLayout>
+        <Home />
+      </MainLayout>
+    ),
+  },
+  {
+    path: ROUTE_PATHS.BOOKS,
+    component: (
+      <MainLayout>
+        <Home />
+      </MainLayout>
+    ),
+  },
+  {
+    path: ROUTE_PATHS.ABOUT,
+    component: (
+      <MainLayout>
+        <Home />
+      </MainLayout>
+    ),
+  },
+  {
     path: ROUTE_PATHS.LOGIN,
     component: <Login />,
   },
