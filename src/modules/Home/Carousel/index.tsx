@@ -135,7 +135,7 @@ const Carousel = () => {
               >
                 "{lang === "PT" ? carrouselData[index]?.punchLines[0] : carrouselData[index]?.punchLinesEN[0]}"
               </Typography>
-              <Button2
+              {/* <Button2
                 onClick={() =>
                   navigate(
                     ROUTE_PATHS.STORY.replace(
@@ -158,7 +158,7 @@ const Carousel = () => {
                 }}
                 borderRadius='4px'
                 label={i18n.t("modules.home.carrousel.button")}
-              />
+              /> */}
             </div>
             <div
               style={{

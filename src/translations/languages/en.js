@@ -28,6 +28,9 @@ export const content = {
           },
           mainTextBtn: "READ MORE",
           stories: "_Stories",
+          comingSoon: "Coming Soon",
+          comingSoonS:
+            "Colected punches to present to you in the next days. Stay tuned!",
         },
         about: {
           title: "_About The Project",

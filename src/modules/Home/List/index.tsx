@@ -24,9 +24,7 @@ const List = ({ mobile }: Props) => {
   const loading = useSelector<State, boolean>((state) => state.general.loading);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const scrollToL = useSelector<State>(
-    (state) => state.general.scrollTo
-  );
+  const scrollToL = useSelector<State>((state) => state.general.scrollTo);
 
   const handleScrollToList = () => {
     if (null !== listRef.current) {
@@ -66,7 +64,7 @@ const List = ({ mobile }: Props) => {
             flexDirection: "column",
             justifyContent: stories?.length === 1 ? "center" : "start",
 
-            minHeight: "100vh"
+            minHeight: "100vh",
           }}
           maxWidth={"xl"}
         >
@@ -80,7 +78,7 @@ const List = ({ mobile }: Props) => {
             }}
           >
             <Typography
-              fontSize={mobile ? "20px" : '40px'}
+              fontSize={mobile ? "20px" : "40px"}
               fontWeight={800}
               style={{
                 textAlign: "left",
@@ -91,10 +89,25 @@ const List = ({ mobile }: Props) => {
             >
               {i18n.t("modules.home.stories")}
             </Typography>
-
-
           </div>
           <div
+            style={{
+              paddingTop: "30vh",
+              marginBottom: "-30vh",
+              flexDirection: "column",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography style={{ fontSize: "80px", fontFamily: "spaceMono" }}>
+              {i18n.t("modules.home.comingSoon")}
+            </Typography>
+            <Typography style={{ fontSize: "20px", fontFamily: "spaceMono" }}>
+              {i18n.t("modules.home.comingSoonS")}
+            </Typography>
+          </div>
+          {/* <div
             style={{
               justifyContent: "center",
               width: "100%",
@@ -110,7 +123,7 @@ const List = ({ mobile }: Props) => {
                 <Element item={item} pos={pos} mobile={mobile} key={pos} />
               );
             })}
-          </div>
+          </div> */}
 
           {/* <div style={{ marginTop: "50px" }}>
             <Button
