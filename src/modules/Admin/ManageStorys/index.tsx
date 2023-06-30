@@ -33,12 +33,25 @@ const ManageStorys = () => {
             label={i18n.t("modules.admin.manageBooks.createButton")}
             onClick={() => navigate(ROUTE_PATHS.ADMIN_STORIES_CREATE)}
           />
+          <Button
+            borderRadius="6px"
+            label="ver historia"
+            onClick={() =>
+              navigate(
+                ROUTE_PATHS.STORY.replace(
+                  ":id",
+                  "eSER5bEJtUSCEgXdDmvq"
+                )
+              )
+            }
+          />
+        </Box>
         </Box>
         {tableData.length > 0 && (<Card style={{ padding: "20px" }}>
           <TableList columns={tableColumns} rows={mapBooksItems(tableData).rows} onAction={handleAction} />
         </Card>)}
-
-      </Box >
+        
+     
     </>
   );
 }
