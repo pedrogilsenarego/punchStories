@@ -176,7 +176,7 @@ const Template2 = ({ storyData }: Template) => {
               fontFamily: "spaceMono",
             }}
           >
-            #{story?.postNumber}_{story?.name}, {story?.age}
+            #{story?.postNumber}_{story?.name}
           </Typography>
         </div>
         {mobile && (

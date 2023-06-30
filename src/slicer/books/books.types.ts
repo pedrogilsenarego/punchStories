@@ -28,7 +28,6 @@ export interface Books {
 export interface Book {
   documentID: string;
   name:string;
-  age:string;
   location:string;
   resume: string;
   resumeEN: string;

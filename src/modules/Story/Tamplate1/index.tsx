@@ -54,11 +54,11 @@ const Template1 = ({ storyData }: Template) => {
         <img
           style={{
             position: "fixed",
-            width: "40%",
+            width: mobile ? "100%" : "40%",
             height: "100vh",
           }}
           src={story?.content2[1]}
-          alt=''
+          alt=""
         />
         <div
           onClick={() => navigate(ROUTE_PATHS.HOME)}
@@ -77,8 +77,8 @@ const Template1 = ({ storyData }: Template) => {
           }}
         >
           <IoIosArrowBack
-            size='2.5rem'
-            color='white'
+            size="2.5rem"
+            color="white"
             style={{ marginLeft: "-5px" }}
           />
         </div>
@@ -86,10 +86,11 @@ const Template1 = ({ storyData }: Template) => {
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
+          onClick={()=>mobile?setHover(!hover):null}
           style={{
             position: "relative",
-            top: "20vh",
-            left: "35%",
+            top: mobile?"15vh":"20vh",
+            left: mobile ? "10px" : "35%",
             height: "25vw",
             display: "flex",
 
@@ -101,8 +102,8 @@ const Template1 = ({ storyData }: Template) => {
             style={{
               position: "absolute",
               top: "-35px",
-              right: "10px",
-              fontSize: "24px",
+              right: mobile ? "0px" : "10px",
+              fontSize: mobile?"20px":"24px",
               color: "#000000c9",
               fontWeight: "800",
               fontFamily: "spaceMono",
@@ -110,14 +111,14 @@ const Template1 = ({ storyData }: Template) => {
               textTransform: "uppercase",
             }}
           >
-            #{story?.postNumber}_{story?.name},{story?.age}
+            #{story?.postNumber}_{story?.name}
           </Typography>
           <img
             src={story?.content2[0]}
-            alt=''
+            alt=""
             style={{
-              width: "25vw",
-              height: "25vw",
+              width: mobile ? "70vw" : "25vw",
+              height: mobile ? "70vw" : "25vw",
               objectFit: "cover",
               border: "solid 10px #ffffff",
               transition: "all 1.5s ease-in-out",
@@ -131,8 +132,14 @@ const Template1 = ({ storyData }: Template) => {
               top: "20px",
               marginTop: "10px",
               backgroundColor: "whiteSmoke",
-              width: "calc(25vw - 20px)",
-              height: !hover ? "calc(25vw - 20px)" : "calc(27vw - 20px)",
+              width: mobile ? "calc(70vw - 20px)" : "calc(25vw - 20px)",
+              height: mobile
+                ? !hover
+                  ? "calc(70vw - 20px)"
+                  : "calc(72vw - 20px)"
+                : !hover
+                ? "calc(25vw - 20px)"
+                : "calc(27vw - 20px)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -144,7 +151,7 @@ const Template1 = ({ storyData }: Template) => {
           >
             <Typography
               style={{
-                fontSize: "24px",
+                fontSize: mobile?"16px":"24px",
                 fontFamily: "spaceMono",
                 textAlign: "center",
               }}
@@ -156,10 +163,12 @@ const Template1 = ({ storyData }: Template) => {
 
         <div
           style={{
+            position: mobile ? "absolute" : "inherit",
             width: "100%",
-            paddingRight: "60px",
-            paddingTop: "20px",
-            marginTop: hover ? "71vh" : "67vh",
+            paddingRight: mobile ? "10px" : "60px",
+            paddingLeft: mobile ? "10px" : "0px",
+            paddingTop: mobile?"0px":"20px",
+            marginTop: mobile?hover ? "60vh" : "56vh":hover ? "71vh" : "67vh",
             transition: "all 1.5s ease-in-out",
             display: "flex",
             justifyContent: "end",
@@ -167,21 +176,22 @@ const Template1 = ({ storyData }: Template) => {
         >
           <div
             style={{
-              width: "75%",
+              backgroundColor: mobile ? "#ffffffB3" : "transparent",
+              width: mobile ? "100%" : "75%",
+              padding: mobile ? "10px" : "0px",
             }}
           >
             <Typography
               style={{
                 fontFamily: "spaceMono",
-                marginTop: "14px",
+                fontSize:mobile?"14px":"16px",
+                marginTop: mobile?"0px":"20px",
                 textAlign: "justify",
               }}
               dangerouslySetInnerHTML={{
                 __html: lang === "PT" ? story?.resume : story?.resumeEN,
               }}
             />
-
-
 
             <Typography
               style={{
@@ -190,7 +200,7 @@ const Template1 = ({ storyData }: Template) => {
                 marginTop: "30px",
                 fontSize: "18px",
                 marginBottom: "60px",
-                fontWeight: "bold"
+                fontWeight: "bold",
               }}
             >
               {lang === "PT" ? story?.ps : story?.psEN}

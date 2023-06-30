@@ -62,7 +62,7 @@ const List = ({ mobile }: Props) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: stories?.length === 1 ? "center" : "start",
+            justifyContent: stories?.length === 10 ? "center" : "start",
 
             minHeight: "100vh",
           }}

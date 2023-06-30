@@ -19,7 +19,6 @@ import { addBook } from "../../../../slicer/books/books.actions";
 const SubmitStory = () => {
   const INITIAL_FORM_STATE = {
     name: "",
-    age: null,
     location: "",
     locationEN: "",
     template: "0",
@@ -92,12 +91,7 @@ const SubmitStory = () => {
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
-                    <Box style={{ width: "350px" }}>
-                      <Textfield
-                        label="Age"
-                        name='age'
-                      />
-                    </Box>
+                    
                   </Grid>
                   <Grid item xs={6}>
                     <Box style={{ width: "350px" }}>
