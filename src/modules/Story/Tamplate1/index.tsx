@@ -56,6 +56,7 @@ const Template1 = ({ storyData }: Template) => {
             position: "fixed",
             width: mobile ? "100%" : "40%",
             height: "100vh",
+            objectFit:"cover"
           }}
           src={story?.content2[1]}
           alt=""
@@ -74,6 +75,7 @@ const Template1 = ({ storyData }: Template) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            zIndex:10000
           }}
         >
           <IoIosArrowBack

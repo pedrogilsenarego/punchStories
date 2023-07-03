@@ -135,7 +135,7 @@ const Carousel = () => {
               >
                 "{lang === "PT" ? carrouselData[index]?.punchLines[0] : carrouselData[index]?.punchLinesEN[0]}"
               </Typography>
-              {/* <Button2
+               <Button2
                 onClick={() =>
                   navigate(
                     ROUTE_PATHS.STORY.replace(
@@ -146,7 +146,7 @@ const Carousel = () => {
                 }
                 props={{
                   backgroundColor: "transparent",
-                  marginTop: mobile ? "20px" : "60px",
+                  marginTop: mobile ? "20px" : "20px",
                   border: "solid 2px #ffffff66",
                   paddingHorizontal: "6px",
                   paddingVertical: "6px",
@@ -158,7 +158,7 @@ const Carousel = () => {
                 }}
                 borderRadius='4px'
                 label={i18n.t("modules.home.carrousel.button")}
-              /> */}
+              /> 
             </div>
             <div
               style={{

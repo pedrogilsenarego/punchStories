@@ -90,24 +90,8 @@ const List = ({ mobile }: Props) => {
               {i18n.t("modules.home.stories")}
             </Typography>
           </div>
+          
           <div
-            style={{
-              paddingTop: mobile ? "10vh" : "30vh",
-              marginBottom: "-30vh",
-              flexDirection: "column",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Typography style={{ fontSize: mobile ? "60px" : "80px", fontFamily: "spaceMono", textAlign: mobile ? "center" : "start" }}>
-              {i18n.t("modules.home.comingSoon")}
-            </Typography>
-            <Typography style={{ fontSize: "20px", fontFamily: "spaceMono", textAlign: mobile ? "center" : "start" }}>
-              {i18n.t("modules.home.comingSoonS")}
-            </Typography>
-          </div>
-          {/* <div
             style={{
               justifyContent: "center",
               width: "100%",
@@ -123,7 +107,7 @@ const List = ({ mobile }: Props) => {
                 <Element item={item} pos={pos} mobile={mobile} key={pos} />
               );
             })}
-          </div> */}
+          </div> 
 
           {/* <div style={{ marginTop: "50px" }}>
             <Button
