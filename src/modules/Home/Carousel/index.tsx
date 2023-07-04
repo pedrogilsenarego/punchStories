@@ -19,6 +19,7 @@ import { i18n } from "../../../translations/i18n";
 import { useSelector } from "react-redux";
 import { State } from "../../../slicer/types";
 
+
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
   const [hover, setHover] = useState<boolean>(false);
@@ -26,6 +27,7 @@ const Carousel = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   const lang = useSelector<State, string>((state) => state.general.lang)
+  
 
   const handleFetchCarrousel = async () => {
     try {
@@ -135,7 +137,7 @@ const Carousel = () => {
               >
                 "{lang === "PT" ? carrouselData[index]?.punchLines[0] : carrouselData[index]?.punchLinesEN[0]}"
               </Typography>
-               <Button2
+             {carrouselData[index].active && (  <Button2
                 onClick={() =>
                   navigate(
                     ROUTE_PATHS.STORY.replace(
@@ -158,7 +160,7 @@ const Carousel = () => {
                 }}
                 borderRadius='4px'
                 label={i18n.t("modules.home.carrousel.button")}
-              /> 
+              /> )}
             </div>
             <div
               style={{
