@@ -1,10 +1,15 @@
+import { AiFillEdit } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
 import { templates } from "../../../constants/templates";
 import { Book } from "../../../slicer/books/books.types";
 import { i18n } from "../../../translations/i18n";
 
 const deleteIcon = (
-  <ImCross fontSize='1em' color='black' style={{ cursor: "pointer" }} />
+  <ImCross fontSize="1em" color="black" style={{ cursor: "pointer" }} />
+);
+
+const editIcon = (
+  <AiFillEdit fontSize="1.2rem" color="black" style={{ cursor: "pointer" }} />
 );
 
 const mapBookItem = (book: Book, pos: number) => {
@@ -78,6 +83,12 @@ const mapBookItem = (book: Book, pos: number) => {
     delete: [
       {
         buttonType: "icon",
+        event: "edit",
+        icon: editIcon,
+        label: "Edit",
+      },
+      {
+        buttonType: "icon",
         event: "delete",
         icon: deleteIcon,
         label: "Remove this watch",
@@ -104,3 +115,19 @@ const mapBooksItems = (cartItems: any) => {
 };
 
 export { mapBooksItems };
+
+export const mapInitialForm = (data: any) => {
+  return {
+    name: data?.name || "",
+    location: data?.location || "",
+    locationEN: data?.locationEN || "",
+    template: data?.template || 0,
+    resume: data?.resume || "",
+    resumeEN: data?.resumeEN || "",
+    punchLines: data?.punchLines || [],
+    punchLinesEN: data?.punchLinesEN || [],
+    ps: data?.ps || "",
+    psEN: data?.psEN || "",
+    content: data?.content2 || [],
+  };
+};

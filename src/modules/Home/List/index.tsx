@@ -1,15 +1,15 @@
 import { Container, Typography } from "@mui/material";
-import { ROUTE_PATHS } from "../../../constants/routes";
-import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../../slicer/types";
-import { Book } from "../../../slicer/books/books.types";
 import { useEffect, useRef } from "react";
-import { fetchBooks } from "../../../slicer/books/books.actions";
-import Element from "./Element";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import Loader from "../../../components/Loader";
-import { i18n } from "../../../translations/i18n";
+import { ROUTE_PATHS } from "../../../constants/routes";
+import { fetchBooks } from "../../../slicer/books/books.actions";
+import { Book } from "../../../slicer/books/books.types";
 import { scrollTo } from "../../../slicer/general/general.actions";
+import { State } from "../../../slicer/types";
+import { i18n } from "../../../translations/i18n";
+import Element from "./Element";
 
 interface Props {
   mobile: boolean;
@@ -90,7 +90,7 @@ const List = ({ mobile }: Props) => {
               {i18n.t("modules.home.stories")}
             </Typography>
           </div>
-          
+
           <div
             style={{
               justifyContent: "center",
@@ -99,7 +99,6 @@ const List = ({ mobile }: Props) => {
               marginTop: mobile ? "0px" : "50px",
               display: "flex",
               flexDirection: "column",
-
             }}
           >
             {stories?.map((item: Book, pos: number) => {
@@ -107,7 +106,7 @@ const List = ({ mobile }: Props) => {
                 <Element item={item} pos={pos} mobile={mobile} key={pos} />
               );
             })}
-          </div> 
+          </div>
 
           {/* <div style={{ marginTop: "50px" }}>
             <Button

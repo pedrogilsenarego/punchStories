@@ -1,35 +1,37 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { i18n } from "../../translations/i18n";
+import { store } from "../createStore";
 import {
-  setBooks,
-  setBook,
-  setCarroussell,
+  disableLoading,
+  enableLoading,
+  updateFailNotification,
+  updateSuccessNotification,
+} from "../general/general.actions";
+import { handleUpdatePosts } from "../general/general.helpers";
+import {
   fetchBooks,
+  setBook,
+  setBooks,
+  setCarroussell,
   updateProgress,
 } from "./books.actions";
 import {
-  handleFetchBooks,
-  handleFetchBook,
   handleAddBook,
-  handleAddCoverPage,
-  handleFetchCarroussell,
-  handleUpdateCarroussell,
   handleAddCarroussellImage,
+  handleAddCoverPage,
+  handleDeleteBookStorage,
   handleDeleteCarroussellStorage,
-  handleUpdateNewBookStatus,
-  handleUpdateTemplateStatus,
   handleDeleteStory,
   handleDeleteStoryStorage,
+  handleEditBook,
+  handleFetchBook,
+  handleFetchBooks,
+  handleFetchCarroussell,
+  handleUpdateCarroussell,
+  handleUpdateNewBookStatus,
+  handleUpdateTemplateStatus,
 } from "./books.helpers";
 import bookTypes from "./books.types";
-import {
-  updateSuccessNotification,
-  updateFailNotification,
-  enableLoading,
-  disableLoading,
-} from "../general/general.actions";
-import { i18n } from "../../translations/i18n";
-import { store } from "../createStore";
-import { handleUpdatePosts } from "../general/general.helpers";
 
 function* sagaFetchBooks({ payload }) {
   try {
@@ -232,11 +234,61 @@ export function* onDeleteStory() {
 }
 //
 
+function* sagaEditBook({ payload }) {
+  const { documentID, name, values } = payload;
+
+  const newTitle = values.name || name;
+
+  try {
+    yield put(enableLoading());
+
+    if ("content" in values) {
+      // se as fotos tiverem sido mexidas...
+
+      yield handleDeleteBookStorage(payload.name); //delete nas fotos que existem
+
+      const onProgressUpdate = (progress) => {
+        console.log(progress);
+        store.dispatch(updateProgress(progress));
+      };
+      const content = values.content;
+
+      yield put(updateProgress(0));
+      const content2 = yield call(
+        handleAddCoverPage,
+        newTitle,
+        content,
+        onProgressUpdate
+      );
+
+      values.content = content2;
+    }
+
+    const editPayload = {
+      values,
+      documentID,
+    };
+    console.log(editPayload);
+    yield handleEditBook(editPayload);
+
+    yield put(updateProgress(0));
+    yield put(disableLoading());
+    yield put(updateSuccessNotification("The book was edited"));
+  } catch {
+    yield put(updateFailNotification("Couldn't edit the book this time"));
+  }
+}
+
+export function* onEditBook() {
+  yield takeLatest(bookTypes.EDIT_BOOK, sagaEditBook);
+}
+
 export default function* bookSagas() {
   yield all([
     call(onFetchBooks),
     call(onFetchBook),
     call(onAddBook),
+    call(onEditBook),
     call(onUpdateNewBookStatus),
     call(onUpdateTemplateStatus),
     call(onFetchCarroussell),

@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
-import { ROUTE_PATHS } from "../../../../constants/routes";
-import { Book } from "../../../../slicer/books/books.types";
-import CardMedia from "../../../../components/CardMedia";
 import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import CardMedia from "../../../../components/CardMedia";
+import { ROUTE_PATHS } from "../../../../constants/routes";
+import { Book } from "../../../../slicer/books/books.types";
 import { State } from "../../../../slicer/types";
 
 interface Props {
@@ -23,7 +23,7 @@ const Element = ({ mobile, pos, item }: Props) => {
   }, [lang]);
 
   const randomPunchlineIndex = useMemo(() => {
-    return Math.floor(Math.random() * item.punchLines.length);
+    return Math.floor(Math.random() * item?.punchLines?.length);
   }, [item.punchLines]);
 
   if (!item) return <></>;
@@ -31,7 +31,7 @@ const Element = ({ mobile, pos, item }: Props) => {
     <>
       {mobile && (
         <Typography
-          fontSize='14px'
+          fontSize="14px"
           style={{
             color: hover ? "#ffffff8d" : "#131212",
             fontFamily: "spaceMono",
@@ -78,8 +78,8 @@ const Element = ({ mobile, pos, item }: Props) => {
         >
           <CardMedia
             image={
-              item && item.content2 && item.content2.length > 0
-                ? item.content2[1]
+              item && item?.content2 && item?.content2?.length > 0
+                ? item?.content2[1]
                 : ""
             }
             height={hover ? "500px" : `300px`}
@@ -96,7 +96,7 @@ const Element = ({ mobile, pos, item }: Props) => {
           >
             <CardMedia
               image={
-                item && item.content2 && item.content2.length > 0
+                item && item?.content2 && item?.content2?.length > 0
                   ? item.content2[2]
                   : ""
               }
@@ -106,9 +106,9 @@ const Element = ({ mobile, pos, item }: Props) => {
         )}
         {!mobile && (
           <Box
-            display='flex'
-            justifyContent='center'
-            alignItems='center'
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
             style={{
               height: hover ? "500px" : `300px`,
               cursor: "pointer",
@@ -121,27 +121,25 @@ const Element = ({ mobile, pos, item }: Props) => {
             }}
           >
             <Typography
-              fontSize='1.3rem'
+              fontSize="1.3rem"
               style={{
                 color: hover ? "#ffffff8d" : "#131212",
                 fontFamily: "spaceMono",
                 textAlign: "center",
-
               }}
             >
               {hover
                 ? item?.name
                 : lang === "PT"
-                  ? item?.punchLines[randomPunchlineIndex]
-                  : item?.punchLinesEN[randomPunchlineIndex]}
-
+                ? item?.punchLines[randomPunchlineIndex]
+                : item?.punchLinesEN[randomPunchlineIndex]}
             </Typography>
           </Box>
         )}
       </div>
       {mobile && (
         <Typography
-          fontSize='14px'
+          fontSize="14px"
           style={{
             color: hover ? "#ffffff8d" : "#131212",
             fontFamily: "spaceMono",

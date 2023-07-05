@@ -1,5 +1,4 @@
-import { firestore } from "../../firebase/utils";
-import { storage } from "../../firebase/utils";
+import { firestore, storage } from "../../firebase/utils";
 
 export const handleFetchBooks = ({
   persistProducts = [],
@@ -54,12 +53,15 @@ export const handleFetchBook = (documentID: string) => {
   });
 };
 
-export const handleAddCoverPage = async (name: string, files: any, onProgressUpdate: (progress: number) => void) => {
+export const handleAddCoverPage = async (
+  name: string,
+  files: any,
+  onProgressUpdate: (progress: number) => void
+) => {
   const a = Array.prototype.slice.call(files);
   const c: any = [];
-  let incrementLoad = 100/a.length
-  let loadProgress = 0
-
+  let incrementLoad = 100 / a.length;
+  let loadProgress = 0;
 
   const uploadImageAsPromise = (imageFile: any) => {
     return new Promise<void>((resolve, reject) => {
@@ -75,7 +77,7 @@ export const handleAddCoverPage = async (name: string, files: any, onProgressUpd
             .then((url) => {
               resolve(url);
               console.log(url);
-              loadProgress = loadProgress + incrementLoad
+              loadProgress = loadProgress + incrementLoad;
               onProgressUpdate(~~loadProgress);
               c.push(url);
             });
@@ -83,7 +85,6 @@ export const handleAddCoverPage = async (name: string, files: any, onProgressUpd
         .catch((err) => {
           reject(err);
         });
-     
     });
   };
 
@@ -261,9 +262,9 @@ export const handleDeleteStory = (documentID: string) => {
   });
 };
 
-
-
-export const handleDeleteStoryStorage = async (title: string): Promise<void> => {
+export const handleDeleteStoryStorage = async (
+  title: string
+): Promise<void> => {
   // Define folderPath
   const folderPath = `stories/${title}/`;
 
@@ -275,13 +276,57 @@ export const handleDeleteStoryStorage = async (title: string): Promise<void> => 
     .listAll()
     .then(async (res) => {
       // Process all the items under listRef
-      const deletePromises: Promise<void>[] = res.items.map((itemRef) => itemRef.delete());
+      const deletePromises: Promise<void>[] = res.items.map((itemRef) =>
+        itemRef.delete()
+      );
       await Promise.all(deletePromises);
-      console.log('Folder deleted successfully');
+      console.log("Folder deleted successfully");
     })
     .catch((error) => {
       // Uh-oh, an error occurred!
-      console.error('Error deleting folder:', error);
+      console.error("Error deleting folder:", error);
     });
 };
 
+export const handleEditBook = (payload: {
+  values: any;
+  documentID: string;
+}) => {
+  const { documentID, values } = payload;
+  return new Promise<void>((resolve, reject) => {
+    firestore
+      .collection("stories")
+      .doc(documentID)
+      .update(values) // update the document with the values object
+      .then(() => {
+        resolve();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const handleDeleteBookStorage = async (name: string): Promise<void> => {
+  // Define folderPath
+  const folderPath = `stories/${name}/`;
+
+  const storageRef = storage.ref();
+  const listRef = storageRef.child(folderPath);
+
+  // Find all the prefixes and items.
+  listRef
+    .listAll()
+    .then(async (res) => {
+      // Process all the items under listRef
+      const deletePromises: Promise<void>[] = res.items.map((itemRef) =>
+        itemRef.delete()
+      );
+      await Promise.all(deletePromises);
+      console.log("Folder deleted successfully");
+    })
+    .catch((error) => {
+      // Uh-oh, an error occurred!
+      console.error("Error deleting folder:", error);
+    });
+};

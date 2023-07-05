@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AppRoute } from "./types";
 import { ROUTE_PATHS } from "../constants/routes";
-import { lazyWithRetryAndLoader } from "../utils/lazyWithRetry";
-import MainLayout from "../layouts/MainLayout";
-import AdminLayout from "../layouts/AdminLayout";
 import WithAdminAuth from "../hoc/withAdminAuth";
+import AdminLayout from "../layouts/AdminLayout";
+import MainLayout from "../layouts/MainLayout";
+import { lazyWithRetryAndLoader } from "../utils/lazyWithRetry";
+import { AppRoute } from "./types";
 
 const Home = lazyWithRetryAndLoader(() => import("../modules/Home"));
 const Story = lazyWithRetryAndLoader(() => import("../modules/Story"));
@@ -15,9 +15,7 @@ const AdminStoriesCreate = lazyWithRetryAndLoader(
   () => import("../modules/Admin/ManageStorys/SubmitStory")
 );
 
-const Login = lazyWithRetryAndLoader(
-  () => import("../modules/Login")
-);
+const Login = lazyWithRetryAndLoader(() => import("../modules/Login"));
 
 export const routes: AppRoute[] = [
   {
@@ -80,5 +78,14 @@ export const routes: AppRoute[] = [
       </WithAdminAuth>
     ),
   },
-
+  {
+    path: ROUTE_PATHS.ADMIN_BOOKS_EDIT,
+    component: (
+      <WithAdminAuth>
+        <AdminLayout>
+          <AdminStoriesCreate edit />
+        </AdminLayout>
+      </WithAdminAuth>
+    ),
+  },
 ];
