@@ -164,9 +164,7 @@ const SubmitStory = ({ edit = false }: Props) => {
 
   return (
     <>
-      <Title fontSize="16px">
-        {i18n.t("modules.admin.manageBooks.submitBook.breadCrumbs")}
-      </Title>
+      <Title fontSize="16px">Gerir histórias - Adicionar histórias</Title>
       <Divider />
 
       <Formik
@@ -302,9 +300,7 @@ const SubmitStory = ({ edit = false }: Props) => {
                       value={contentValue}
                       name="content"
                       multiple
-                      fieldTitle={i18n.t(
-                        "modules.admin.manageBooks.submitBook.content"
-                      )}
+                      fieldTitle="Images para submeter"
                       acceptType="image/webp"
                     />
                   </Grid>
@@ -314,7 +310,7 @@ const SubmitStory = ({ edit = false }: Props) => {
               <Box
                 display="flex"
                 justifyContent="start"
-                sx={{ mt: "20px" }}
+                sx={{ mt: "60px", mb: "60px" }}
                 columnGap={2}
               >
                 <PreviewWrapper />

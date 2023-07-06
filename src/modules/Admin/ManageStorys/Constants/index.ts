@@ -1,56 +1,42 @@
+import { ColumnType } from "../../../../components/TableList/types";
+import { i18n } from "../../../../translations/i18n";
 
-import { ColumnType } from '../../../../components/TableList/types'
-import { i18n } from '../../../../translations/i18n'
-
-
-export const tableColumns = 
-  
-  [
-  
+export const tableColumns = [
   {
     id: "name",
-    label: i18n.t(
-      "modules.admin.manageBooks.tableList.title"
-    ),
+    label: "Nome",
     type: ColumnType.Text,
     sortable: false,
   },
   {
     id: "createdDate",
-    label: i18n.t(
-      "modules.admin.manageBooks.tableList.createdDate"
-    ),
+    label: i18n.t("modules.admin.manageBooks.tableList.createdDate"),
     type: ColumnType.Date,
     sortable: false,
   },
   {
     id: "carrousel",
-    label: "Por no carrosel",
+    label: "Activar carrosel",
     type: ColumnType.ActionComponent,
     sortable: false,
   },
   {
     id: "newBook",
-    label: i18n.t(
-      "modules.admin.manageBooks.tableList.newBook.title"
-    ),
+    label: "Activar História",
     type: ColumnType.ActionComponent,
     sortable: false,
   },
   {
     id: "template",
-    label: i18n.t(
-      "modules.admin.manageBooks.tableList.template.title"
-    ),
+    label: i18n.t("modules.admin.manageBooks.tableList.template.title"),
     type: ColumnType.Select,
     sortable: false,
   },
   {
-    id: 'delete',
-    label: 'Remove',
+    id: "delete",
+    label: "Ações",
     type: ColumnType.ActionComponent,
     minWidth: 70,
     sortable: false,
   },
-
-]
+];

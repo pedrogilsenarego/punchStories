@@ -26,17 +26,14 @@ const mapBookItem = (book: Book, pos: number) => {
         declineButtonLabel: i18n.t(
           "modules.admin.manageBooks.tableList.newBook.deny"
         ),
-        confirmationDescription: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
-        ),
+        confirmationDescription:
+          "Tem a certeza que quer activar a história no carrosel?",
         confirmationRequired: true,
-        confirmationTitle: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
-        ),
+        confirmationTitle: "Activar no carrosel",
         isActive: book.carrousel ?? false,
         disabled: false,
         event: "carrousel",
-        label: i18n.t("modules.admin.manageBooks.tableList.newBook.tooltip"),
+        label: "Activar no carrosel?",
       },
     ],
     newBook: [
@@ -48,17 +45,13 @@ const mapBookItem = (book: Book, pos: number) => {
         declineButtonLabel: i18n.t(
           "modules.admin.manageBooks.tableList.newBook.deny"
         ),
-        confirmationDescription: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
-        ),
+        confirmationDescription: "Tem a certeza que quer activar a história?",
         confirmationRequired: true,
-        confirmationTitle: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
-        ),
+        confirmationTitle: "Activar a história?",
         isActive: book.active ?? true,
         disabled: false,
         event: "newBook",
-        label: i18n.t("modules.admin.manageBooks.tableList.newBook.tooltip"),
+        label: "Activar a história?",
       },
     ],
     template: {
@@ -91,20 +84,16 @@ const mapBookItem = (book: Book, pos: number) => {
         buttonType: "icon",
         event: "delete",
         icon: deleteIcon,
-        label: "Remove this watch",
+        label: "Remover História",
         confirmationButtonLabel: i18n.t(
           "modules.admin.manageBooks.tableList.newBook.accept"
         ),
         declineButtonLabel: i18n.t(
           "modules.admin.manageBooks.tableList.newBook.deny"
         ),
-        confirmationDescription: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationDescription"
-        ),
+        confirmationDescription: "Tem a certeza que quer remover esta história",
         confirmationRequired: true,
-        confirmationTitle: i18n.t(
-          "modules.admin.manageBooks.tableList.newBook.confirmationTitle"
-        ),
+        confirmationTitle: "Remover História",
       },
     ],
   };

@@ -1,16 +1,16 @@
 import { Box, Card, Divider } from "@mui/material";
-import Button from "../../../components/Buttons/Button";
-import { ROUTE_PATHS } from "../../../constants/routes";
-import { i18n } from "../../../translations/i18n";
-import { useNavigate } from "react-router";
-import TableList from "../../../components/TableList";
-import { tableColumns } from "./Constants";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import Button from "../../../components/Buttons/Button";
+import TableList from "../../../components/TableList";
+import { Colors } from "../../../constants/pallette";
+import { ROUTE_PATHS } from "../../../constants/routes";
 import { State } from "../../../slicer/types";
+import { Title } from "../../../styles";
+import { i18n } from "../../../translations/i18n";
+import { tableColumns } from "./Constants";
 import { mapBooksItems } from "./mapper";
 import useList from "./useList";
-import { Title } from "../../../styles";
-
 
 const ManageStorys = () => {
   const navigate = useNavigate();
@@ -18,42 +18,42 @@ const ManageStorys = () => {
     (state) => state.books.books.data || []
   );
 
-  const { handleAction } = useList({ tableData })
+  const { handleAction } = useList({ tableData });
 
   return (
     <>
-
       <Title fontSize="16px">{i18n.t("adminSideBar.submitBook")}</Title>
       <Divider />
 
+      {tableData.length > 0 && (
+        <Card style={{ padding: "20px" }}>
+          <TableList
+            columns={tableColumns}
+            rows={mapBooksItems(tableData).rows}
+            onAction={handleAction}
+          />
+        </Card>
+      )}
       <Box style={{ marginTop: "60px" }}>
-        <Box display='flex' justifyContent='start' style={{ marginBottom: "40px" }}>
+        <Box
+          display="flex"
+          justifyContent="start"
+          style={{ marginBottom: "40px" }}
+        >
           <Button
             borderRadius="6px"
-            label={i18n.t("modules.admin.manageBooks.createButton")}
+            label="Criar nova história"
+            props={{
+              border: `solid 2px ${Colors.darkGrey}`,
+              paddingHorizontal: "5px",
+            }}
+            propsLabel={{ fontSize: "12px", leterSpacing: "2px" }}
             onClick={() => navigate(ROUTE_PATHS.ADMIN_STORIES_CREATE)}
           />
-          <Button
-            borderRadius="6px"
-            label="ver historia"
-            onClick={() =>
-              navigate(
-                ROUTE_PATHS.STORY.replace(
-                  ":id",
-                  "eSER5bEJtUSCEgXdDmvq"
-                )
-              )
-            }
-          />
         </Box>
-        </Box>
-        {tableData.length > 0 && (<Card style={{ padding: "20px" }}>
-          <TableList columns={tableColumns} rows={mapBooksItems(tableData).rows} onAction={handleAction} />
-        </Card>)}
-        
-     
+      </Box>
     </>
   );
-}
+};
 
 export default ManageStorys;

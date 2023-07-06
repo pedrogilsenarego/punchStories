@@ -1,27 +1,34 @@
 import { Button as MuiButton, Typography } from "@mui/material";
-import { Colors } from "../../../constants/pallette"
 import { useState } from "react";
-
+import { Colors } from "../../../constants/pallette";
 
 interface Props {
   label: string;
-  propsLabel?: any
+  propsLabel?: any;
   onClick?: () => void;
   borderRadius?: string;
-  children?: JSX.Element
-  props?: any
+  children?: JSX.Element;
+  props?: any;
 }
 
-const Button = ({ label, onClick, borderRadius, children, props, propsLabel }: Props) => {
-  const [hover, setHover] = useState<boolean>(false)
+const Button = ({
+  label,
+  onClick,
+  borderRadius,
+  children,
+  props,
+  propsLabel,
+}: Props) => {
+  const [hover, setHover] = useState<boolean>(false);
   return (
     <>
       <MuiButton
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
-          ...props,
-          backgroundColor: hover ? props?.backgroundColor || Colors.darkGrey : "transparent",
+          backgroundColor: hover
+            ? props?.backgroundColor || Colors.darkGrey
+            : "transparent",
           color: hover ? "white" : props?.backgroundColor || Colors.darkGrey,
           borderRadius: borderRadius || "4px",
           border: props?.border || "default",
@@ -29,6 +36,7 @@ const Button = ({ label, onClick, borderRadius, children, props, propsLabel }: P
           paddingBottom: props?.paddingVertical || "10px",
           paddingLeft: props?.paddingHorizontal || "60px",
           paddingRight: props?.paddingHorizontal || "60px",
+          ...props,
         }}
         onClick={onClick}
       >
