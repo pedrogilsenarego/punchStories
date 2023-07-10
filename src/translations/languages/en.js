@@ -33,7 +33,7 @@ export const content = {
             "Colected punches to present to you in the next days. Stay tuned!",
         },
         about: {
-          title: "_About The Project",
+          title: "_About",
           mainText:
             "This project is born with the essential eagerness to talk with and about people, whether we know them or not, and compile their moments of impact.<br /><br /> The stories that will be told are those of real people, who “strip” to expose their moments of loss, pain, happiness and anguish. Although these people are real, they may tell their stories under a pseudonym to protect the impact of their stories on others.<br /><br /> A good story is timeless and can change attitudes.<br /><br /> I want to make an impact!<br /><br /> Teresa Sá",
         },
@@ -109,7 +109,7 @@ export const content = {
         contacts: {
           title: "_Contacts",
           mainText:
-            "Want to be part of Punch Stories?<br /><br />Let's be, together, what we are, people with punchlines. Because if movies have punchlines, life has punch moments, and I'll be there to hear yours.<br /><br />Tell me your story:  <b>punchstories@outlook.pt</b>",
+            "Do you want to be part of this project?<br />Let's be, together, what we are, people with punch moments.<br /><br />What's your punch moment?<br />I want to know more.</b>Send me your story to: <b>punchstories@outlook.pt</b>",
         },
       },
       notifications: {

@@ -1,8 +1,3 @@
-import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../../slicer/types";
-import { ROUTE_PATHS } from "../../../constants/routes";
-import { scrollTo } from "../../../slicer/general/general.actions";
 import {
   Box,
   Container,
@@ -11,9 +6,14 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { i18n } from "../../../translations/i18n";
-import { useNavigate } from "react-router";
+import { useEffect, useRef } from "react";
 import { BsInstagram } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { ROUTE_PATHS } from "../../../constants/routes";
+import { scrollTo } from "../../../slicer/general/general.actions";
+import { State } from "../../../slicer/types";
+import { i18n } from "../../../translations/i18n";
 
 const Contact = () => {
   const contactsRef = useRef<HTMLDivElement>(null);
@@ -60,8 +60,8 @@ const Contact = () => {
 
   return (
     <Box
-      display='flex'
-      flexDirection='column'
+      display="flex"
+      flexDirection="column"
       alignItems={mobile ? "start" : "center"}
       ref={contactsRef}
       style={{
@@ -78,15 +78,15 @@ const Contact = () => {
         }}
       >
         <Box
-          display='flex'
-          flexDirection='column'
-          justifyContent='center'
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
           style={{ marginTop: mobile ? "20px" : "150px" }}
         >
           <Typography
             onClick={() => navigate(ROUTE_PATHS.ADMIN)}
             fontSize={mobile ? "20px" : "40px"}
-            color='white'
+            color="white"
             fontWeight={800}
             style={{
               textTransform: "uppercase",
@@ -99,7 +99,7 @@ const Contact = () => {
           <Typography
             mt={mobile ? "15px" : "70px"}
             fontSize={mobile ? "14px" : "20px"}
-            color='#ffffff66'
+            color="#ffffff66"
             style={{
               fontFamily: "SpaceMono",
               textAlign: "justify",
@@ -109,12 +109,16 @@ const Contact = () => {
             }}
           />
         </Box>
-        <div style={{ marginBottom: mobile ? "0px" : "250px", marginTop: mobile ? "30px" : "0px" }}>
+        <div
+          style={{
+            marginBottom: mobile ? "0px" : "250px",
+            marginTop: mobile ? "30px" : "40px",
+          }}
+        >
           <Divider
             style={{
-
               backgroundColor: "#ffffff66",
-              width: "100%",
+              width: mobile ? "100%" : "50%",
               height: "1px",
             }}
           />
@@ -122,14 +126,13 @@ const Contact = () => {
             <BsInstagram
               style={{ cursor: "pointer" }}
               onClick={handleInstagram}
-              size={mobile ? '2rem' : "3rem"}
-              color='#ffffff95'
+              size={mobile ? "2rem" : "2rem"}
+              color="#ffffff95"
             />
           </div>
         </div>
-
       </Container>
-    </Box >
+    </Box>
   );
 };
 

@@ -34,14 +34,14 @@ export const content = {
         },
 
         about: {
-          title: "_Sobre o Projecto",
+          title: "_Sobre",
           mainText:
             "Este projeto nasce com a irrequietude que é necessária para falar com e sobre pessoas, sejam conhecidas ou desconhecidas, e coletar os seus momentos de impacto.<br /><br /> As histórias que serão contadas são de pessoas reais, que se “despem” para expor os seus momentos de perda, dor, alegria e angústia. Estas pessoas, embora reais, poderão surgir nas suas histórias com nomes fictícios, de modo a protegerem o impacto da sua própria história noutros.<br /><br /> Uma boa história é intemporal e pode mudar atitudes.<br /><br /> Quero criar impactos!<br /><br /> Ass. Teresa Sá.",
         },
         contacts: {
           title: "_Contactos",
           mainText:
-            "Quer fazer parte dos Punch Stories?<br /><br />Vamos ser, juntos, o que somos, pessoas com momentos de impacto. Porque se os filmes têm punchlines, a vida tem punch moments, e eu estarei para ouvir o vosso.<br /><br /> Conte-me a sua história: <b>punchstories@outlook.pt</b>",
+            "Quer fazer parte deste projeto?<br />Vamos ser, juntos, o que somos, pessoas com momentos de impacto.<br /><br />Qual o teu punch moment?<br />Quero saber mais.<br />Envia-me a tua história para: <b>punchstories@outlook.pt</b>",
         },
         books: {
           book: {

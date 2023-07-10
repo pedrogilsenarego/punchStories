@@ -1,20 +1,20 @@
 import {
   Box,
-  Typography,
   Container,
   Divider,
-  useTheme,
+  Typography,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { Colors } from "../../../constants/pallette";
 
-import { ROUTE_PATHS } from "../../../constants/routes";
-import { useNavigate } from "react-router";
-import { i18n } from "../../../translations/i18n";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { ROUTE_PATHS } from "../../../constants/routes";
 import { scrollTo } from "../../../slicer/general/general.actions";
 import { State } from "../../../slicer/types";
+import { i18n } from "../../../translations/i18n";
 
 const About = () => {
   const navigate = useNavigate();
@@ -43,8 +43,8 @@ const About = () => {
 
   return (
     <Box
-      display='flex'
-      flexDirection='column'
+      display="flex"
+      flexDirection="column"
       alignItems={mobile ? "start" : "center"}
       ref={contactsRef}
       style={{
@@ -55,34 +55,34 @@ const About = () => {
     >
       <Container maxWidth={"xl"}>
         <Box
-          display='flex'
+          display="flex"
           flexDirection={!mobile ? "row" : "column"}
-          justifyContent='space-between'
+          justifyContent="space-between"
           mt={mobile ? "50px" : "100px"}
         >
-          {!mobile && (<div
-            style={{
-              width: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-
-
-            }}
-          >
-            <img
-              alt=''
-              width='100%'
-              height='600px'
-              style={{ objectFit: "contain" }}
-              src='https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca'
-            />
-          </div>)}
+          {!mobile && (
+            <div
+              style={{
+                width: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                alt=""
+                width="100%"
+                height="600px"
+                style={{ objectFit: "contain" }}
+                src="https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca"
+              />
+            </div>
+          )}
           <div style={{ width: mobile ? "100%" : "50%", height: "100%" }}>
             <Typography
               onClick={() => navigate(ROUTE_PATHS.ADMIN)}
               fontSize={mobile ? "20px" : "40px"}
-              color='white'
+              color="white"
               fontWeight={800}
               style={{
                 textAlign: mobile ? "justify" : "end",
@@ -96,44 +96,36 @@ const About = () => {
             <Typography
               mt={mobile ? "15px" : "70px"}
               fontSize={mobile ? "14px" : "20px"}
-              color='#ffffff66'
+              color="#ffffff66"
               style={{
                 textAlign: mobile ? "justify" : "end",
                 fontFamily: "SpaceMono",
-
               }}
               dangerouslySetInnerHTML={{
                 __html: i18n.t("modules.about.mainText"),
               }}
             />
           </div>
-          {mobile && (<div
-            style={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: "50px"
-
-            }}
-          >
-            <img
-              alt=''
-              width='100%'
-              height='400px'
-              style={{ objectFit: "cover" }}
-              src='https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca'
-            />
-          </div>)}
+          {mobile && (
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "50px",
+              }}
+            >
+              <img
+                alt=""
+                width="100%"
+                height="400px"
+                style={{ objectFit: "cover" }}
+                src="https://firebasestorage.googleapis.com/v0/b/punchstories-9c307.appspot.com/o/stories%2FTeresa%20S%C3%A1%2C%2034%20anos%2C%20alfacinha%20(Lisboa%2C%20Portugal)%2Fteresa%20-bio%20(1).webp?alt=media&token=9950dab4-79d8-4a88-a0a7-9ef699b727ca"
+              />
+            </div>
+          )}
         </Box>
-        {!mobile && (<Divider
-          style={{
-            marginTop: mobile ? "50px" : "100px",
-            backgroundColor: "#ffffff66",
-            width: "100%",
-            height: "1px",
-          }}
-        />)}
       </Container>
     </Box>
   );
